@@ -1,0 +1,95 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+\begin{document}
+\begin{center}
+{\Large NS-BLOWUP-F-03: Auditoria Besov $B^{-1}_{\infty,1}$ vs $B^{-1}_{\infty,\infty}$}\\
+Matar o rescatar etiqueta log-subcritico
+\end{center}
+
+\paragraph{Objetivo F-03:}
+\[
+\boxed{F\text{-}03A: B^{-1}_{\infty,1}\quad F\text{-}03B: B^{-1}_{\infty,\infty}}
+\]
+\[
+\boxed{\text{¿Existe mecanismo log que haga }B^{-1}_{\infty,1}\text{ barrera mas fuerte?}}
+\]
+
+\subsection*{F1 -- escala}
+Escala NS:
+\[
+u_\lambda(x,t)=\lambda u(\lambda x,\lambda^2 t)
+\]
+En $\mathbb R^3$:
+\[
+\boxed{\|u_\lambda\|_{B^{-1}_{\infty,q}}\sim\|u\|_{B^{-1}_{\infty,q}},\ q=1,\infty}
+\]
+\[
+\boxed{B^{-1}_{\infty,1}\text{ y }B^{-1}_{\infty,\infty}\text{ son criticos NS}}
+\]
+No llamar sub/supercritico hasta fijar convencion y dominio. $q=1$ no implica subcritico.
+
+\subsection*{F2 -- PDE estimate}
+Pregunta:
+\[
+\|u\|_X\le M\Rightarrow\text{ ¿estimacion cerrada PDE?}
+\]
+Separar:
+\[
+\boxed{B^{-1}_{\infty,1}\neq B^{-1}_{\infty,\infty}\text{ en propiedad funcional}}
+\]
+$q=1$ da mejor embebimiento, continuidad, sumabilidad, pero:
+\[
+\boxed{\text{propiedad funcional}\neq\text{criterio NS hasta demostrar puente}}
+\]
+
+\subsection*{F3 -- continuacion}
+Pregunta estricta:
+\[
+\boxed{\|u\|_{X,\text{intervalo apropiado}}\le M\Rightarrow T^*=\infty?}
+\]
+Distinguir 3 cosas no mezclables:
+\begin{enumerate}
+\item teoria datos peque\~nos
+\item criterio continuacion solucion existente
+\item regularidad global datos arbitrarios acotados
+\end{enumerate}
+\[
+\boxed{F3: PENDIENTE para ambos}
+\]
+
+\subsection*{Correccion log-subcritico}
+No congelar:
+\[
+\boxed{B^{-1}_{\infty,1}=\text{log-subcritico}}\ \text{antes de F-03}
+\]
+Pregunta correcta:
+\[
+\boxed{\text{¿mecanismo log convierte }B^{-1}_{\infty,1}\text{ en barrera mas fuerte que }B^{-1}_{\infty,\infty}?}
+\]
+Si si: documentar mecanismo exacto.
+Si no:
+\[
+\boxed{\text{``log-subcritico''=etiqueta NO JUSTIFICADA - MATAR}}
+\]
+
+\subsection*{Arbol F oficial}
+\[
+F\text{-}01\to L^3,\dot H^{1/2},BMO^{-1}
+\]
+\[
+F\text{-}02\to\boxed{F1\text{ escala PROVEN; F2/F3 OPEN}}
+\]
+\[
+F\text{-}03\to B^{-1}_{\infty,1},B^{-1}_{\infty,\infty}\quad\boxed{F1\to F2\to F3\text{ sin saltos}}
+\]
+
+Arquitectura logica congelada:
+\[
+\boxed{T^*<\infty\Rightarrow C_E,\quad T^*<\infty\Rightarrow C_F,\quad C_E\land C_F\Rightarrow\bot}
+\]
+
+\subsection*{Estado}
+\[
+\boxed{F\text{-}03: OPEN - auditoria Besov, etiqueta log-subcritico en juicio}
+\]
+\end{document}

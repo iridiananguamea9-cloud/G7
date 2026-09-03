@@ -1,0 +1,153 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\title{E-04: Necessary Integral Stretching Blow-up}
+\author{NS-BLOWUP-NECESSARY}
+\date{September 3, 2026}
+\begin{document}
+\maketitle
+\section*{1. Pregunta}
+Bajo
+\[
+T_*<\infty,
+\]
+se pregunta si necesariamente
+\[
+\int_0^{T_*}\int_{\mathbb R^3}
+\omega^T S\omega\,dx\,dt=+\infty.
+\]
+Se distinguen estrictamente las versiones limsup y limite.
+\section*{2. Hipotesis congeladas}
+Supongase una solucion de Leray--Hopf en $\mathbb R^3$ con
+\[
+u_0\in H^1,\qquad \operatorname{div}u_0=0.
+\]
+E-03 establece:
+\[
+\sup_{t<T_*}\|\omega(t)\|_2<\infty
+\Longrightarrow T_*=\infty.
+\]
+Por contraposicion:
+\[
+T_*<\infty
+\Longrightarrow
+\sup_{t<T_*}\|\omega(t)\|_2=\infty.
+\]
+Por tanto existe una sucesion $t_n\uparrow T_*$ tal que
+\[
+\|\omega(t_n)\|_2\longrightarrow\infty.
+\]
+\section*{3. Identidad de enstrofia}
+Para $0<t<T_*$, en el intervalo de regularidad fuerte,
+\[
+\frac12\|\omega(t)\|_2^2
++
+\nu\int_0^t\|\nabla\omega(\tau)\|_2^2\,d\tau
+=
+\frac12\|\omega_0\|_2^2
++
+\int_0^t W(\tau)\,d\tau,
+\]
+donde
+\[
+W(\tau)=
+\int_{\mathbb R^3}\omega^T S\omega\,dx.
+\]
+Luego
+\[
+\int_0^t W(\tau)\,d\tau
+=
+\frac12\|\omega(t)\|_2^2
+-\frac12\|\omega_0\|_2^2
++
+\nu\int_0^t\|\nabla\omega(\tau)\|_2^2\,d\tau.
+\]
+En particular,
+\[
+\int_0^t W(\tau)\,d\tau
+\ge
+\frac12\|\omega(t)\|_2^2
+-\frac12\|\omega_0\|_2^2.
+\]
+\section*{4. Resultado PROVEN: limsup}
+Tomando $t=t_n$,
+\[
+\int_0^{t_n}W(\tau)\,d\tau\longrightarrow+\infty.
+\]
+Por tanto:
+\[
+\boxed{
+\limsup_{t\uparrow T_*}
+\int_0^t W(\tau)\,d\tau
+=+\infty.
+}
+\]
+Equivalentemente:
+\[
+\boxed{
+\int_0^{T_*}W_+(\tau)\,d\tau=+\infty.
+}
+\]
+Definimos la condicion necesaria debil:
+\[
+\boxed{
+C_E^{\mathrm{weak}}
+:=
+\sup_{t<T_*}
+\int_0^t
+\int_{\mathbb R^3}
+\omega^T S\omega\,dx\,d\tau
+=+\infty.
+}
+\]
+Por consiguiente:
+\[
+\boxed{
+T_*<\infty
+\Longrightarrow
+C_E^{\mathrm{weak}}.
+}
+\]
+\[
+\boxed{E\text{-}04\ \mathrm{weak}=\mathrm{PROVEN}}
+\]
+\section*{5. Resultado fuerte: limite}
+No se concluye de lo anterior que
+\[
+\lim_{t\uparrow T_*}
+\int_0^tW(\tau)\,d\tau=+\infty.
+\]
+La funcion $W$ es firmada y la integral acumulada no es necesariamente
+monotona.
+Para obtener el limite seria suficiente, por ejemplo, controlar
+la parte negativa:
+\[
+\int_0^{T_*}W_-(\tau)\,d\tau<\infty.
+\]
+Este control no se obtiene de E-03 por si solo.
+Por tanto:
+\[
+\boxed{
+E\text{-}04\ \mathrm{strong}=\mathrm{OPEN}.
+}
+\]
+\section*{6. Estado ZFL}
+\[
+\boxed{
+T_*<\infty
+\Longrightarrow
+C_E^{\mathrm{weak}}
+\quad\mathrm{PROVEN}.
+}
+\]
+No se identifica
+\[
+\int_0^{T_*}W
+\]
+con la version limsup.
+\[
+\boxed{
+\text{No se usa ninguna inferencia sobre }W(t)\text{ puntual.}
+}
+\]
+\end{document}

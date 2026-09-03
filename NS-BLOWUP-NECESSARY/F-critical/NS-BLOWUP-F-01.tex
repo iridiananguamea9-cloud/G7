@@ -1,0 +1,78 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+\begin{document}
+\begin{center}
+{\Large NS-BLOWUP-F-01: Que cantidad critica pierde control?}\\
+F1 escala / F2-F3 pendientes
+\end{center}
+
+\textbf{Pregunta F:}
+\[
+\boxed{T^*<\infty\Rightarrow\text{ que cantidad critica pierde control?}}
+\]
+
+Escala NS:
+\[
+u_\lambda(x,t)=\lambda u(\lambda x,\lambda^2 t)
+\]
+
+Candidatos a auditar (sin asumir barrera):
+\[
+L^3,\ \dot H^{1/2},\ BMO^{-1},\ B^{-1}_{\infty,\infty},\ B^{-1}_{\infty,1}
+\]
+
+\textbf{Test central ZFL:}
+\[
+\boxed{\text{CRITICIDAD}+\text{CONTROL PDE}+\text{CONTINUACION}}
+\]
+No: CRITICIDAD => REGULARIDAD automatica.
+
+\subsection*{Tres afirmaciones separadas}
+\[
+\boxed{F1:\ X\text{ es critico (clasificacion escala)}}
+\]
+\[
+\boxed{F2:\ X\text{ acotado}\Rightarrow\text{ estimacion PDE util - PENDIENTE}}
+\]
+\[
+\boxed{F3:\ X\text{ acotado}\Rightarrow\text{ continuacion }T^*=\infty\text{ - PENDIENTE}}
+\]
+
+Correccion: No etiquetar ``$L^3$ F1 PROVEN, F2/F3 via ESS'' sin especificar norma, solucion adecuada y teorema exacto. ESS requiere hipotesis precisas.
+\[
+\boxed{\text{F1 = clasificacion escala; F2/F3 = pendientes de verificacion}}
+\]
+
+Correccion: $B^{-1}_{\infty,1}$ etiquetado como log-subcritico requiere auditoria Besov antes de declaracion definitiva.
+
+\subsection*{Encadenamiento preservado}
+Objetivo E:
+\[
+\boxed{T^*<\infty\Rightarrow C_E,\quad C_E:=\sup_{t<T^*}\int\omega^T S\omega=+\infty}
+\]
+
+Solo si F demuestra implicacion valida:
+\[
+\boxed{C_E\Rightarrow C_F}
+\]
+\[
+\boxed{C_F:=X(u)\text{ pierde control}}
+\]
+
+Entonces:
+\[
+\boxed{T^*<\infty\Rightarrow C_E\land C_F}
+\]
+Mas fuerte que dos ramas OPEN aisladas.
+
+\subsection*{Estado}
+\[
+\boxed{F\text{-}01: OPEN}
+\]
+\[
+\boxed{F1 = escala, F2/F3 = pendientes}
+\]
+\[
+\boxed{E\text{-}04\text{ queda OPEN, sin cierre Serrin inventado}}
+\]
+\end{document}

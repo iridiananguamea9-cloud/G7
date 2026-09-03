@@ -1,0 +1,40 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+\begin{document}
+\begin{center}
+{\Large NS-BLOWUP-E-01: Vorticity / Stretching}\\
+Condicion necesaria para $T^*<\infty$
+\end{center}
+
+\textbf{Objetivo ZFL:} extraer $C_E$ tal que $T^*<\infty\Rightarrow C_E$.
+
+Vorticidad: $\omega=\nabla\times u$,
+\[
+\partial_t\omega+(u\cdot\nabla)\omega=(\omega\cdot\nabla)u+\nu\Delta\omega=S\omega
+\]
+$S=\frac12(\nabla u+\nabla u^T)$, $\Omega^T\omega=0$, produccion $=\omega^T S\omega$.
+
+\textbf{Pregunta madre E:}
+\[
+\boxed{\text{¿Puede existir }T^*<\infty\text{ si }\omega^T S\omega\text{ está uniformemente controlado?}}
+\]
+
+Sub-preguntas ZFL:
+\begin{itemize}
+\item E1: $\sup_t\int \omega^T S\omega \le M$ ¿implica $Y$ acotado?
+\item E2: $\sup_t\|S\|_{L^\infty}<\infty$ ¿previene blow-up? (Beale-Kato-Majda)
+\item E3: $\int_0^{T^*}\|\omega\|_\infty$ vs $\int_0^{T^*}\|S\|_\infty$ - cual es necesaria?
+\item E4: ¿alineamiento $\xi=\omega/|\omega|$ con eigenvector de $S$ es necesario para blow-up?
+\item E5: $\nabla\omega=n\otimes\nabla|\omega|+|\omega|\nabla n$ - ¿$\nabla n$ debe explotar?
+\end{itemize}
+
+\textbf{Test ZFL:}
+\[
+\boxed{Z_i=FAIL\Rightarrow\text{esa condicion NO es necesaria}}
+\]
+\[
+\boxed{T^*<\infty\Rightarrow C_E\text{ cuantitativa}}
+\]
+
+\textbf{Estado:} OPEN - primera pala fuerte 1:42pm.
+\end{document}

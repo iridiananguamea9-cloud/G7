@@ -1,0 +1,50 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\title{E-03: Bounded enstrophy implies continuation - PROVEN}
+\author{NS-BLOWUP-NECESSARY}
+\date{September 3, 2026}
+\begin{document}
+\maketitle
+\section*{Estado}
+\[
+\boxed{E\text{-}03=\mathrm{PROVEN}}
+\]
+\section*{Marco}
+Leray-Hopf en $\mathbb R^3$, $u_0\in H^1$, $\operatorname{div}u_0=0$, rama fuerte $H^1$ en $[0,T_*)$, $T_*$ maximal.
+\[
+\|\nabla u(t)\|_2=\|\omega(t)\|_2.
+\]
+\section*{Cadena}
+\[
+\sup_{t<T_*}\|\omega\|_2<\infty
+\Downarrow
+\sup_{t<T_*}\|\nabla u\|_2<\infty
+\Downarrow
+u\in L^\infty(0,T_*;L^6)
+\]
+\[
+\|u\|_{L^6}\le C_S\|\nabla u\|_2,\quad p=\infty,q=6,\ \frac2p+\frac3q=\frac12<1.
+\]
+\[
+\boxed{
+u\in L^\infty(0,T_*;L^6)\Longrightarrow\text{Serrin subcritico }(\infty,6)
+}
+\]
+\[
+\boxed{
+\text{Serrin}\Longrightarrow u\text{ continuable mas alla de }T_*.
+}
+\]
+Si $T_*<\infty$ maximal, esto es $\bot$.
+\[
+\boxed{
+\sup_{t<T_*}\|\omega(t)\|_2<\infty\Longrightarrow T_*=\infty.
+}
+\]
+\[
+\boxed{
+T_*<\infty\Longrightarrow\sup_{t<T_*}\|\omega\|_2=\infty.
+}
+\]
+\end{document}

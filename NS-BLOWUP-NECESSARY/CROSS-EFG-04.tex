@@ -1,0 +1,67 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\title{CROSS-EFG-04: First admissible entry $C_E^{weak}$}
+\author{NS-BLOWUP-NECESSARY}
+\date{September 3, 2026}
+\begin{document}
+\maketitle
+
+\section*{Entrada E - PROVEN}
+\[
+\boxed{
+T_*<\infty\Rightarrow C_E^{weak}
+}
+\]
+\[
+C_E^{weak}:= \limsup_{t\uparrow T_*}\int_0^t\int_{\mathbb R^3}\omega^T S\omega\,dx\,d\tau=+\infty
+\]
+\[
+\boxed{C_E^{weak}\in\mathcal C_{PROVEN}}
+\]
+
+\section*{Mision CROSS-04}
+No buscar $\bot$. Solo clasificar admisibilidad logica.
+
+Para cada candidato $F_i$:
+\[
+\boxed{T_*<\infty\Rightarrow C_{F_i}?}
+\]
+No basta escala critica, literatura, numerics. Requiere implicacion necesaria bajo blow-up.
+
+Para cada candidato $G_i$:
+\[
+\boxed{T_*<\infty\Rightarrow C_{G_i}?}
+\]
+\[
+\boxed{\text{CKN/ESS theorem}\neq C_G\text{ hasta puente exacto}}
+\]
+
+\section*{Salida}
+Cada candidato termina en exactamente una:
+\[
+\boxed{PROVEN}\quad\boxed{OPEN}\quad\boxed{DEAD}\quad\boxed{NA}
+\]
+
+Solo $C_F$ o $C_G$ PROVEN puede entrar luego en:
+\[
+C_E^{weak}\land C_F\Rightarrow?\qquad C_E^{weak}\land C_G\Rightarrow?
+\]
+
+\section*{Estado objetivo}
+Ideal si ningun F/G pasa:
+\[
+\boxed{\mathcal C_{PROVEN}=\{C_E^{weak}\}}
+\]
+No es fracaso. Es ZFL limpio: tenemos un necesario demostrado, sin segundo necesario independiente todavia.
+
+Si alguno pasa:
+\[
+\boxed{\mathcal C_{PROVEN}\supset\{C_E^{weak},C_F\}}
+\]
+entonces abrir cruce correspondiente.
+
+\[
+\boxed{CROSS\text{-}04\ NO\ BUSCA\ \bot}
+\]
+\end{document}

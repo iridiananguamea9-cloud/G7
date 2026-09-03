@@ -1,0 +1,109 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+\begin{document}
+\begin{center}
+{\Large NS-BLOWUP-E-04: Auditoria criterios alternativos}\\
+Presupuesto $L^\infty_tL^2\cap L^2_tH^1$
+\end{center}
+
+\textbf{Presupuesto exacto de E2.1:} Si $\sup_t\int\omega^T S\omega\le M$ y $T^*<\infty$,
+\[
+\boxed{\omega\in L^\infty_tL^2_x\cap L^2_tH^1_x,\quad \int_0^{T^*}\|\nabla\omega\|_2^2<\infty}
+\]
+
+\textbf{Pregunta E-04:}
+\[
+\boxed{L^\infty_tL^2_x\cap L^2_tH^1_x \stackrel{?}{\Rightarrow} \mathcal C_{\rm continuation}}
+\]
+donde $\mathcal C$ sea criterio suficiente para $T^*=\infty$. No declarar viable por nombre.
+
+\subsection*{Criba 1: Serrin para $u$}
+Clasico:
+\[
+u\in L^p_tL^q_x,\quad \frac2p+\frac3q\le1,\quad q>3 \Rightarrow T^*=\infty.
+\]
+Pero E2.1 da info sobre $\omega$, no $u$ directo.
+Biot-Savart toro: $\omega\in L^q\Rightarrow\nabla u\in L^q$ aproximadamente.
+\[
+\boxed{\text{Pregunta: }L^\infty_tL^2\cap L^2_tH^1\text{ para }\omega\stackrel{?}{\Rightarrow}\text{ par Serrin para }u}
+\]
+No asumir. Verificar escala espacio-tiempo.
+
+\subsection*{Criba 2: $B^{-1}_{\infty,1}$}
+Cuidado objeto medido: $u$ vs $\omega$.
+\[
+\boxed{\omega\in L^2\not\Rightarrow u\in B^{-1}_{\infty,1}\text{ sin prueba}}
+\]
+Requiere estimacion Riesz/Besov precisa. Probablemente no ruta natural desde solo $L^2$.
+
+\subsection*{Criba 3: $B^1_{\infty,1}$ y F2.8-C}
+Conecta con F2.8-C:
+\[
+\|r\|_{B^1_{\infty,1}}\le\varepsilon\Rightarrow T^*=\infty
+\]
+pero evitar circularidad. E-04 debe preguntar si presupuesto fuerza esa norma.
+\[
+\boxed{L^\infty_tL^2\cap L^2_tH^1\stackrel{?}{\Rightarrow}\|r\|_{B^1_{\infty,1}}\le\varepsilon}
+\]
+
+\subsection*{Ramas ZFL en paralelo}
+\[
+\begin{array}{c}
+L^\infty_tL^2\cap L^2_tH^1\\
+\downarrow\\
+\text{Serrin }L^p_tL^q\\
+\downarrow\\
+\text{PROVEN / DEAD / OPEN}
+\end{array}
+\qquad
+\begin{array}{c}
+L^\infty_tL^2\cap L^2_tH^1\\
+\downarrow\\
+BMO^{-1}\\
+\downarrow\\
+\text{PROVEN / DEAD / OPEN}
+\end{array}
+\qquad
+\begin{array}{c}
+L^\infty_tL^2\cap L^2_tH^1\\
+\downarrow\\
+B^{-1}_{\infty,1}\\
+\downarrow\\
+\text{PROVEN / DEAD / OPEN}
+\end{array}
+\]
+
+Cada rama termina solo en PROVEN/DEAD/OPEN, sin declaracion por nombre.
+
+\subsection*{Explotacion directa disipacion}
+\[
+\int_0^{T^*}\|\nabla\omega\|_2^2<\infty
+\]
+Buscar interpolacion:
+\[
+L^\infty_tL^2+L^2_tH^1\Rightarrow\mathcal C_{\rm continuation}
+\]
+via Gagliardo-Nirenberg espacio-tiempo.
+
+\subsection*{Veredictos posibles}
+Si alguna cierra:
+\[
+\boxed{L^\infty_tL^2\cap L^2_tH^1\Rightarrow\mathcal C\Rightarrow T^*=\infty\Rightarrow C_E}
+\]
+Si todas mueren:
+\[
+\boxed{E2.1\Rightarrow\text{energia controlada}\not\Rightarrow\text{continuacion conocida}}
+\]
+\[
+\boxed{\text{Obstaculo no es enstrofia finita, sino conversion a norma critica}}
+\]
+Conecta limpio a F sin duplicar trabajo.
+
+\subsection*{Estado}
+\[
+\boxed{E\text{-}04: OPEN - auditoria criterios vs presupuesto exacto E2.1}
+\]
+\[
+\boxed{\text{No asumir } \omega\in L^2\Rightarrow u\in\text{critico}}
+\]
+\end{document}

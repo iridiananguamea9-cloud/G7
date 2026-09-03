@@ -1,0 +1,96 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+\begin{document}
+\begin{center}
+{\Large NS-BLOWUP-F-02: Auditoria $L^3$, $\dot H^{1/2}$, $BMO^{-1}$}\\
+F1 escala / F2 mecanismo PDE / F3 continuacion
+\end{center}
+
+\paragraph{Regla ZFL:}
+\[
+\boxed{
+\begin{aligned}
+&\text{objeto correcto}+\text{norma correcta}\\
+&+\text{regularidad correcta}+\text{intervalo correcto}\\
+&\Rightarrow\text{continuacion}
+\end{aligned}}
+\]
+No marcar F3=PROVEN solo porque existe teorema conocido.
+
+\subsection*{F-02A -- $L^3$}
+\[
+\boxed{X=L^3\Rightarrow F1/F2/F3}
+\]
+F1: escala
+\[
+\|u_\lambda\|_3=\|u\|_3\quad\text{critico PROVEN}
+\]
+F2: mecanismo PDE
+\[
+\|u\|_{L^\infty_tL^3_x}\stackrel{?}{\Rightarrow}\text{estimacion cerrada - PENDIENTE}
+\]
+F3: continuacion
+\[
+\|u\|_{L^\infty_tL^3_x}<\infty\stackrel{?}{\Rightarrow}T^*=\infty\text{ - PENDIENTE}
+\]
+Requiere identificar teorema exacto (Escauriaza-Seregin-Sverak: $L^\infty_tL^3_x$ suitable weak solution $ \Rightarrow$ regularidad). No escribir ``via ESS'' sin hipotesis.
+
+\subsection*{F-02B -- $\dot H^{1/2}$}
+F1:
+\[
+\|u_\lambda\|_{\dot H^{1/2}}=\|u\|_{\dot H^{1/2}}\quad\text{critico PROVEN}
+\]
+F2:
+\[
+\dot H^{1/2}\stackrel{?}{\Rightarrow}\text{cierre PDE - PENDIENTE}
+\]
+Distinguir existencia local, peque\~nez global Fujita-Kato vs continuacion.
+F3:
+\[
+\sup_{t<T^*}\|u(t)\|_{\dot H^{1/2}}<\infty\stackrel{?}{\Rightarrow}T^*=\infty\text{ - PENDIENTE}
+\]
+Peque\~nez global $\neq$ condicion continuacion para solucion existente.
+
+\subsection*{F-02C -- $BMO^{-1}$}
+F1:
+\[
+\|u_\lambda\|_{BMO^{-1}}=\|u\|_{BMO^{-1}}\quad\text{critico PROVEN}
+\]
+F2:
+\[
+BMO^{-1}\stackrel{?}{\Rightarrow}\text{control PDE - PENDIENTE}
+\]
+Koch-Tataru: datos peque\~nos $\Rightarrow$ global. No es continuacion.
+F3:
+\[
+\text{control uniforme adecuado}\stackrel{?}{\Rightarrow}T^*=\infty\text{ - PENDIENTE}
+\]
+Distinguir teoria datos peque\~nos vs condicion continuacion.
+
+\subsection*{Correccion logica encadenamiento}
+No: $C_E\Rightarrow C_F\Rightarrow T^*<\infty$.
+
+Si $C_F$ necesaria blow-up:
+\[
+\boxed{T^*<\infty\Rightarrow C_E}
+\]
+\[
+\boxed{T^*<\infty\Rightarrow C_F}
+\]
+Ataque final:
+\[
+\boxed{C_E\land C_F\Rightarrow\bot\text{ (incompatibilidad)}}
+\]
+Si $C_F$ barrera regularidad, contraposicion limpia:
+\[
+\boxed{\neg C_F\Rightarrow\text{ continuacion, no }T^*<\infty\text{ automatico}}
+\]
+
+\subsection*{Estado}
+\[
+\boxed{F\text{-}02: OPEN - auditoria }L^3/\dot H^{1/2}/BMO^{-1}\text{ con F1/F2/F3 separados}
+\]
+\[
+\boxed{F1\text{ clasificacion escala PROVEN, F2/F3 PENDIENTES verificacion exacta}}
+\]
+\end{document}

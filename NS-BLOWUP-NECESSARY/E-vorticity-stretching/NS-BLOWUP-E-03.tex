@@ -1,0 +1,79 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+\begin{document}
+\begin{center}
+{\Large NS-BLOWUP-E-03: Puente $L^2\to L^\infty$}\\
+Auditoria de E2.2
+\end{center}
+
+\paragraph{Pregunta E2.2.}
+\[
+\boxed{\sup_{t<T^*}\|\omega(t)\|_{L^2}<\infty\stackrel{?}{\Rightarrow}\int_0^{T^*}\|\omega(t)\|_{L^\infty}dt<\infty}
+\]
+BKM requiere $\int_0^{T^*}\|\omega\|_\infty<\infty$, E2.1 solo da $\sup\|\omega\|_2$.
+
+No existe salto legitimo $L^2\Rightarrow L^\infty$. Ese fracaso es informacion ZFL.
+
+\textbf{Info disponible:}
+\[
+\frac12\frac d{dt}\|\omega\|_2^2+\nu\|\nabla\omega\|_2^2=\int\omega^T S\omega\le M
+\]
+\[
+\|\omega(t)\|_2^2+2\nu\int_0^t\|\nabla\omega\|_2^2\le\|\omega_0\|_2^2+2Mt
+\]
+\[
+\boxed{\int_0^{T^*}\|\nabla\omega\|_2^2<\infty}
+\]
+
+Pregunta refinada:
+\[
+\boxed{\|\omega\|_\infty\stackrel{?}{\text{controlado por}}\|\omega\|_2\text{ y }\|\nabla\omega\|_2}
+\]
+
+\textbf{Rutas:}
+
+1. $H^1\to L^6$:
+\[
+H^1(\mathbb T^3)\hookrightarrow L^6\neq L^\infty
+\]
+\[
+\boxed{L^6\not\Rightarrow L^\infty}
+\]
+
+2. Gagliardo-Nirenberg:
+\[
+\|\omega\|_\infty\lesssim\|\omega\|_2^{\alpha}\|\nabla^2\omega\|_2^{1-\alpha}
+\]
+No poseemos $\nabla^2\omega$.
+
+3. $L^\infty_tL^2\cap L^2_tH^1\not\hookrightarrow L^1_tL^\infty$ en 3D.
+
+\subsection*{Bifurcacion ZFL}
+\[
+E2.2\begin{cases}
+L^2+\text{disipacion}\Rightarrow L^1_tL^\infty &\text{PROVEN}\\
+L^2+\text{disipacion}\not\Rightarrow L^1_tL^\infty &\text{DEAD ruta BKM}\\
+\text{otro criterio} &\text{OPEN}
+\end{cases}
+\]
+
+\[
+\boxed{E2.1\not\Rightarrow\text{BKM}}
+\]
+\[
+\boxed{\text{DEAD limpio ruta BKM directa = info ZFL valiosa}}
+\]
+
+Si cierra por otra via:
+\[
+\boxed{T^*<\infty\Rightarrow\sup_{t<T^*}\int\omega^T S\omega=+\infty=C_E}
+\]
+
+\subsection*{Estado}
+\[
+\boxed{E\text{-}03: OPEN - auditoria puente}
+\]
+\[
+\boxed{E2.2\text{ no fuerza BKM}}
+\]
+\end{document}

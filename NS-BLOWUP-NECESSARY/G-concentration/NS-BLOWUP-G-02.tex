@@ -1,0 +1,55 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb}
+\begin{document}
+\begin{center}
+{\Large NS-BLOWUP-G-02: Auditoria de escala local}\\
+$r\mapsto\lambda r$ derivado, no impuesto
+\end{center}
+
+\section*{Accion escala NS}
+\[
+u_\lambda(x,t)=\lambda u(\lambda x,\lambda^2 t)
+\]
+\[
+\boxed{\mathcal C_r[u_\lambda]=\mathcal C_{\lambda r}[u]\ \text{derivado, no impuesto}}
+\]
+
+\section*{Candidatas}
+\[
+C_u=r^{-1}\int_{B_r}|u|^2,\quad C_3=\int_{B_r}|u|^3,\quad C_\omega=r^{-1}\int_{B_r}|\omega|^2
+\]
+\[
+C_{p,q}=\int_{t-r^2}^{t}\int_{B_r}|u|^p
+\]
+
+Calculo modelo:
+\[
+C_u^\lambda=r^{-1}\lambda^2\int_{B_r}|u(\lambda x)|^2 dx=r^{-1}\lambda^{-1}\int_{B_{\lambda r}}|u|^2=C_u(\lambda r)
+\]
+
+\section*{Tabla decision}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Candidata & Escala & Critica?\\
+\hline
+$r^{-1}\int|u|^2$ & $C(\lambda r)$ & ?\\
+\hline
+$\|u\|_{L^3}$ & calcular & ?\\
+\hline
+$r^{-1}\int|\omega|^2$ & calcular & ?\\
+\hline
+\end{tabular}
+\end{center}
+
+\[
+\boxed{G\text{-}02=AUDITORIA\ DE\ ESCALA}
+\]
+\[
+\boxed{\text{definir}\to\text{escalar}\to\text{clasificar}\to\text{probar}}
+\]
+\[
+\boxed{G\text{-}02: OPEN - escala para cada C\_r pendiente}
+\]
+
+\end{document}

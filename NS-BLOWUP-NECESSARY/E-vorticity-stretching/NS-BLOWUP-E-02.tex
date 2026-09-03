@@ -1,0 +1,75 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+\begin{document}
+\begin{center}
+{\Large NS-BLOWUP-E-02: Test de stretching}\\
+Firmado vs absoluto
+\end{center}
+
+\paragraph{Pregunta ZFL.}
+\[
+\boxed{E\text{-}02:\quad \sup_{0\le t<T^*}\int_{\mathbb T^3}\omega^T S\omega\,dx\le M\stackrel{?}{\Rightarrow}T^*=\infty}
+\]
+
+Enstrofia exacta:
+\[
+\frac12\frac d{dt}\|\omega\|_2^2=\int\omega^T S\omega\,dx-\nu\|\nabla\omega\|_2^2.
+\]
+
+\paragraph{Control $L^2$.} Si $\int\omega^T S\omega\le M$ uniforme,
+\[
+\frac12\frac d{dt}\|\omega\|_2^2\le M\Rightarrow \|\omega(t)\|_2^2\le\|\omega_0\|_2^2+2Mt.
+\]
+Control global de enstrofia en intervalos finitos.
+
+Cuello de botella:
+\[
+\boxed{\|\omega\|_{L^2}\text{ acotada }\not\Rightarrow\|\omega\|_{L^\infty}\text{ acotada}}
+\]
+
+Para $T^*=\infty$ necesitamos conectar con cantidad de continuacion.
+
+\subsection*{Tres tests}
+\[
+\boxed{
+\begin{array}{ll}
+E2.1& \sup_t\int\omega^T S\omega<\infty\Rightarrow\sup_t\|\omega\|_2<\infty\\
+E2.2& \sup_t\|\omega\|_2<\infty\Rightarrow\text{control adicional suficiente}\\
+E2.3& \text{control adicional}\Rightarrow T^*=\infty
+\end{array}}
+\]
+
+$E2.1$ cerrado por identidad de enstrofia. Ataque real es $E2.2$.
+
+\subsection*{Distincion crucial ZFL}
+\[
+\boxed{E\text{-}02A\text{: stretching firmado } \sup_t\int\omega^T S\omega\le M}
+\]
+permite cancelaciones de signo.
+\[
+\boxed{E\text{-}02B\text{: stretching absoluto } \sup_t\int|\omega^T S\omega|\le M}
+\]
+mucho mas fuerte. Ramas distintas, ZFL mata una sin contaminar otra.
+
+\subsection*{Nodo cuantitativo buscado}
+Si $E2.2$-$E2.3$ cierran:
+\[
+\boxed{T^*<\infty\Rightarrow\sup_{t<T^*}\int\omega^T S\omega\,dx=+\infty}
+\]
+\[
+\boxed{C_E\text{ cuantitativo}}
+\]
+
+Si no cierra: nodo queda OPEN/DEAD con motivo exacto. Eso es ZFL.
+
+\subsection*{Estado}
+\[
+\boxed{E\text{-}02A: OPEN - E2.1\text{ PROVEN, }E2.2\text{ OPEN}}
+\]
+\[
+\boxed{E\text{-}02B: OPEN - mas fuerte, requiere test separado}
+\]
+\[
+\boxed{E\text{-}02\text{ no declara }T^*=\infty\text{ sin }E2.2\text{-}E2.3}
+\]
+\end{document}
