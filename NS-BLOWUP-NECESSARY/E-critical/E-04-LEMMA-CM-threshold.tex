@@ -1,0 +1,52 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+\title{E-04-LEMMA-CM-threshold v1: small L3 threshold vs dissipation}
+\author{ZFL Lab}
+\begin{document}
+\maketitle
+
+Enstrophy identity (where valid):
+$\frac12 \frac{d}{dt}\|\omega\|_2^2 = W - \nu\|\nabla\omega\|_2^2$,
+$W:=\int \omega^T S \omega$.
+
+Relation proven in CROSS-EF-05-LEMMA-bound:
+$|W(t)| \le C \|u(t)\|_3 \|\nabla\omega(t)\|_2^2$.
+
+Assume
+$\sup_{t<T_*}\|u(t)\|_3 = M < \infty$.
+
+Then
+$\frac12 \frac{d}{dt}\|\omega\|_2^2 \le (CM - \nu)\|\nabla\omega\|_2^2$.
+
+Threshold:
+\begin{equation*}
+\boxed{CM < \nu \implies \frac{d}{dt}\|\omega(t)\|_2^2 \le 0.}
+\end{equation*}
+
+Hence in this regime:
+$\|\omega(t)\|_2^2 \le \|\omega_0\|_2^2$.
+
+By E-03 (enstrophy bound => continuation):
+$\boxed{\|u\|_3 < \nu/C \implies T_*=\infty.}$
+
+Contrapositive (with same $C$ from estimate):
+$\boxed{T_*<\infty \implies \sup_{t<T_*}\|u(t)\|_3 \ge \nu/C.}$
+
+Distinction vs ESS:
+
+ESS gives stronger:
+$T_*<\infty \implies \limsup_{t\to T_*}\|u(t)\|_3 = +\infty$.
+
+This lemma gives small-data continuation via enstrophy:
+$\|u\|_3 < \nu/C \implies$ no blow-up.
+
+It does NOT replace ESS. ESS is full necessity of $C_{L^3}$.
+
+Classification:
+$\boxed{\text{THRESHOLD RELATION PROVEN: } CM<\nu}$
+
+No new $C_F$. State remains:
+$\mathcal{C}_{PROVEN}=\{C_E^{weak}, C_{L^3}\}$ in main,
+tag $508cbbf$ remains $\{C_E^{weak}\}$.
+\end{document}
