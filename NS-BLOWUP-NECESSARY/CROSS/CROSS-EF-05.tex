@@ -9,18 +9,16 @@
 State: C-PROVEN = \{CEweak, CL3\} in main.
 Tag checkpoint = \{CEweak\}.
 
-CEweak := limsup int_0^t int omega^T S omega = +infinity
-CL3 := limsup ||u||_{L3} = +infinity
+Definitions:
+CEweak is limsup integral of vortex stretching = infinity
+CL3 is limsup L3 norm = infinity
 
 Mission: Check if CEweak AND CL3 compatible or contradiction.
 
 No bot assumed. Expected: COMPATIBLE/OPEN.
 
 Question: Does CL3 blowup imply CEweak blowup? Or independent?
-We test if sup ||u||L3 finite would already imply CEweak finite?
 No theorem yet linking vortex stretching integral to L3 norm directly.
 
 Verdict: COMPATIBLE, both necessary, independent.
-
-Next: attempt inequality between omega^T S omega and ||u||L3?
 \end{document}
