@@ -1,0 +1,22 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\geometry{margin=1in}
+\newcommand{\PROVEN}{\fbox{PROVEN}}
+\newcommand{\COMP}{\fbox{COMPUTATIONAL EVIDENCE}}
+\newcommand{\CONJ}{\fbox{CONJECTURE}}
+\title{G7-D and G8 Status Report - Frozen Version}
+\begin{document}
+\maketitle
+\section{I. Resultados Demostrados \PROVEN}
+\subsection{G7-D - \PROVEN}
+Identidades $|\nabla n|^2 = \tfrac12 s^2+\tfrac12 t^2+|b|^2+|Q|^2$, $(Q^2)^\circ=0$, $\langle[W,Q],Q\rangle=0$, gap $L^2$ e $L^1$.
+\subsection{G8-A - \PROVEN}
+$\|\Delta n\|_2 \le \sqrt{(C_E+C_0)/\lambda}$, $C_\lambda=O(\lambda^{-1/2})$.
+\section{II. Resultados Espectrales Demostrados \PROVEN}
+G8-B.1: $|\widehat{\operatorname{inc}M}(k)| = |k|^2 |P_k\widehat M(k)P_k|$, $P_k=I-\hat k\otimes\hat k$, $\|\mathcal P M\|_{\dot H^1}\le\|\operatorname{inc}M\|_{\dot H^{-1}}$.
+\section{III. Evidencia Computacional \COMP}
+$C_\lambda=104$ para $\lambda=10^{-3}$ como constante obtenida por implementacion. $H_{L^2}:0.296\to0.206$ en 200 iteraciones como evidencia exploratoria.
+\section{IV. Conjetura \CONJ}
+$\|\nabla M\|_2 \lesssim C_\lambda^{3/4}\|\operatorname{inc}M\|_2^{1/4}$ (Conj-G8) is numerically suggested and not claimed as theorem. Target: $\|\nabla M\|_2^4 \lesssim \|M\|_{H^2}^3 \|\operatorname{inc}M\|_2$ (G8.14). A sufficient quartic inequality of form G8.14 would imply Conj-G8 after inserting available $H^2$ bound.
+\end{document}
