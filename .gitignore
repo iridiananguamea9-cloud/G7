@@ -1,0 +1,6 @@
+*.aux
+*.log
+*.out
+__pycache__/
+*.pyc
+g7-env/
