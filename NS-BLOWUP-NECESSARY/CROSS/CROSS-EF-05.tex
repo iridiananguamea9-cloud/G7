@@ -1,0 +1,26 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+\title{CROSS-EF-05 v1: CEweak and CL3 compatibility}
+\author{ZFL Lab}
+\begin{document}
+\maketitle
+
+State: C-PROVEN = \{CEweak, CL3\} in main.
+Tag checkpoint = \{CEweak\}.
+
+CEweak := limsup int_0^t int omega^T S omega = +infinity
+CL3 := limsup ||u||_{L3} = +infinity
+
+Mission: Check if CEweak AND CL3 compatible or contradiction.
+
+No bot assumed. Expected: COMPATIBLE/OPEN.
+
+Question: Does CL3 blowup imply CEweak blowup? Or independent?
+We test if sup ||u||L3 finite would already imply CEweak finite?
+No theorem yet linking vortex stretching integral to L3 norm directly.
+
+Verdict: COMPATIBLE, both necessary, independent.
+
+Next: attempt inequality between omega^T S omega and ||u||L3?
+\end{document}
