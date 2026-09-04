@@ -1,0 +1,87 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+\title{H-01-CX-Lagrangian-circulation-scale-time-kill-test v1: Does Lagrangian deformation / circulation force new incompatibility? Single kill audit}
+\author{ZFL Lab}
+\begin{document}
+\maketitle
+
+MISSION FROZEN: Search only $T^*<\infty\Rightarrow C_H$ with $C_H$ involving material quantities (flow $X$, gradient $F=\nabla_aX$, circulation Kelvin with viscous term, vortex amplification, critical material time-scale) such that $C_E^{weak}\land C_{L^3}\land C_H\Rightarrow\bot$ where $C_E^{weak}:\limsup\int_0^tW=+\infty\Rightarrow\int_0^{T^*}W_+=\infty$, $C_{L^3}:\limsup\|u\|_3=\infty$.
+
+TREE STATUS: $E$=CLOSED, $F$=CLOSED/BLOCKED (F-01 PROVEN NECESSARY NO CONTRADICTION pending quantifiers, F-02 KILLED), $G$=LOCKED, $H$=ACTIVE, $\mathcal C_{PROVEN}=\{C_E^{weak},C_{L^3}\}$ until $C_F^{conc}$ promotion audited.
+
+CANDIDATE $C_H$ DEFINITION ATTEMPT:
+
+Material flow: $\frac{D}{Dt}X(a,t)=u(X(a,t),t)$, $X(a,0)=a$, $F(a,t)=\nabla_a X(a,t)$, $\partial_t F=(\nabla u)(X(a,t),t)F$, $F(a,0)=I$.
+
+Vorticity material: $\frac{D\omega}{Dt}=S\omega+\nu\Delta\omega$, $S=\frac12(\nabla u+\nabla u^T)$.
+
+Circulation with viscosity: For material loop $C(t)=X(C_0,t)$,
+\begin{equation*}
+\boxed{\frac{D}{Dt}\Gamma_{C(t)}=\nu\oint_{C(t)}\Delta u\cdot dl + \oint_{C(t)} f\cdot dl},\quad \Gamma=\oint_{C(t)}u\cdot dl
+\end{equation*}
+Not conservation exact. Inviscid Kelvin $\frac{D\Gamma}{Dt}=0$ is NOT valid for NS; must keep viscous term. Also $\Gamma$ not sign-definite.
+
+Deformation bound: $\|F(a,t)\|\le\exp(\int_0^t\|\nabla u(\cdot,s)\|_\infty ds)$. BKM gives $\int_0^{T^*}\|\omega\|_\infty=\infty$ necessary, $\|\nabla u\|_\infty\ge c\|\omega\|_\infty$. So $\sup_a\|F(a,t)\|\to\infty$ may follow if blow-up occurs near trajectory $a$ (FTLE $\sup_a\frac1t\log\|F\|\to\infty$). However precise quantifier needed: $\forall$? $\exists a$? Which norm? Not assumed.
+
+ATTEMPT TO GET $\bot$:
+
+Try $C_H$: $\exists a$, $\limsup_{t\uparrow T^*}\|F(a,t)\|=+\infty$ or $\sup_a\|F\|=\infty$ or $\sup_a\text{FTLE}=\infty$.
+
+Does $C_H$ follow necessarily from $T^*<\infty$? Known results: blow-up $\Rightarrow$ $\sup_a\|F(a,t)\|\to\infty$ and $\sup_a\text{FTLE}\to\infty$ (Lagrangian obstruction). This uses BKM + $\partial_tF=(\nabla u)F$ and that vorticity max attained near Lagrangian particle. So $C_H$ is necessary, strictly stronger than $C_{L^3}$? It involves $\nabla u$ $L^\infty$ not just $L^3$. It is at least as strong as BKM.
+
+Now compatibility with $\int_0^{T^*}W_+=\infty$?
+
+$W_+(t)=\int(\omega^TS\omega)_+$, $S$ part of $\nabla u$. If $\|F\|\to\infty$, then $\int_0^t\|S\|_\infty\ge c\log\|F\|$ diverges. Since $|W|\le\|S\|_\infty\|\omega\|_2^2$ and $\|\omega\|_2^2$ may blow up, $W_+$ can diverge arbitrarily fast while $C_H$ holds. No upper bound.
+
+Quantitative attempt: $W_+\le f(\|F\|)$? No, $\|F\|$ lower bound $\ge1$, $W_+$ needs upper bound, lower bound cannot imply finite integral. Conversely $C_H$ is lower bound $\|F\|\ge\exp(\dots)$, does not control $W_+$ from above.
+
+Try circulation: $\Gamma_{C(t)}$ evolution contains $\nu\oint\Delta u$. Does $\Gamma$ bound $W_+$? Kelvin theorem with viscosity: $|\frac{D\Gamma}{Dt}|\le\nu\|\nabla\omega\|_{L^1(C)}$? Not controlling global $W_+$.
+
+Scale-time: $F$ time-scale $\sim(\|\nabla u\|_\infty)^{-1}$, critical material time-scale goes to 0 if $\|\nabla u\|_\infty\to\infty$. Does that force $\int W_+<\infty$? No, $W_+$ can still integrate to $\infty$ because $\|\omega\|_2^2$ can grow.
+
+Thus $C_H$ compatible with $C_E^{weak}\land C_{L^3}$ and $\int W_+=+\infty$.
+
+CHECK KILL CONDITIONS (frozen):
+
+- If $C_H$ is just $\frac{D\omega}{Dt}=S\omega+\nu\Delta\omega$ or reformulation of stretching: KILL. We have that, but $C_H$ as $\|F\|\to\infty$ is consequence of BKM, not just rewriting stretching? It is essentially rewriting BKM in Lagrangian terms: $\int\|\nabla u\|_\infty=\infty\Rightarrow\sup\|F\|=\infty$. This is equivalent to BKM, not new beyond $C_E^{weak}$? BKM already implies $\int\|\omega\|_\infty=\infty$, stronger than $\int W_+=+\infty$? But $C_H$ does not give new upper bound.
+
+- If $C_H\equiv C_{L^3}$ or simply equivalent: Not equivalent, but does not add incompatibility. KILL per second condition if compatible with $\int W_+=+\infty$.
+
+- If assumes $T^*<\infty\Rightarrow\|\nabla X\|\to\infty$ without quantifier: we avoid, we specify $\sup_a\|F(a,t)\|\to\infty$ exists $a$ near blow-up, with precise norm operator norm, trajectory $a$ such that $X(a,t)$ approaches singular point.
+
+- No mixing inviscid Kelvin exact: we keep $\nu$ term explicitly, so circulation not conserved, no false conservation.
+
+Therefore:
+
+$\boxed{H\text{-}01\text{ yields necessary }C_H:\sup_a\|F(a,t)\|\to\infty,\ \sup_a\text{FTLE}\to\infty,\ \frac{D\Gamma}{Dt}=\nu\oint\Delta u}$
+
+but
+
+$\boxed{C_E^{weak}\land C_{L^3}\land C_H\text{ compatible, no }\bot}$
+
+$\boxed{\text{No quantitative }W_+\le f(C_H)}$
+
+$C_H$ is lower bound, $W_+$ upper needs upper bound.
+
+VERDICT:
+
+$\boxed{H\text{-}01=KILLED\text{ as bridge to }\bot}$
+
+but
+
+$\boxed{H\text{-}01=OPEN\text{ as PROVEN NECESSARY Lagrangian obstruction, NO CONTRADICTION}}$
+
+similar to F-01.
+
+Thus H family does not close main question, no H-02 rescue.
+
+If we want promotion:
+
+$\boxed{\mathcal C_{PROVEN}\text{ could include }C_H^{Lag}:\sup_a\|F\|\to\infty\text{ as PROVEN NECESSARY if quantifiers proved}}$
+
+but central $\boxed{C_E^{weak}\land C_{L^3}\Rightarrow\bot\ OPEN}$ remains.
+
+Next family: new axis beyond E,F,H,G.
+
+\end{document}
