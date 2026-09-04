@@ -1,0 +1,66 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\begin{document}
+\title{G8-02-CX-pressure-strain-nonlocal-kill-test-v1: $\nabla^2p$ gain over $W_+$}
+\author{ZFL-CX}\date{\today}\maketitle
+
+\section{Frozen input}
+$\boxed{G7=\mathrm{FROZEN},\ G8\text{-DESIGN-AUDIT}=DONE,\ G8\text{-}01=KILLED}$
+$\boxed{\mathcal C_{\mathrm{PROVEN}}=\{C_E^{weak},C_{L^3},C_F^{conc},C_I^{freq},C_J^{neg}\}}$
+$\boxed{\mathcal C_{\mathrm{PROVEN}}\Rightarrow\bot\ \mathrm{OPEN}}$
+$\boxed{W_+(t)=\left(\int\omega^TS\omega\right)_+,\ \int_0^{T^*}W_+=+\infty\text{ if }T^*<\infty}$
+
+\section{Mission G8-02}
+Mechanism: $D_tS=-S^2-\Omega^2-\nabla^2p+\nu\Delta S$.
+Audit only $\boxed{\nabla^2p}$ effect on $W$.
+Target A: $W_+\le F$, $\int_0^{T^*}F<\infty$
+Target B: $\mathcal C_{\mathrm{PROVEN}}\land C_{G8-02}\Rightarrow\bot$
+Otherwise KILLED.
+
+\section{Structure of pressure}
+$-\Delta p=\partial_i\partial_j(u_iu_j)=\operatorname{tr}S^2-\tfrac12|\omega|^2=\operatorname{tr}(S^2-\Omega^2)$.
+Hence $p=\Delta^{-1}\operatorname{tr}(S^2-\Omega^2)$, $\nabla^2p=\mathcal R[S^2-\Omega^2]$ with $\mathcal R$ matrix Riesz transform, bounded on $L^q$, $1<q<\infty$.
+So $\boxed{\|\nabla^2p\|_{L^q}\lesssim\|S^2-\Omega^2\|_{L^q}}$.
+
+\section{Barriers}
+1. If only $\|\nabla^2p\|_q\lesssim\|S^2-\Omega^2\|_q$ $\Rightarrow$ KILLED.
+2. If Calderon-Zygmund returns same critical scale $\Rightarrow$ KILLED.
+3. If assumes regularity to prove regularity $\Rightarrow$ KILLED.
+4. If nonlocality gives no cancellation/coercivity on $W_+$ $\Rightarrow$ KILLED.
+5. No $W_+\lesssim\|u\|_3\|\nabla\omega\|_2^2$ as bridge (G8-01).
+
+\section{Test: does $\nabla^2p$ give integrable gain on $W_+$?}
+We look for estimate $W_+\le F(\|\nabla^2p\|)$.
+$W=\int\omega^TS\omega$. Evolution of $W$ via $D_tS$:
+$\frac{d}{dt}W$ contains $-\int\omega^T\nabla^2p\,\omega$.
+But $\int\omega^T\nabla^2p\,\omega=\int p_{ij}\omega_i\omega_j$.
+
+Write $\int\omega_i\omega_j\nabla_i\nabla_jp=-\int\partial_j(\omega_i\omega_j)\partial_ip$ up to boundary.
+No sign: $p$ not signed, $\nabla^2p$ not coercive.
+
+Nonlocal representation: $\nabla^2p(x)=PV\int K(x-y)(S^2-\Omega^2)(y)dy$.
+$K$ is $L^1$-singular, zero mean, no $L^\infty$ gain.
+Under $C_F^{conc}+C_I^{freq}$, $S^2-\Omega^2$ concentrates at $r_n\to0$ with $L^{3/2}$-scale critical.
+Riesz transform preserves critical scale: $\|\nabla^2p\|_{L^{3/2}}\sim\|S\|_{L^3}^2$.
+
+Thus any bound $W_+\lesssim\|\nabla^2p\|_{L^{3/2}}\|\omega\|_{L^3}^2$ or $W_+\lesssim\|\nabla^2p\|_{L^q}\|\omega\|_{L^{2q'}}^2$ reduces again to $\|u\|_{L^3}\|\nabla\omega\|_2^2$ scaling after Sobolev.
+Formally $F(t)\sim\|S(t)\|_{L^3}^3$ or $\|u\|_{L^3}^a\|\nabla\omega\|_2^b$, with $a+b=3$, exactly the dimensional class forbidden as bridge.
+Since $C_{L^3}$ allows $\|u\|_3\to\infty$, $\int_0^{T^*}F=+\infty$ compatible with $\mathcal C_{\mathrm{PROVEN}}$.
+
+No cancellation: trace-free gives $\int\operatorname{tr}\nabla^2p=\int\Delta p$, but $W$ uses anisotropic $\xi^T\nabla^2p\xi$, $\xi=\omega/|\omega|$. $C_J^{neg}$ already encodes that alignment is not controlled. Nonlocality does not improve alignment; kernel $K$ is even, does not create negativity for $\xi^T\nabla^2p\xi$.
+
+Pressure as Lagrange multiplier enforces incompressibility, not damping of $W_+$: $D_tS$ term $-\nabla^2p$ is needed to keep $\operatorname{tr}S=0$, not to produce $W_+\le0$.
+
+Therefore no quantitative gain $\boxed{W_+\le F,\ \int F<\infty}$ emerges from pure $\nabla^2p$ structure.
+
+\section{Outcome}
+$\boxed{\mathrm{KILLED}}$
+\begin{itemize}
+\item Only $\|\nabla^2p\|_q\lesssim\|S^2-\Omega^2\|_q$ obtained, same critical scale.
+\item Calderon-Zygmund preserves concentration scale of $C_F^{conc},C_I^{freq}$.
+\item No coercivity/cancellation on $W_+$ from nonlocality.
+\item Any $F$ constructed is in forbidden dimensional class, not integrable under $\mathcal C_{\mathrm{PROVEN}}$.
+\end{itemize}
+$\mathcal C_{\mathrm{PROVEN}}\not\Rightarrow\bot$ remains OPEN. G8-01 and G8-02 both exhaust stretching algebra and pressure-strain without integrable bridge.
+\end{document}
