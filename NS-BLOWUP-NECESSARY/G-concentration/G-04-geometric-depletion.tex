@@ -1,0 +1,90 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+\title{G-04-geometric-depletion v1: audit geometric control of W\_- bottleneck}
+\author{ZFL Lab}
+\begin{document}
+\maketitle
+
+MISSION: Audit whether geometric depletion mechanisms provide quantitative control relevant to $W_-$ bottleneck from E-strong-neg-02.
+INPUT E-strong-neg-02: $W_-$ temporal control = OPEN/BLOCKED, $W_+\in L^1_{loc}$ insufficient, $\int W_+=\infty$ PROVEN from $C_E^{weak}$, $C_E^{strong}$ requires $W_-\in L^1(0,T_*)$.
+
+EXTERNAL DEPENDENCIES TO IDENTIFY:
+Constantin-Fefferman (CF93), Deng-Hou-Yu (DHY05/06). Exact theorem version to be verified.
+
+FORBIDDEN:
+geometric alignment $\Rightarrow W_-\in L^1_t$ without explicit time estimate.
+citation $\Rightarrow$ theorem applicability.
+external criterion $\Rightarrow$ internal PROVEN status.
+
+AUDIT:
+
+A. Constantin-Fefferman family:
+
+Exact hypotheses (CF93):
+In region of large $|\omega|$, direction $\xi=\omega/|\omega|$ Lipschitz: $|\sin\phi(x,y)|\le |x-y|/\rho$ with $\rho>0$, plus $|\omega|\in L^\infty$ control? Regularity of $\xi$ in high vorticity region.
+
+Exact geometric quantity:
+$\rho^{-1}$ = Lipschitz constant of direction, or $|\nabla\xi|$ in $L^\infty$.
+
+Exact conclusion:
+If $\|\nabla\xi\|_{L^\infty}$ bounded and velocity bounded in suitable, then no blow-up? Actually CF gives $ \|\omega(t)\|_\infty$ controlled exponentially by $\|u\|_\infty$ times geometric factor.
+
+Whether controls $W,W_-$ or other:
+Controls $D_t|\omega| = \alpha |\omega|$, $\alpha = \xi^T S \xi$. Note $W=\int \alpha |\omega|^2$. So geometric regularity controls $\alpha$ pointwise, not directly integral sign split $W_-$.
+
+Scaling:
+$\nabla\xi\sim length^{-1}$, critical if $\rho\sim \sqrt{T_*-t}$.
+
+Time-integrability:
+CF requires $\int_0^{T_*} \|u\|_\infty^2 dt$? No $L^1_t$ for $W_-$ directly. Estimate: $|\alpha|\le C\|u\|_{Lip}$ but not sign.
+
+Applies near $T_*$? Requires uniform Lipschitz of $\xi$ in high vorticity region up to $T_*$, strong assumption.
+
+Bridge to $C_E^{strong}$?
+No direct $W_-\in L^1$. Only gives bound on $|\alpha|$, i.e., $|W|\le C\int |\omega|^2\|u\|_{Lip}$.
+
+B. Deng-Hou-Yu family:
+
+Exact hypotheses (DHY):
+Conditions on vortex line length $L(t)$, curvature $\kappa$, divergence of $\xi$, plus $U_\xi$, $U_n$ velocities.
+
+Exact geometric quantity:
+$L(t)$ of vortex line segment, $\int_0^{L} (\nabla\cdot\xi)_+$, $M(t)=\max |\omega|$ along line, etc.
+
+Exact conclusion:
+If $L(t)\ge c L_0$, curvature and divergence controlled in $L^\infty$, and $U_\xi,U_n$ bounded, then no blow-up up to $T_*$.
+
+Controls $W,W_-$ or other:
+Controls growth of $\|\omega\|_\infty$ via Lagrangian stretching of vortex lines: $\partial_t |\omega| / |\omega| \sim$ divergence + curvature terms. Again controls $|\alpha|$, not sign split.
+
+Scaling:
+Length $L(t)$ critical if $\sim (T_*-t)^{1/2}$? Actually geometric non-collapsing.
+
+Time-integrability:
+Conditions are pointwise in time $L^\infty_t$ bounds on geometric quantities, not $L^1_t$ for $W_-$.
+
+Applies near $T_*$? Yes, designed as non-blow-up criterion up to $T_*$.
+
+Bridge to $C_E^{strong}$?
+Would need to extract $W_-=\int (-\alpha)_+ |\omega|^2$. If $\alpha$ bounded above by geometric quantity $G(t)$, then $W_-\le \int G_- |\omega|^2$? But $G$ not sign definite. Still no $L^1$.
+
+OUTPUT:
+
+$\boxed{\text{CF: controls }|\alpha|,\text{ not }W_-\in L^1_t\text{ directly}}$
+
+$\boxed{\text{DHY: controls }\|\omega\|_\infty\text{ growth, not }W_-\text{ integrability}}$
+
+$\boxed{\text{geometric alignment }\not\Rightarrow W_-\in L^1(0,T_*)\text{ without extra temporal bridge}}$
+
+$\boxed{\text{BRIDGE to }C_E^{strong}\text{ = OPEN/BLOCKED: PARTIAL BRIDGE only on }|\alpha|}$
+
+Hence E-strong-neg-02 remains bottleneck: geometric depletion controls magnitude of stretching, not its signed decomposition required for $\int W_+=\infty\Rightarrow C_E^{strong}$.
+
+Potential new pathway: geometric quantity $G(t):=\|\nabla\xi\|_\infty$ or $(L,\kappa,U)$ as independent $C_G^{geom}$ candidate, to be crossed with $C_{L^3}$ and $C_G^{CKN}$, rather than forcing $W_-$ control.
+
+$\mathcal{C}_{PROVEN}=\{C_E^{weak},C_{L^3}\}$ untouched.
+
+Next: CROSS-Ggeom-L3-CKN if $G$ exact version identified.
+
+\end{document}
