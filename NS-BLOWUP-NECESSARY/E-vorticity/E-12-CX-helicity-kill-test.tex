@@ -1,0 +1,89 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+\title{E-12-CX-helicity-kill-test v1: does helicity give necessary CX and W\_- link? Single artifact kill audit}
+\author{ZFL Lab}
+\begin{document}
+\maketitle
+
+MISSION: Single kill test: does $T^*<\infty\Rightarrow C_H$ with $C_H$ necessarily divergent and non-trivially linking to $W_-=\int(\omega^T S\omega)_-$ or to incompatibility $C_E^{weak}\land C_{L^3}\Rightarrow\bot$? No beautiful identity hunting.
+
+INPUT: $\mathcal{C}_{PROVEN}=\{C_E^{weak}:\int W\to\infty,\ C_{L^3}:\|u\|_3\to\infty\}$, G locked 0a37811, E-05 to E-09 BLOCKED, E-10 KILLED fast, E-11 CANDIDATE/OPEN without bridge.
+
+FORBIDDEN:
+Beautiful helicity identity without $W_-$ link.
+$H$ bound $\Rightarrow$ $W_-$ controlled.
+$C_H$ not necessarily divergent under $T^*<\infty$.
+Indirect qualitative link to stretching.
+$e_i,\lambda_i,\eta_-$ reuse.
+$C_E^{weak}\Rightarrow C_E^{strong}$.
+
+AUDIT:
+
+1. Helicity definitions:
+
+$H=\int u\cdot\omega\,dx$, $\omega=\nabla\times u$, $\nabla\cdot u=0$, periodic or $\mathbb{R}^3$ decaying.
+
+Euler: $D_t H=0$ for smooth (conservation). Navier-Stokes:
+
+$\frac{d}{dt}H = -2\nu\int \nabla u:\nabla\omega\,dx = -2\nu\int \omega\cdot(\nabla\times\omega)\,dx$ (up to boundary). Exact form depends on BC but dissipative.
+
+Estimate:
+$|dH/dt|\le 2\nu\|\nabla u\|_2\|\nabla\omega\|_2\le C\nu\|\omega\|_2\|\nabla\omega\|_2$.
+
+Thus $|H(t)|\le \|u\|_2\|\omega\|_2$.
+
+2. Does $T^*<\infty\Rightarrow C_H$ with divergence?
+
+If blow-up, enstrophy $\|\omega\|_2^2\to\infty$ may occur (since $\int W\to\infty$ implies enstrophy divergence). Then $\|u\|_2$ bounded by initial energy (Leray). So $|H|\le \|u\|_2\|\omega\|_2$ may diverge as $\|\omega\|_2\to\infty$, but not necessarily: $u$ and $\omega$ could become orthogonal in $L^2$? $H$ could stay bounded even if $\|\omega\|_2\to\infty$ because alignment may cancel. No lower bound.
+
+Thus no necessary divergence:
+$\boxed{T^*<\infty\not\Rightarrow \limsup|H|=\infty\text{ necessarily}}$.
+
+At best $\int_0^{T_*} |dH/dt| =\infty$ may follow if $\int\|\omega\|_2\|\nabla\omega\|_2=\infty$, but $\int\|\nabla\omega\|_2^2$ may diverge under $C_E^{weak}$ (since $\int W =\frac12\|\omega\|_2^2+\nu\int\|\nabla\omega\|_2^2$). So helicity variation may diverge, but this is consequence of $C_E^{weak}$, not new.
+
+3. Link to $W_-$?
+
+$W=\int\omega^T S\omega$, $H=\int u\cdot\omega$.
+
+No pointwise relation. Betchov-type identity for $H$? None.
+
+Write $W_-=\int|\omega|^2(\xi^T S\xi)_-$, $H$ contains $u$, not $S$. Using $u=(-\Delta)^{-1}\nabla\times\omega$ (Biot-Savart), $H=\int\omega\cdot(-\Delta)^{-1}\nabla\times\omega$ = $\int |\omega|^2$ with nonlocal kernel. No sign control.
+
+Try inequality: $W_-\le |W|\le C_S\|u\|_3\|\nabla\omega\|_2^2$ from E-09, $H$ does not improve constant nor sign.
+
+Potential $C_H$: $\int_0^{T_*}|H|=\infty$? Not incompatible with $C_E^{weak}\land C_{L^3}$, since $C_E^{weak}$ already says enstrophy-related quantities diverge. No contradiction:
+
+$\boxed{C_E^{weak}\land C_{L^3}\land (\text{helicity bounds/divergence}) \not\Rightarrow\bot}$.
+
+Thus fails kill criteria 2,3,4:
+
+1. Only recovers helicity dissipation estimate $dH/dt=-2\nu\int\omega\cdot\operatorname{curl}\omega$, conservation in Euler.
+2. Only produces bound $|H|\le\|u\|_2\|\omega\|_2$ or $|dH/dt|\le C\|\omega\|_2\|\nabla\omega\|_2$, no $W_-$ control.
+3. Helicity can remain bounded/compatible with blow-up (no necessary divergence).
+4. No $C_X$ necessarily divergent beyond PROVEN.
+5. Connection to stretching only indirect via Biot-Savart, not $W_-$.
+
+Therefore E-12 KILLED.
+
+OUTPUT:
+
+$\boxed{H=\int u\cdot\omega,\ dH/dt=-2\nu\int\omega\cdot\operatorname{curl}\omega\text{ EXACT}}$
+
+$\boxed{|H|\le\|u\|_2\|\omega\|_2,\ |dH/dt|\le2\nu\|\nabla u\|_2\|\nabla\omega\|_2}$
+
+$\boxed{T^*<\infty\not\Rightarrow|H|\to\infty\text{ necessarily; variation divergence already implied by }C_E^{weak}}$
+
+$\boxed{\text{No }W_-\le F(H)\text{, no }C_H\text{ giving }C_E^{weak}\land C_{L^3}\land C_H\Rightarrow\bot}$
+
+Classification: KILLED fast per rules 1-5.
+
+$\mathcal{C}_{PROVEN}=\{C_E^{weak},C_{L^3}\}$ intact.
+
+E-10=KILLED, E-11=CANDIDATE/OPEN without bridge, E-12=KILLED.
+
+Thus E-CX SEARCH = CLOSED/BLOCKED as package {pressure, nabla xi, helicity} produced no bridge.
+
+Return to main diagram: $T^*<\infty\Rightarrow C_E^{weak},C_{L^3}$, central question $C_E^{weak}\land C_{L^3}\Rightarrow\bot$ still OPEN.
+
+\end{document}
