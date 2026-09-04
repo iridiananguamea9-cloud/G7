@@ -1,0 +1,87 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+\title{G-03-local-epsilon-regularity v1: audit exact local theorem for C\_G}
+\author{ZFL Lab}
+\begin{document}
+\maketitle
+
+MISSION: Determine whether external local epsilon-regularity yields exact $C_G$ from G-01.
+TARGET G-01 $C_G^{L^3}$: $\exists t_n\uparrow T_*, x_n, r_n\downarrow0: \|u(t_n)\|_{L^3(B(x_n,r_n))}\ge\epsilon_0$
+
+FORBIDDEN:
+$L^\infty_t L^3(B_1)\Rightarrow$ regularity without theorem match.
+CKN citation as substitute for exact implication.
+ESS-global $\Rightarrow$ local epsilon-regularity.
+
+AUDIT:
+
+1. Exact theorem search:
+
+Candidate A: CKN $\epsilon$-regularity (1982):
+Suitable weak $(u,p)$ in $Q_1:=B_1\times(-1,0)$,
+$\mathcal{Q}(r):= r^{-2}\int_{Q_r}|u|^3 + r^{-2}\int_{Q_r}|p|^{3/2}$.
+If $\mathcal{Q}(1)\le\epsilon_{CKN}$ universal, then regular in $Q_{1/2}$.
+Quantity is space-time + pressure, not instantaneous $L^3(B)$.
+
+Candidate B: Kozono-Taniuchi / ESS local $L^3$:
+If $\limsup_{r\to0} r^{-3}\|u\|_{L^\infty_t L^3(Q_r)}^3$ small? Formulation varies.
+Most statements require $u\in L^\infty_t L^3_x(Q_1)$ and smallness of $\|u\|_{L^\infty_t L^3}$, plus suitable.
+
+Candidate C: Seregin's $L^3$ epsilon-regularity: $ \|u\|_{L^\infty_t L^3(Q_1)}\le\epsilon_*$ implies regularity, but needs suitable + pressure bound from local energy inequality.
+
+Issue: No theorem found so far of pure form $\|u(t)\|_{L^3(B_1)}\le\epsilon_*\Rightarrow$ regularity at time $t$ without space-time and pressure.
+
+2. Suitable-weak hypotheses:
+All CKN-type require $u\in L^\infty_t L^2\cap L^2_t H^1_{loc}$, $p\in L^{3/2}_{loc}$, local energy inequality.
+
+3. Space-time vs instantaneous:
+CKN quantity $\mathcal{Q}$ involves $ \int_{-r^2}^0\int_{B_r} |u|^3$, not $\|u(t_n)\|_{L^3(B_{r_n})}$ at single time. So contrapositive gives:
+If singular at $(x_*,T_*)$, then $\limsup_{r\downarrow0}\mathcal{Q}(r)\ge\epsilon_{CKN}$.
+This is $C_G^{CKN}$, not $C_G^{L^3}$.
+
+4. Scaling:
+$\mathcal{Q}(r)$ scale invariant: $|u|^3\sim r^{-3}$, $dxdt\sim r^5$, so $r^{-2}\int |u|^3\sim1$. Matches $L^3$ critical.
+$ \|u(t)\|_{L^3(B_r)} $ also critical: scaling $r^{-1}\|u\|_3^3$.
+
+5. Pressure:
+$C_G^{CKN}$ includes $p$. Cannot drop without theorem. $C_G^{L^3}$ would require pressure controlled by $u$ via Riesz, not immediate locally.
+
+6. Universality $\epsilon_*$:
+CKN $\epsilon_{CKN}$ universal (depends only on dimension). If theorem valid, universal.
+
+7. Does it give regularity at required point/scale?
+CKN gives: if singular at $(x_*,T_*)$, then $\mathcal{Q}(r)\ge\epsilon_*$ for all small $r$ (up to rescaling). So produces $r_n\downarrow0$.
+
+8. Exact contrapositive producing $C_G$:
+
+If $T_*<\infty$ and $(x_*,T_*)$ singular point, then for $Q_{r_n}(x_*,T_*)$,
+\begin{equation*}
+\boxed{\mathcal{Q}(r_n)= r_n^{-2}\int_{Q_{r_n}}|u|^3 + r_n^{-2}\int_{Q_{r_n}}|p|^{3/2} \ge \epsilon_{CKN}}
+\end{equation*}
+Call this $\boxed{C_G^{CKN}}$.
+
+Thus:
+$\boxed{C_G^{L^3}\neq C_G^{CKN}\text{ automatically}}$.
+
+$\boxed{C_G^{L^3}\text{ NOT DERIVED from CKN alone}}$
+
+$\boxed{C_G^{CKN}\text{ PROVEN CONDITIONAL on CKN epsilon-regularity as external dependency}}$
+
+STATUS:
+
+$\boxed{C_G^{L^3}\text{ remains OPEN/BLOCKED: needs local }L^\infty_t L^3\text{ theorem exact}}$
+
+$\boxed{C_G^{CKN}\text{ PROVEN-CONDITIONAL: EXTERNAL-DEPENDENCY: CKN-1982}}$
+
+Hence split:
+
+$C_G^{L^3}$: G-01 candidate, OPEN.
+
+$C_G^{CKN}$: new candidate, PROVEN-CONDITIONAL on CKN.
+
+$\mathcal{C}_{PROVEN}=\{C_E^{weak},C_{L^3}\}$ untouched. $C_G$ layer separated.
+
+Next CROSS should use $C_G^{CKN}$ explicitly, not conflate.
+
+\end{document}
