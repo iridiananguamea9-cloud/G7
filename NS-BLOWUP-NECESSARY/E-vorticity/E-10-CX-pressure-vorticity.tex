@@ -1,0 +1,103 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+\title{E-10-CX-pressure-vorticity v1: does pressure-vorticity coupling give W\_- control or new CX? Fast kill audit}
+\author{ZFL Lab}
+\begin{document}
+\maketitle
+
+MISSION: Find new identity/estimate pressure-vorticity directly controlling $W_-$ or producing necessary consequence $C_X$ of $T^*<\infty$. Single rigorous audit, kill fast if no signal.
+
+INPUT: $\mathcal{C}_{PROVEN}=\{C_E^{weak}: \int_0^t W\to\infty,\ C_{L^3}: \|u\|_3\to\infty\}$. E-08 obstruction $D_t S\supset -\nabla^2 p$ with $-\Delta p=\partial_i\partial_j(u_i u_j)$. E-09 insufficiency of $\{W,\|\omega\|_2,\|\nabla\omega\|_2,\|u\|_3\}$. Phase E frozen E-05 to E-09 BLOCKED.
+
+FORBIDDEN:
+$e_i,\lambda_i,\eta_-,D_t e_i$ reuse.
+Reproducing only Calderon-Zygmund $\|\nabla^2 p\|_{3/2}\lesssim\|\nabla u\|_3^2$ or $\|p\|_{3/2}\lesssim\|u\|_3^2$ without new sign.
+Only $|W|\le C_S\|u\|_3\|\nabla\omega\|_2^2$ again.
+Claiming $C_X$ that is not necessarily divergent under $T^*<\infty$.
+Hiding nonlocality.
+$C_E^{weak}\Rightarrow C_E^{strong}$.
+
+AUDIT:
+
+1. Pressure-vorticity identities:
+
+$-\Delta p = \operatorname{tr}[(\nabla u)^2] = \operatorname{tr}(S^2+\Omega^2) = |S|^2-\frac12|\omega|^2$? Actually $|S|^2=\operatorname{tr}S^2$, $|\Omega|^2=\frac12|\omega|^2$, $\operatorname{tr}\Omega^2=-|\Omega|^2$.
+
+So
+\begin{equation*}
+p = (-\Delta)^{-1}\left(|S|^2-\frac12|\omega|^2\right).
+\end{equation*}
+
+$W=\int\omega^T S\omega = \int S:(\omega\otimes\omega)$. No $p$ explicit.
+
+But integrate $W$ against $p$? Consider $W = -\int p\,? $ No.
+
+Alternative: $D_t\omega = S\omega+\nu\Delta\omega$, take divergence of Lamb vector? Use identity $\omega\cdot\nabla p$?
+
+Enstrophy production via pressure: $\int \omega\cdot\nabla\times(u\cdot\nabla u) = W$. Pressure drops from curl.
+
+To get $p$ back, need $\nabla p$ coupling: $(u\cdot\nabla)u = \omega\times u +\nabla(\frac12|u|^2+p)$.
+
+Thus $\omega^T S\omega$ is independent of $p$ pointwise, but time evolution of $S$ contains $\nabla^2 p$.
+
+Search for global identity involving $p|\omega|^2$:
+
+$\frac{d}{dt}\int p|\omega|^2$? Then $D_t S$ appears via $\partial_t S$? Compute $\int \nabla^2 p : (\omega\otimes\omega)$?
+
+Note: $W_- = \int (\omega^T S\omega)_- = \int |\omega|^2 (\xi^T S\xi)_-$.
+
+If $S = -\nabla^2 p*? $ Not.
+
+Consider representation: $S = \mathcal{R}[u\otimes u]$ via Riesz? Then $W = \int \omega\otimes\omega : \mathcal{R}[u\otimes u]$. This is trilinear form $T(\omega,\omega,u,u)$ with singular kernel. No sign.
+
+Possible $C_X$: $\int_0^{T_*} \|p\|_{L^{3/2}} dt = \infty$? Since $\|p\|_{3/2}\lesssim\|u\|_3^2$, $C_{L^3}$ gives $\|p\|_{3/2}\to\infty$? If $\|u\|_3\to\infty$, then $\|p\|_{3/2}$ may diverge, but not necessarily $\int\|p\|_{3/2}=\infty$? Actually if sup diverges, integral may still diverge? Not guaranteed without lower bound.
+
+If $T^*<\infty$, does $\int_0^{T_*}\|p(t)\|_{3/2} dt =\infty$ follow? Need: $\|p\|_{3/2}\gtrsim?$ No lower bound from $\|u\|_3$.
+
+Thus pressure alone may not give new divergent quantity.
+
+2. Attempt inequality for $W_-$ via pressure:
+
+Write $W = \int -\operatorname{tr}(S^3) - \frac14...$ using $\det S$? Known identity $\int |S|^2 = \frac12\int|\omega|^2$, but $\int \operatorname{tr}(S^3)$ relates to enstrophy production? Actually $\int \operatorname{tr}(S^3)+\frac14\int\omega^T S\omega =0$ for homogeneous? Betchov relation: $\langle\operatorname{tr}(S^3)\rangle = -\frac34\langle\omega^T S\omega\rangle$ in isotropic turbulence, but not pointwise, only mean with periodic BC and integration by parts.
+
+Global identity (Betchov):
+\begin{equation*}
+\boxed{\int \operatorname{tr}(S^3) dx = -\frac34 W \quad\text{periodic/homogeneous, EXACT from }\int\partial_j u_i\partial_i u_k\partial_k u_j}
+\end{equation*}
+Check: $\int \operatorname{tr}[(\nabla u)^3]=0$, expand $S+\Omega$, gives $\int \operatorname{tr}S^3 +3\int \operatorname{tr} S\Omega^2 =0$, and $\operatorname{tr}S\Omega^2 = -\frac14\omega^T S\omega$. So $W = -\frac43\int\operatorname{tr}S^3$.
+
+Thus $W_- $ relates to positive part of $\operatorname{tr}S^3$.
+
+But $\operatorname{tr}S^3 = 3\det S$ since $\operatorname{tr}S=0$, so $\operatorname{tr}S^3=3\lambda_1\lambda_2\lambda_3$.
+
+Still sign depends on eigenvalues, forbidden frame? We use integral identity without $e_i$ pointwise but eigenvalues reappear via determinant. Allowed? We forbid $e_i$ pointwise, but global identity may still be usable. However it reintroduces spectral sign indirectly.
+
+Even with Betchov, no separation of $W_-$.
+
+3. Kill criteria check:
+
+- Only Calderon-Zygmund for $p$? Yes, we only get $\|p\|_{3/2}\lesssim\|u\|_3^2$, no new sign for $W_-$.
+- Only $|W|$ bounds? Yes, trilinear estimate gives again $|W|\le C\|u\|_3\|\nabla\omega\|_2^2$, no improvement.
+- No $C_X$ necessarily divergent? $\|p\|_{3/2}$ divergence not forced to be integral divergence.
+- No connection to $W_-$? Betchov links total $W$, not $W_-$.
+
+Thus pressure-vorticity alone does NOT produce inequality of form $W_-\le F$ better than E-09, nor new necessarily divergent $C_X$ stronger than $C_{L^3}$.
+
+Possible remaining angle: $\int p \det S$ or $\int p |\omega|^2$? Need integration by parts using $-\Delta p = |S|^2-\frac12|\omega|^2$, so $\int p|S|^2$? No sign.
+
+Conclusion for this audit:
+
+$\boxed{\text{Pressure-vorticity identities: }-\Delta p=|S|^2-\frac12|\omega|^2,\ p=(-\Delta)^{-1}(\dots),\ \int\operatorname{tr}S^3=-\frac34 W\text{ (Betchov)}}$
+
+$\boxed{\text{No new }W_-\le F\text{ beyond }C_S\|u\|_3\|\nabla\omega\|_2^2\text{ found}}$
+
+$\boxed{\text{No }C_X\text{ with }T^*<\infty\Rightarrow C_X\text{ and }C_X\text{ gives contradiction with }C_E^{weak},C_{L^3}\text{ from pressure alone in this audit}}$
+
+Classification: BLOCKED/KILLED fast — branch pruned.
+
+$\mathcal{C}_{PROVEN}$ remains $\{C_E^{weak},C_{L^3}\}$. E-05 to E-09 frozen. E-10 audited and killed.
+
+Next candidate: $\nabla\xi$ with coercive $\nu|\omega|^2|\nabla\xi|^2$ term from vorticity diffusion.
+
+\end{document}
