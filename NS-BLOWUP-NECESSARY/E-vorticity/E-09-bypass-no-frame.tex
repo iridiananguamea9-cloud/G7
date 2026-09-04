@@ -1,0 +1,125 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+\title{E-09-bypass-no-frame v1: can W, enstrophy, dissipation and L3 separate W\_- without spectral frame?}
+\author{ZFL Lab}
+\begin{document}
+\maketitle
+
+MISSION: Determine if $W,\|\omega\|_2,\|\nabla\omega\|_2,\|u\|_3$ contain enough information to separate $W_+$ from $W_-$ without diagonalizing $S$. Attack $W_-$ directly.
+
+INPUT: $\mathcal{C}_{PROVEN}=\{C_E^{weak}: \limsup\int_0^t W=+\infty,\ C_{L^3}: \limsup\|u\|_3=+\infty\}$. Identities:
+\begin{equation*}
+\boxed{W=\frac12\frac{d}{dt}\|\omega\|_2^2+\nu\|\nabla\omega\|_2^2\text{ EXACT}}
+\end{equation*}
+\begin{equation*}
+\boxed{|W|\le C_S\|u\|_3\|\nabla\omega\|_2^2}
+\end{equation*}
+with $W=W_+-W_-$, $W_\pm\ge0$, $\int_0^{T_*}W_+=\infty$ under $C_E^{weak}$ if $W_-\in L^1$ not proven.
+
+FORBIDDEN:
+$e_i,\lambda_i,\eta_i,\eta_-,D_t e_i$ any spectral frame.
+$\|u\|_3\to\infty\Rightarrow W_+\to\infty$.
+$\|u\|_3\to\infty\Rightarrow W_-$ controlled.
+$|W|\le C_S\|u\|_3\|\nabla\omega\|_2^2\Rightarrow W_-\in L^1_t$.
+$C_E^{weak}\Rightarrow C_E^{strong}$ without new estimate.
+
+AUDIT:
+
+1. What $|W|\le C_S\|u\|_3\|\nabla\omega\|_2^2$ actually gives:
+
+Since $W_-\le|W|$,
+\begin{equation*}
+W_-(t)\le C_S\|u(t)\|_3\|\nabla\omega(t)\|_2^2.
+\end{equation*}
+Integrate:
+\begin{equation*}
+\int_0^{T_*}W_-\le C_S\int_0^{T_*}\|u\|_3\|\nabla\omega\|_2^2.
+\end{equation*}
+Under $C_{L^3}$, $\|u\|_3$ may diverge, so RHS may diverge too. No $L^1$ control. Trampa blindada:
+\begin{equation*}
+\boxed{|W|\le C_S\|u\|_3\|\nabla\omega\|_2^2\not\Rightarrow W_-\in L^1_t}.
+\end{equation*}
+
+2. Enstrophy identity vs sign:
+
+From $W=\frac12\frac{d}{dt}\|\omega\|_2^2+\nu\|\nabla\omega\|_2^2$,
+\begin{equation*}
+\int_0^t W = \frac12\|\omega(t)\|_2^2-\frac12\|\omega(0)\|_2^2+\nu\int_0^t\|\nabla\omega\|_2^2.
+\end{equation*}
+Thus $C_E^{weak}$ i.e. $\int_0^t W\to\infty$ implies
+\begin{equation*}
+\boxed{\frac12\|\omega(t)\|_2^2+\nu\int_0^t\|\nabla\omega\|_2^2\to\infty}.
+\end{equation*}
+But this uses total $W$, not $W_\pm$. Since $W=W_+-W_-$,
+\begin{equation*}
+\int W_+ = \int W + \int W_- = \left(\frac12\|\omega\|_2^2+\nu\int\|\nabla\omega\|_2^2\right)+\int W_- -\frac12\|\omega(0)\|_2^2.
+\end{equation*}
+Hence $\int W_+=\infty$ can be due to $\int W_-=\infty$ plus even larger growth of enstrophy, not forbidden.
+
+Goal would be inequality
+\begin{equation*}
+\boxed{W_-\le F(\|u\|_3,\|\omega\|_2,\|\nabla\omega\|_2)}
+\end{equation*}
+with $\int_0^{T_*}F<\infty$ under $C_E^{weak}\land C_{L^3}$, or at least $F$ small enough that $W_+$ divergence cannot be cancelled.
+
+Search for such $F$ without frame:
+
+Direct expression $W=\int\omega^T S\omega = \int \omega\cdot(\omega\cdot\nabla u)$? Using $S$ symmetric part of $\nabla u$, but $\omega^T\Omega\omega=0$, so $W=\int\omega^T\nabla u\,\omega$. Integration by parts:
+$W=\int \omega_i \omega_j \partial_j u_i$.
+No sign information.
+
+No pointwise bound for negative part from integration by parts alone because $S$ indefinite with $\operatorname{tr}S=0$ not used if we avoid eigenvalues.
+
+Consider splitting $u=P_{\le N}u+P_{>N}u$ Littlewood-Paley: $\|u\|_3$ controls low frequencies, but high frequencies contribute to $\|\nabla\omega\|_2$. Still no sign.
+
+Potential candidate $F$ using interpolation: $\|\omega\|_2^2\le \|u\|_3\|\nabla\omega\|_{3/2}$? By Sobolev? Actually $\|\omega\|_2\le C\|u\|_3^{a}\|\nabla\omega\|_2^{1-a}$? Need check.
+
+But to get $W_-$ control, need lower bound on $W$, not upper: $W\ge -C_S\|u\|_3\|\nabla\omega\|_2^2$, which gives $W_-\le C_S\|u\|_3\|\nabla\omega\|_2^2$ again, same trap.
+
+Thus without extra quantity, $F$ is exactly that.
+
+3. Is information sufficient?
+
+We have only:
+- $W$ exact decomposition $W=\dot E+\nu D$, $E=\frac12\|\omega\|_2^2$, $D=\|\nabla\omega\|_2^2$
+- $|W|\le C_S\|u\|_3 D$
+
+From these, can we deduce control of $W_-$? No. System of inequalities:
+
+$W_+-W_- = \dot E+\nu D$
+$W_++W_- = |W| +2\min(W_+,W_-?) $ Not determined. Actually $|W|=|W_+-W_-|$, so $W_++W_-$ not controlled.
+
+We have 2 equations for 3 unknowns $W_+,W_-,E,D,\|u\|_3$ loosely coupled. No sign separation.
+
+Thus conjecture:
+
+$\boxed{C_E^{weak}\land C_{L^3}\text{ with only }W,\|\omega\|_2,\|\nabla\omega\|_2,\|u\|_3\text{ insufficient to bound }W_-\text{ in }L^1_t}$.
+
+Need new quantity $C_X$.
+
+Possible $C_X$ candidates bypassing frame:
+- pressure: $p$ structure, $\int p |\omega|^2$?
+- helicity $H=\int u\cdot\omega$?
+- higher $L^p$ for $\omega$?
+- vorticity direction regularity via $\nabla\xi$ but without $e_i$?
+
+But mission of E-09 is to test, not to propose $C_X$ yet.
+
+OUTPUT:
+
+$\boxed{W=\frac12\frac{d}{dt}\|\omega\|_2^2+\nu\|\nabla\omega\|_2^2\text{ and }|W|\le C_S\|u\|_3\|\nabla\omega\|_2^2\text{ EXACT, but give only }W_-\le C_S\|u\|_3\|\nabla\omega\|_2^2}$
+
+$\boxed{\int_0^{T_*}C_S\|u\|_3\|\nabla\omega\|_2^2\text{ may diverge under }C_{L^3}\text{, so no }W_-\in L^1_t}$
+
+$\boxed{\text{No inequality of form }W_-\le F(\|u\|_3,\|\omega\|_2,\|\nabla\omega\|_2)\text{ with }F\in L^1_t\text{ found from identities alone}}$
+
+$\boxed{C_E^{weak}\land C_{L^3}\stackrel{?}{\Rightarrow}\text{control }W_-\text{ = OPEN, likely insufficient}}$
+
+Classification: PARTIAL/OPEN — identities isolated, insufficiency identified, need $C_X$ beyond current 4 quantities.
+
+$\mathcal{C}_{PROVEN}=\{C_E^{weak},C_{L^3}\}$ intact. E-05 to E-08 frozen. No spectral objects used.
+
+Next: define search for $C_X$ — pressure-vorticity coupling or helicity or direction regularity without eigenframe.
+
+\end{document}
