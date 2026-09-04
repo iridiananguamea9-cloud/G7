@@ -1,0 +1,82 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\begin{document}
+\title{G11-02-GATE-A-TOPOLOGY-AUDIT-v1: Vorticity topology - does a well-defined object survive $\nu\Delta\omega$?}
+\author{ZFL-CX}\date{\today}\maketitle
+
+\[
+\boxed{G7=FROZEN,\ G8=CLOSED,\ G9\ BLOCKED,\ G10\ CLOSED,\ G11\text{-}01\ CLOSED}
+\]
+\[
+\boxed{G11\text{-}02 = vorticity\ topology\ pre\text{-}audit,\ GATE\ A\ first}
+\]
+\[
+\boxed{\mathcal C_{PROVEN}=\{C_E^{weak},C_{L^3},C_F^{conc},C_I^{freq},C_J^{neg}\}}
+\]
+
+\section{Question A - single mission}
+\[
+\boxed{T^*<\infty\ \overset{?}{\Longrightarrow}\ \text{topological object obligatory}\ \overset{?}{\Longrightarrow}\ \bot}
+\]
+Must exist object that is well-defined for Leray-Hopf / suitable weak class, survives viscosity, and derivable from $T^*<\infty$ or $\mathcal C_{PROVEN}$.
+
+\section{Gate A: Objeto topológico bien definido}
+
+Candidates:
+\begin{itemize}
+\item vortex lines: integral curves $\dot X = \omega(X,t)$. Requires $\omega\in Lip$ to define uniquely. For suitable weak, $\omega\in L^2_tL^2_x$ only, not Lipschitz. Lines not well-defined pointwise. For Euler, transport; for NS, diffusion breaks material preservation.
+\item linking / helicity $H(t)=\int u\cdot\omega$. For Euler $H$ conserved. For NS: $\dot H=-2\nu\int\omega\cdot curl\omega$. Not invariant. Not sign-controlled. Bounded by $E_0$ but $\not\Rightarrow$ regularity. H-01 already showed global invariants coexist with blow-up.
+\item knots degree/index: needs $ \omega\neq0$ region with non-vanishing and closed loops. Requires $\omega$ continuous and non-zero set open. From $\mathcal C_{PROVEN}$ only $L^3(B_{r_n})\ge\varepsilon_0$ for $u$, no $\omega\neq0$ open set guaranteed. $C_J^{neg}$ is loss of direction, opposite of regular field for topology.
+\end{itemize}
+
+Well-definedness check vs $\mathcal C_{PROVEN}$:
+- No $C^1$ vorticity from $C_E^{weak}+C_F^{conc}$. $C_I^{freq}$ $N_c\to\infty$ indicates small-scale creation, making lines less regular, not more.
+- No open set where $\omega\neq0$ persists to define degree. Lower concentration on $u$ does NOT imply lower bound on $\omega$ topology.
+
+\[
+\boxed{\text{vortex lines require } \omega\in Lip\text{ or log-Lip - not in }\mathcal C_{PROVEN}}
+\]
+\[
+\boxed{H(t)\text{ not invariant viscous - }\dot H=-2\nu\int\omega\cdot curl\omega}
+\]
+\[
+\boxed{\text{linking/helicity }\not\Rightarrow\text{ obstruction to }T^*<\infty}
+\]
+
+\section{Gate B preview: Evolution under viscous NS}
+$\partial_t\omega + (u\cdot\nabla)\omega = (\omega\cdot\nabla)u + \nu\Delta\omega$. Stretching term preserves topology materially in Euler, but $\nu\Delta\omega$ causes reconnection, diffusion of lines, breaking of transport. No preserved linking without extra $L^\infty$ control. Would need small $\nu$ limit, not available.
+
+\section{Gate C preview: Connection $T^*<\infty\Rightarrow P$}
+Even if topological object defined, need $T^*<\infty\Rightarrow$ object acquires property $P$ (e.g., infinite linking, degree blow-up). No theorem from $\mathcal C_{PROVEN}$ gives $P$. Conserved invariant $\not\Rightarrow$ regularity: $\boxed{\text{invariant}\not\Rightarrow\text{regularity}}$.
+
+\section{Gate D preview: $P\Rightarrow\bot$}
+Would need bridge $\text{topology}\Rightarrow\text{analytic obstruction to blow-up}$, not assumed. No known result: infinite vortex linking compatible with smooth solution? For Euler complex topology does not imply blow-up; for NS even less.
+
+\section{Gate A verdict}
+No topological structure of vorticity that is:
+1. well-defined for suitable weak class with only $\mathcal C_{PROVEN}$,
+2. survives $\nu\Delta\omega$ without extra regularity,
+3. derivable from $T^*<\infty$.
+
+Candidates either require $C^1$ vorticity (not available), or are non-invariant viscously (helicity), or coexist with blow-up (H-01).
+
+\[
+\boxed{G11\text{-}02\text{-}GATE\text{-}A = BLOCKED}
+\]
+\[
+\boxed{G11\text{-}02 = CLOSED/BLOCKED\ (pre\text{-}audit)}
+\]
+
+Consequence: No need to open full B-D machinery for topology with current $\mathcal C_{PROVEN}$. Remaining:
+
+\[
+\boxed{G11\text{-}03: alternative\ ancient\ rigidity\ (last\ frontier)}
+\]
+\[
+\boxed{G7\to G8\to G9\to G10\to G11\text{-}01\to G11\text{-}02 = FROZEN\to CLOSED\to BLOCKED\to CLOSED\to CLOSED\to CLOSED}
+\]
+\[
+\boxed{NO\ hypothesis\ nueva,\ NO\ reciclaje,\ NO\ paralelo}
+\]
+\end{document}
