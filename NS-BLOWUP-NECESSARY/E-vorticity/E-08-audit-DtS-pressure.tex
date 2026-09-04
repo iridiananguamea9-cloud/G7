@@ -1,0 +1,99 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+\title{E-08-audit-DtS-pressure v1: audit D\_t S obstruction, pressure Hessian and spectral gap}
+\author{ZFL Lab}
+\begin{document}
+\maketitle
+
+MISSION: Audit whether $D_t S$ can provide temporal control over $D_t e_i$, closing obstruction from E-07.
+INPUT E-07: $D_t e_i \sim \frac{e_j^T(D_t S)e_i}{\lambda_i-\lambda_j}e_j$, $D_t S\supset -\nabla^2 p$, $\mathcal{C}_{PROVEN}=\{C_E^{weak},C_{L^3}\}$ frozen.
+
+FORBIDDEN:
+$D_t S$ controlled $\Rightarrow D_t e_i$ controlled without spectral gap.
+Pressure bound $\Rightarrow$ PROVEN closure.
+$C_E^{strong}$ promotion.
+Hiding denominator $\lambda_i-\lambda_j\to0$.
+
+AUDIT:
+
+1. Exact identity for $D_t S$:
+
+From NS: $D_t u = -\nabla p + \nu\Delta u$, $\nabla\cdot u=0$.
+$\nabla u = S+\Omega$.
+Take gradient: $D_t\nabla u + (\nabla u)^2 = -\nabla^2 p + \nu\Delta\nabla u$.
+
+Symmetric part:
+\begin{equation*}
+D_t S + (S^2+\Omega^2)_{\rm sym} + (S\Omega+\Omega S)_{\rm sym} = -\nabla^2 p + \nu\Delta S.
+\end{equation*}
+More precisely, writing transport on left:
+\begin{equation*}
+\boxed{D_t S = -(u\cdot\nabla)S -(S^2+\Omega^2)_{\rm sym} - (S\Omega+\Omega S)_{\rm sym} - {\rm Hess}(p) + \nu\Delta S + {\rm correction}}.
+\end{equation*}
+With $\Delta p = -\operatorname{tr}[(\nabla u)^2] = -\operatorname{tr}(S^2+\Omega^2)$.
+
+Thus $D_t S$ contains 5 families:
+(a) $-(u\cdot\nabla)S$ transport,
+(b) $-S^2$ quadratic strain self-amplification,
+(c) $-\Omega^2$ vorticity contribution,
+(d) $-\nabla^2 p$ pressure Hessian (nonlocal, $p=(-\Delta)^{-1}\operatorname{tr}[(\nabla u)^2]$),
+(e) $\nu\Delta S$ dissipation.
+
+2. Control analysis:
+
+(a) $(u\cdot\nabla)S$: needs $\|u\|_\infty$, $C_{L^3}$ gives $u\in L^3$ only, OPEN.
+(b) $S^2$: $|S^2|\sim|S|^2$, quadratic, no $L^1_t$ bound from PROVEN.
+(c) $\Omega^2$: $|\Omega|\sim|\omega|$, unbounded if enstrophy diverges.
+(d) $\nabla^2 p$: Calderon-Zygmund $\|\nabla^2 p\|_{3/2}\lesssim \|\nabla u\|_3^2$, but $S\notin L^3$ from $C_{L^3}$ alone. Nonlocal OPEN.
+(e) $\nu\Delta S$: dissipative but no pointwise bound.
+
+Thus $\|D_t S\|$ not controlled by PROVEN.
+
+3. Spectral gap critical:
+
+Even if $|D_t S|\le M(t)$ pointwise,
+\begin{equation*}
+|D_t e_i| \le \sum_{j\neq i}\frac{|e_j^T(D_t S)e_i|}{|\lambda_i-\lambda_j|}.
+\end{equation*}
+Need
+\begin{equation*}
+\boxed{|D_t S|\le M \text{ and } |\lambda_i-\lambda_j|\ge\delta>0}
+\end{equation*}
+to get $|D_t e_i|\le M/\delta$.
+
+Gap $\delta\to0$ corresponds to eigenvalue crossing, eigenvectors not differentiable, frame singular. No result in PROVEN prevents $\lambda_i-\lambda_j\to0$ near $T_*$. Isotropic $S$ gives small gap.
+
+Hence even with pressure controlled, second obstruction: spectral gap.
+
+4. Classification:
+
+Exact identity for $D_t S$ with 5 terms, each requiring stronger norms than $C_{L^3}$ or $C_E^{weak}$.
+Pressure Hessian is nonlocal and quadratic in $u$.
+Spectral gap not guaranteed.
+
+OUTPUT:
+
+$D_t S$ structure = $-(u\cdot\nabla)S -S^2-\Omega^2 -\nabla^2 p +\nu\Delta S + {\rm comm}$, EXACT
+
+$\|D_t S\|$ not controlled by $\mathcal{C}_{PROVEN}=\{C_E^{weak},C_{L^3}\}$
+
+Even if $\|D_t S\|\le M$, $|D_t e_i|\le M/|\lambda_i-\lambda_j|$ blows up when gap $\to0$
+
+Pressure Hessian $\nabla^2 p$ = Riesz of $u\otimes u$, needs $L^\infty$ or stronger than $L^3$
+
+Result:
+
+PARTIAL/OPEN for $D_t S$ audit: exact decomposition obtained, but control OPEN.
+
+BLOCKED for closing $D_t e_i$ via $D_t S$: two independent obstructions:
+(i) $\nabla^2 p$ nonlocal, not in $L^1_t$ from PROVEN,
+(ii) spectral gap $|\lambda_i-\lambda_j|\ge\delta$ not guaranteed.
+
+Thus pathway spectral alignment -> control of $W_-$ formally blocked at identifiable point: $D_t e_i$ due to pressure Hessian + eigenvalue crossing.
+
+$\mathcal{C}_{PROVEN}$ remains $\{C_E^{weak},C_{L^3}\}$, G locked at 0a37811.
+
+Next: freeze E-07/E-08 as closed audit of alignment pathway.
+
+\end{document}
