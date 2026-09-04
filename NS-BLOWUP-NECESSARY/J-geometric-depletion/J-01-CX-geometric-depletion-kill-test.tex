@@ -1,15 +1,7 @@
 \documentclass[11pt]{article}
-\usepackage{amsmath,amssymb,amsthm}
+\usepackage{amsmath,amssymb}
 \usepackage[margin=1in]{geometry}
 \begin{document}
-\title{J-01-CX-geometric-depletion-kill-test v1: $W=|\omega|^2\alpha$, $\alpha=\xi^TS\xi$, no eigenframes}
-\author{ZFL-CX}\date{\today}\maketitle
-\section{Mission}
-$\boxed{T^*<\infty\Rightarrow C_J}$ $\boxed{C_E^{weak}\land C_{L^3}\land C_F^{conc}\land C_I^{freq}\land C_J\Rightarrow\int_0^{T^*}W_+<\infty\text{ or }\bot}$
-$W=\int|\omega|^2\alpha dx$, $\xi=\omega/|\omega|$, $\alpha=\xi^TS\xi$.
-\section{Attempt}
-$C_J^{Dir}: |\sin\varphi(\xi(x),\xi(y))|\le|x-y|/\rho(t)$. If $\rho\ge\rho_0$ then $|S|\lesssim\rho^{-1}$, $\alpha_+$ integrable. But under $T^*<\infty$, $\rho(t)\sim r_n\downarrow0$ from $C_F^{conc}+C_I^{freq}$, so bound degenerates.
-\section{Kill}
-KILLED: only Constantin-Fefferman/Deng-Hou-Yu qualitative, needs $\rho_0>0$ not consequence of $T^*$, controls $\alpha$ pointwise not $|\omega|^2\alpha$, no temporal integrability, compatible with $\int W_+=+\infty$.
-Proven necessary: $C_J^{neg}:\limsup\|\nabla\xi\|_{L^\infty(\{|\omega|>M\})}=+\infty$ loss of direction regularity.
+\title{J-01-CX-geometric-depletion-kill-test v1: $W=|\omega|^2\alpha$}\author{ZFL-CX}\date{\today}\maketitle
+$W=\int|\omega|^2\alpha$, $\alpha=\xi^TS\xi$, $\xi=\omega/|\omega|$. $C_J^{neg}:\limsup\|\nabla\xi\|_{L^\infty}=+\infty$ PROVEN necessary. KILLED as bridge: needs $\rho_0>0$, $\rho(t)\sim r_n\downarrow0$, no $W_+\le f$ integrable.
 \end{document}

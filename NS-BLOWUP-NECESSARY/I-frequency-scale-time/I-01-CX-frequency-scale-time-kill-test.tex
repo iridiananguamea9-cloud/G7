@@ -1,20 +1,8 @@
 \documentclass[11pt]{article}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage[margin=1in]{geometry}
-\newtheorem{theorem}{Theorem}
-\newtheorem{lemma}{Lemma}
 \begin{document}
-\title{I-01-CX-frequency-scale-time-kill-test v1: Frequency-scale-time $\Rightarrow$ upper bound on $W_+$}
-\author{ZFL-CX}\date{\today}\maketitle
-\section{Mission}
-$\boxed{T^*<\infty\Rightarrow C_I}$ \quad $\boxed{C_E^{weak}\land C_{L^3}\land C_F^{conc}\land C_I\Rightarrow\bot}$ \quad $\boxed{\text{Priority: }W_+\le f(C_I)}$
-Goal $W(t)=\int\det(\nabla u)$, $W_+=\max(W,0)$. $C_F^{conc}: \|u(t_n)\|_{L^3(B_{r_n})}\ge\varepsilon_0$.
-\section{Definition $C_I$}
-$N_c(t):=\inf\{N: \|P_{>N}u(t)\|_{L^3}\le\varepsilon_0/2\}$
-$\boxed{C_I^{freq}: \exists\eta_0>0,\exists N_n\to\infty,t_n\uparrow T^*,\|P_{N_n}u(t_n)\|_{L^3}\ge\eta_0}$
-$r_n=N_n^{-1}$.
-\section{Attempt $W_+\le f(C_I)$}
-$W=\sum N_1 N_2 N_3$ paraproduct. Attempt $|W|\lesssim\|u\|_{BMO}\|\nabla u\|_2^2$. $C_I$ does not control $BMO$.
-\section{Kill}
-KILLED if $C_I$ reformulation of $C_{L^3}$, only concentration $r_n\sim N_n^{-1}$ already in $C_F^{conc}$, reproduces $\varepsilon$-regularity, $W_+\le f$ with $f=+\infty$ possible, needs Type I, no $W_+$ link. All hold. No $W_+\le f(C_I)$ integrable.
+\title{I-01-CX-frequency-scale-time-kill-test v1}\author{ZFL-CX}\date{\today}\maketitle
+Mission $\boxed{C_E^{weak}\land C_{L^3}\land C_F^{conc}\land C_I\Rightarrow\bot}$, $W_+=\int(\omega^TS\omega)_+$.
+$C_I^{freq}: \exists\eta_0,N_n\to\infty,\|P_{N_n}u(t_n)\|_{L^3}\ge\eta_0$, $N_c\to\infty$. KILLED: only reformulation of $C_F^{conc}$, no $W_+\le f(C_I)$ with $\int f<\infty$.
 \end{document}

@@ -2,13 +2,6 @@
 \usepackage{amsmath,amssymb}
 \usepackage[margin=1in]{geometry}
 \begin{document}
-\title{K-01-CX-CKN-smallness-propagation-kill-test v1}
-\author{ZFL-CX}\date{\today}\maketitle
-\section{Mission}
-$\boxed{C_F^{conc}+C_{CKN}\stackrel{?}{\Rightarrow}\int_0^{T^*}W_+<\infty}$ $\boxed{W_+\le G(r,\varepsilon_0),\ \int^{T^*}G<\infty}$ must be proved, not assumed $r^{-3}$.
-\section{Barrier}
-CKN: $r^{-2}\iint_{Q_r}(|u|^3+|p|^{3/2})\le\varepsilon_{CKN}$ is SMALL/UPPER. F-01: $\|u(t_n)\|_{L^3(B_{r_n})}\ge\varepsilon_0$ is LOWER. No conversion. Pressure not controlled.
-Even if $L^\infty(Q_{r/2})\le C r^{-1}$ held away, $W_+\lesssim r_n^{-3}$, and $r_n\downarrow0$ gives $\int r_n^{-3}=+\infty$ without rate $r_n(t)\gtrsim(T^*-t)^\beta$ which needs Type I.
-\section{Kill}
-KILLED: F-01 lower vs CKN upper, local regularity not giving integrable $W_+$, $r^{-3}$ only dimensional, still $\int W_+=+\infty$ compatible.
+\title{K-01-CX-CKN-smallness-propagation-kill-test v1}\author{ZFL-CX}\date{\today}\maketitle
+Barrier: CKN $\boxed{r^{-2}\iint_{Q_r}(|u|^3+|p|^{3/2})\le\varepsilon_{CKN}}$ UPPER/SMALL vs F-01 $\boxed{\|u(t_n)\|_{L^3(B_{r_n})}\ge\varepsilon_0}$ LOWER. Even $W_+\lesssim r_n^{-3}$ gives $\int^{T^*}r_n^{-3}=+\infty$. KILLED.
 \end{document}
