@@ -1,0 +1,79 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+\title{CROSS-E-L3-G-CKN-01 v1: Cross Eweak + L3 + G-CKN concentration}
+\author{ZFL Lab}
+\begin{document}
+\maketitle
+
+INPUT:
+$C_E^{weak}$ = PROVEN: $T_*<\infty\implies \limsup_{t\to T_*}\int_0^t W = +\infty$, $W=\int \omega^T S\omega$.
+$C_{L^3}$ = PROVEN: $T_*<\infty\implies \limsup_{t\to T_*}\|u(t)\|_3=+\infty$.
+$C_G^{CKN}$ = PROVEN-CONDITIONAL ON CKN-1982: $\exists (x_*,T_*)$ singular, $\forall r\downarrow0$ small, $\mathcal{Q}(r):=r^{-2}\int_{Q_r(x_*,T_*)}|u|^3+|p|^{3/2}\ge\epsilon_{CKN}$, $Q_r=B_r\times(T_*-r^2,T_*)$, $\epsilon_{CKN}$ universal.
+$C_G^{L^3}$ = OPEN: $\exists t_n,x_n,r_n\downarrow0: \|u(t_n)\|_{L^3(B(x_n,r_n))}\ge\epsilon_0$.
+
+FORBIDDEN:
+$C_G^{CKN}\Rightarrow C_G^{L^3}$ without bridge.
+$C_{L^3}\Rightarrow C_G^{CKN}$ without bridge.
+CKN $\Rightarrow$ contradiction.
+Conditional result counted as PROVEN.
+
+MISSION: Cross $C_E^{weak}+C_{L^3}+C_G^{CKN}$.
+
+AUDIT:
+
+1. Logical compatibility:
+
+$C_E^{weak}$: space integral of stretching sign indefinite, cumulative diverging in limsup.
+$C_{L^3}$: global critical norm diverging in limsup.
+$C_G^{CKN}$: local space-time + pressure quantity bounded below near singular point.
+
+No direct logical incompatibility: can all hold simultaneously for same singular solution.
+$\boxed{C_E^{weak}\land C_{L^3}\land C_G^{CKN}\ \text{logically COMPATIBLE}}$
+
+2. Implication bridges:
+
+a) $C_E^{weak}\land C_{L^3}\Rightarrow C_G^{CKN}$?
+$C_E^{weak}$ from enstrophy, $C_{L^3}$ from ESS. $C_G^{CKN}$ requires CKN epsilon-regularity contrapositive. No theorem in $\mathcal{C}_{PROVEN}$ gives CKN. So implication NOT PROVEN without EXTERNAL CKN.
+$\boxed{C_E^{weak}\land C_{L^3}\not\Rightarrow C_G^{CKN}\ \text{without CKN dependency}}$
+
+b) $C_G^{CKN}\land C_{L^3}\Rightarrow C_E^{weak}$?
+$C_G^{CKN}$ gives local concentration, $C_{L^3}$ global. $C_E^{weak}$ is necessary from E-04. But $C_G^{CKN}\land C_{L^3}$ alone does not produce $W$ divergence. No bridge.
+$\boxed{C_G^{CKN}\land C_{L^3}\not\Rightarrow C_E^{weak}\ \text{without E-04}}$
+
+c) $C_G^{CKN}\Rightarrow C_E^{weak}$? No. $C_G^{CKN}$ controls $u,p$, not $W$ sign.
+
+Thus no circular implication proven.
+
+3. Scaling compatibility:
+
+$W$: scaling $[time]^{-3}$, $\int W\sim$ enstrophy growth.
+$\|u\|_3$: critical invariant.
+$\mathcal{Q}(r)$: critical invariant $r^{-2}\int_{Q_r}|u|^3$.
+All scale-critical, so compatible in scaling.
+$\boxed{\text{Scaling COMPATIBLE}}$
+
+4. CKN dependency propagation:
+
+$C_G^{CKN}$ remains CONDITIONAL. Cannot be elevated to PROVEN in $\mathcal{C}_{PROVEN}$.
+If we use $C_G^{CKN}$ in further CROSS, output must retain tag EXTERNAL-DEPENDENCY: CKN-1982.
+$\boxed{C_G^{CKN}=\text{CONDITIONAL ON CKN, not in }\mathcal{C}_{PROVEN}}$
+
+5. $\bot$?
+
+No contradiction derived from conjunction.
+$\boxed{\text{No }\bot\text{ from }C_E^{weak}\land C_{L^3}\land C_G^{CKN}}$
+
+OUTPUT:
+
+$\boxed{C_E^{weak}\land C_{L^3}\land C_G^{CKN}\ =\ \text{COMPATIBLE / OPEN}}$
+
+$\boxed{C_G^{L^3}\neq C_G^{CKN}\ \text{maintained}}$
+
+$\boxed{C_G^{CKN}\ \text{CONDITIONAL ON CKN, not promoted}}$
+
+Interpretation: Three singularity signals are mutually compatible. Bottleneck for contradiction lies in fourth structure: vorticity direction, pressure depletion, geometric alignment, or stronger $W_-$ control (E-strong-neg-02 blocked). No new PROVEN condition added to $\mathcal{C}_{PROVEN}=\{C_E^{weak},C_{L^3}\}$.
+
+Next front: geometry / depletion, not more conditions.
+
+\end{document}
