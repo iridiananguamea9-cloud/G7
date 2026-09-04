@@ -1,0 +1,78 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm,booktabs}
+\usepackage[margin=1in]{geometry}
+
+\title{G7-STATUS-FINAL-CLOSED-v1: Audit snapshot E-K}
+\author{ZFL-CX}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Frozen status}
+\begin{center}
+$\boxed{E=\mathrm{CLOSED},\quad F=\mathrm{CLOSED},\quad G=\mathrm{LOCKED},\quad H=\mathrm{CLOSED},\quad I=\mathrm{CLOSED/BLOCKED},\quad J=\mathrm{CLOSED/BLOCKED},\quad K=\mathrm{CLOSED/BLOCKED}}$
+\end{center}
+
+\section{Promoted collection}
+\begin{center}
+$\boxed{\mathcal C_{\mathrm{PROVEN}}=\{C_E^{weak},C_{L^3},C_F^{conc},C_I^{freq},C_J^{neg}\}}$
+\end{center}
+where
+\begin{itemize}
+\item $C_E^{weak}$: $T^*<\infty\Rightarrow \limsup\int_0^t W=+\infty\Rightarrow\int_0^{T^*}W_+=+\infty$, $W=\int\det(\nabla u)$, $W_+=\max(W,0)$.
+\item $C_{L^3}$: $T^*<\infty\Rightarrow \limsup_{t\uparrow T^*}\|u(t)\|_{L^3}=+\infty$ (ESS).
+\item $C_F^{conc}$ (F-01 PROVEN): $\exists\varepsilon_0>0$ univ, $\exists t_n\uparrow T^*,x_n,r_n\downarrow0$, $\|u(t_n)\|_{L^3(B_{r_n}(x_n))}\ge\varepsilon_0$.
+\item $C_I^{freq}$ (I-01 PROVEN as freq divergence): $\exists\eta_0>0$, $N_n\to\infty$, $t_n\uparrow T^*$, $\|P_{N_n}u(t_n)\|_{L^3}\ge\eta_0$, $N_c(t)\to\infty$, $r_n\sim N_n^{-1}$. KILLED as bridge to $\bot$ (no $W_+\le f(C_I)$ with $\int f<\infty$).
+\item $C_J^{neg}$ (J-01 PROVEN as loss): loss of direction regularity necessary, $\limsup_{t\uparrow T^*}\|\nabla\xi(t)\|_{L^\infty(\{|\omega|>M\})}=+\infty$, $\xi=\omega/|\omega|$, $W=\int|\omega|^2\alpha$, $\alpha=\xi^TS\xi$. Depletion $W_+\le f(C_J)$ not proven, compatible with $\int W_+=+\infty$.
+\item $C_H^{Lag}$ (H-01 PROVEN): Lagrangian concentration $\exists X(t)$ flow with concentration; PROVEN necessary but KILLED as bridge to $\bot$.
+\end{itemize}
+
+\section{Core remains OPEN}
+\begin{center}
+$\boxed{C_E^{weak}\land C_{L^3}\land C_F^{conc}\land C_I^{freq}\land C_J^{neg}\Rightarrow\bot\quad\text{OPEN/COMPATIBLE}}$
+\end{center}
+Currently:
+\[
+C_E^{weak}\Rightarrow\int_0^{T^*}W_+(t)dt=+\infty
+\]
+but no contradiction from F--K is established. I,J,K closed without producing $\int W_+<\infty$.
+
+\section{Audit table}
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Familia & Estado & Resultado \\
+\midrule
+E & CLOSED & $C_E^{weak}$ PROVEN, $C_E^{strong}$ not promoted \\
+F & CLOSED & $C_F^{conc}$ PROVEN necessary via ESS/Seregin concentration \\
+G & LOCKED & sin nueva condición promovida, pressure-velocity locked \\
+H & CLOSED & $C_H^{Lag}$ PROVEN necessary, KILLED as bridge \\
+I & CLOSED/BLOCKED & $C_I^{freq}$ PROVEN $N_c\to\infty$, KILLED as bridge (no $W_+\le f$) \\
+J & CLOSED/BLOCKED & $C_J^{neg}$ PROVEN loss of $\xi$-regularity, depletion quantitative fails \\
+K & CLOSED/BLOCKED & CKN does not produce bridge \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{K barrier: exact methodological incompatibility}
+CKN requires upper/smallness:
+\[
+\underbrace{r^{-2}\iint_{Q_r}(|u|^3+|p|^{3/2})}_{\text{CKN: SMALL/UPPER}}\le\varepsilon_{CKN}
+\]
+F-01 provides lower bound:
+\[
+\underbrace{\|u(t_n)\|_{L^3(B_{r_n}(x_n))}}_{\text{F-01: LOWER}}\ge\varepsilon_0
+\]
+Nature distinct: one needs smallness of space-time functional including pressure, other gives $L^3$-mass concentration lower bound at time slice. No conversion without extra hypothesis (Type I, pressure control) not consequence of $T^*<\infty$. Even if local $L^\infty$ from CKN held away from concentration, naive $W_+\lesssim r_n^{-3}$ gives $\int^{T^*}r_n^{-3}=\infty$ as $r_n\downarrow0$ without rate, so no $\int W_+<\infty$ or $\bot$.
+
+This is methodological incompatibility, not mathematical contradiction.
+
+\section{Final}
+\begin{center}
+$\boxed{\textbf{G7 STATUS: CLOSED — NO OUTSTANDING SUBBRANCHES}}$\\
+$\boxed{\mathcal C_{PROVEN}\text{ frozen, core }C_E^{weak}\land C_{L^3}\land C_F^{conc}\land C_I^{freq}\land C_J^{neg}\Rightarrow\bot\text{ remains OPEN}}$\\
+No claim ``NS regularity solved'' or ``blow-up impossible'' made.
+\end{center}
+
+\end{document}
