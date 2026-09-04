@@ -1,0 +1,48 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+\title{F-01-CX-L3-concentration-kill-test v1: does L3 divergence force stronger concentration incompatible with W+ divergence? Single kill audit}
+\author{ZFL Lab}
+\begin{document}
+\maketitle
+
+MISSION: Single kill test for new family F. Separate explicitly $C_{L^3}=\limsup\|u\|_3=\infty$ (PROVEN via ESS) from any additional space-time concentration claim. Search $T^*<\infty\Rightarrow C_F$ strictly stronger than $C_{L^3}$ involving scale+time+concentration that could yield $C_E^{weak}\land C_{L^3}\land C_F\Rightarrow\bot$ with $\int_0^{T^*}W_+=\infty$.
+
+INPUT: $\mathcal{C}_{PROVEN}=\{C_E^{weak}:\limsup_{t\uparrow T^*}\int_0^t W=\infty\Rightarrow\int_0^{T^*}W_+=\infty,\ C_{L^3}:\limsup_{t\uparrow T^*}\|u\|_3=\infty\}$, G locked, E-05->E-12 CLOSED/BLOCKED.
+
+FORBIDDEN:
+Assume $C_{L^3}\Rightarrow$ concentration; need proof.
+$C_F\equiv C_{L^3}$.
+Concentration possible not necessary.
+CKN/epsilon-regularity restatement without new necessary divergence.
+Qualitative link to $W_+$ only.
+Saving via F-02.
+
+AUDIT:
+
+1. Scale exact $L^3$: Navier-Stokes scaling $u^\lambda(x,t)=\lambda u(\lambda x,\lambda^2 t)$, $\|u^\lambda\|_3=\|u\|_3$ critical. ESS theorem $T_{max}<\infty\Rightarrow\limsup\|u\|_{L^3}=\infty$ for suitable weak solutions.
+
+Does $\limsup\|u\|_3=\infty$ imply $\exists t_n\uparrow T^*, x_n, r_n\downarrow0$ with $\|u(t_n)\|_{L^3(B_{r_n}(x_n))}\ge\epsilon_0$? Profile decomposition (Gallagher-Koch-Planchon) gives after rescaling $\lambda_n\downarrow0$, $\lambda_n u(\lambda_n\cdot+x_n,\lambda_n^2\cdot+t_n)\to U\neq0$, $\|U\|_3\ge\epsilon_*$.
+
+Formulate $C_F^{conc}$:
+$\boxed{\exists t_n\uparrow T^*, x_n, r_n\downarrow0: \|u(t_n)\|_{L^3(B_{r_n}(x_n))}\ge\varepsilon_0,\ r_n\sim\sqrt{T^*-t_n}}$
+
+2. Critical space-time CKN: singular point $z_0=(x_0,T^*)$ implies
+$\boxed{\limsup_{r\downarrow0} r^{-2}\int_{Q_r(z_0)}|u|^3+|p|^{3/2}\ge\varepsilon_0}$ call $C_F^{CKN}$.
+
+3. Incompatibility with $\int_0^{T^*}W_+=\infty$?
+
+$C_E^{weak}$ says $\frac12\|\omega(t)\|_2^2+\nu\int_0^t\|\nabla\omega\|_2^2=\frac12\|\omega_0\|_2^2+\int_0^t W$. Since $\limsup\int_0^t W=\infty$, $\int_0^{T^*}W_+=\infty$ regardless of concentration. Concentration does not bound $W_+$ above.
+
+Thus $\boxed{C_E^{weak}\land C_{L^3}\land C_F^{conc}\text{ compatible, no }\bot}$
+$\boxed{C_E^{weak}\land C_{L^3}\land C_F^{CKN}\text{ compatible, no }\bot}$
+
+Conclusion: $C_{L^3}$ does force some local concentration $C_F^{conc}$ and $C_F^{CKN}$, so $C_F$ is strictly stronger than $C_{L^3}$, but it is already known via profile / CKN, i.e., reproduces epsilon-regularity already known.
+
+Classification: OPEN as $C_F^{conc/CKN}$ strictly stronger than $C_{L^3}$, but KILLED as bridge to $\bot$ since $C_E^{weak}\land C_{L^3}\land C_F\not\Rightarrow\bot$.
+
+$\mathcal{C}_{PROVEN}$ could be extended to $\{C_E^{weak},C_{L^3},C_F^{conc}\}$ if we accept concentration as PROVEN, but central question $C_E^{weak}\land C_{L^3}\Rightarrow\bot$ remains OPEN.
+
+Next: decide if F-01 merits F-02 or move to H-01.
+
+\end{document}
