@@ -1,0 +1,114 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+\title{E-06-alignment-persistence v1: can dynamics sustain omega in compressive eigenspace of S?}
+\author{ZFL Lab}
+\begin{document}
+\maketitle
+
+MISSION: Audit whether Navier-Stokes dynamics can sustain vorticity in compressive eigenspaces of $S$, relevant to $W_-$ bottleneck.
+INPUT E-05: $\omega^T S\omega=\sum\lambda_i\omega_i^2$, $\sum\lambda_i=0$, $\frac12 D_t|\omega|^2=\omega^T S\omega+\frac{\nu}{2}\Delta|\omega|^2-\nu|\nabla\omega|^2$. $\mathcal{C}_{PROVEN}=\{C_E^{weak},C_{L^3}\}$.
+
+FORBIDDEN:
+CF alignment $\Rightarrow\xi\approx e_1$.
+Instantaneous alignment $\Rightarrow$ persistent alignment.
+$\eta_-$ small $\Rightarrow W_-\in L^1_t$ without quantitative estimate.
+Promotion to $C_E^{strong}$.
+
+AUDIT:
+
+1. Instantaneous geometry:
+
+Where $\omega\neq0$, define $\xi=\omega/|\omega|$, $\omega_i=\omega\cdot e_i(S)$, $\lambda_1\ge\lambda_2\ge\lambda_3$, $\sum\lambda_i=0$.
+\begin{equation*}
+\eta_i=\frac{\omega_i^2}{|\omega|^2}\ge0,\quad\sum\eta_i=1,\quad \frac{\omega^T S\omega}{|\omega|^2}=\sum\lambda_i\eta_i.
+\end{equation*}
+Define compressive fraction:
+\begin{equation*}
+\boxed{\eta_-(x,t)=\sum_{\lambda_i(x,t)<0}\eta_i(x,t)},\quad \eta_+(x,t)=1-\eta_-.
+\end{equation*}
+Then
+\begin{equation*}
+W(t)=\int |\omega|^2\sum\lambda_i\eta_i dx,\quad W_-(t)=\int |\omega|^2(\sum\lambda_i\eta_i)_- dx.
+\end{equation*}
+If $\lambda_3<0$ dominant, $(\sum\lambda_i\eta_i)_-\ge |\lambda_3|\eta_-$ modulo $\lambda_{1,2}$ cancellations. So
+\begin{equation*}
+\int \eta_-|\omega|^2 dx \text{ large } \Rightarrow W_- \text{ potentially large, unless }|\lambda_3|\text{ small.}
+\end{equation*}
+
+No bound on $\eta_-$ from $\operatorname{tr}S=0$ alone. Spectral constraint only says at least one $\lambda_i\ge0$, not that $\eta_-$ small.
+
+2. Dynamic persistence:
+
+Vorticity equation: $D_t\omega=S\omega+\Omega\omega+\nu\Delta\omega$, $\Omega$ skew (rotation, preserves $|\omega|$).
+For $\xi$, formally where $\omega\neq0$,
+\begin{equation*}
+D_t\xi = S\xi -(\xi^T S\xi)\xi + \Omega\xi + \nu\Delta\xi + 2\nu|\nabla\xi|^2\xi + \text{ lower terms from } \nabla|\omega|.
+\end{equation*}
+Exact form: projection of $S\xi$ onto tangent of $S^2$: $P_{\xi^\perp}S\xi$. So $S$ drives $\xi$ toward $e_1$ (max $\lambda$) via $S\xi-(\xi^T S\xi)\xi$.
+
+Thus mechanism: stretching tends to align $\xi$ with $e_1$, which would make $\eta_-\to0$. But $\Omega$, transport, and diffusion $\nu\Delta\xi$ can counteract.
+
+Key question: can dynamics maintain $\xi\approx e_3$ for significant time interval near $T_*$?
+\begin{equation*}
+\boxed{\text{Persistence question: } \int_{T_*-\delta}^{T_*}\int \eta_-|\omega|^2 dx dt \stackrel{?}{\text{ can be large}}}
+\end{equation*}
+
+No result in PROVEN gives answer. CF requires $\nabla\xi$ bounded to prevent blow-up, not that $\xi\to e_1$. DHY requires bounded curvature of vortex lines, not alignment.
+
+3. Two target structures:
+
+Structure A (control $W_-$ by small $\eta_-$):
+\begin{equation*}
+\boxed{\eta_-\le\delta \Rightarrow W_-(t)\le C(\delta)\int |\lambda_3|_-|\omega|^2}.
+\end{equation*}
+If $|\lambda_3|$ controlled by $\|\nabla u\|$, still no $L^1_t$. Needs $|\lambda_3|\in L^1_t$ weighted by $|\omega|^2$, not given.
+
+But if $\eta_-\le\delta$ pointwise with small $\delta$, then $\sum\lambda_i\eta_i\ge (1-\delta)\lambda_1+\delta\lambda_3$. Since $\lambda_1=-(\lambda_2+\lambda_3)$, not automatically $\ge0$ unless $\lambda_2$ small. So even $\eta_-$ small does not guarantee $W_-\in L^1$ without eigenvalue magnitude control.
+
+Structure B (compressive persistence restricts growth):
+From enstrophy identity:
+\begin{equation*}
+\frac12\frac{d}{dt}\|\omega\|_2^2 = W_+ - W_- -\nu\|\nabla\omega\|_2^2\text{? Wait sign: }W -\nu\|\nabla\omega\|_2^2.
+\end{equation*}
+Actually $W=W_+-W_-$, so $\frac12\frac{d}{dt}\|\omega\|_2^2 = W_+-W_- -\nu\|\nabla\omega\|_2^2$? No, correct: $\frac12\frac{d}{dt}\|\omega\|_2^2 = W -\nu\|\nabla\omega\|_2^2 = W_+-W_--\nu\|\nabla\omega\|_2^2$.
+
+If dynamics forces $\omega$ in compressive region, then $W_+$ small, so $\frac{d}{dt}\|\omega\|_2^2\le -2W_- -2\nu\|\nabla\omega\|_2^2\le0$, i.e., enstrophy decreasing. But $C_E^{weak}$ requires $\int W_+=\infty$, which implies enstrophy must grow in some sense? Actually from $C_E^{weak}$ we have $\limsup\int_0^t W=+\infty$, which with $W= \frac12\frac{d}{dt}\|\omega\|_2^2+\nu\|\nabla\omega\|_2^2$ implies $\|\omega\|_2^2+\int\nu\|\nabla\omega\|^2$ unbounded? Let's check: $\int_0^t W = \frac12\|\omega(t)\|_2^2-\frac12\|\omega(0)\|_2^2+\nu\int_0^t\|\nabla\omega\|_2^2$. So $\int W_+=\infty$ does not directly force growth if $W_-$ large, but $\int W =\infty$ from $C_E^{weak}$ does force $\frac12\|\omega\|_2^2+\nu\int\|\nabla\omega\|_2^2\to\infty$.
+
+Thus: if persistent compressive alignment makes $W\le0$, then $\frac{d}{dt}\|\omega\|_2^2\le0$ modulo diffusion? Actually $W\le0$ implies enstrophy decreasing if $\nu>0$. That would contradict $\int W =\infty$ which requires overall positive $W$ average diverging.
+
+Hence we get potential incompatibility:
+
+$\boxed{\text{Persistent }\eta_-\approx1 \Rightarrow W\le0\text{ on average}\Rightarrow \int W\text{ bounded}\Rightarrow\text{contradiction with }C_E^{weak}}$
+
+But this is not rigorous without quantifying $\lambda_i$ magnitudes: if $\omega$ sits where $|\lambda_3|$ small, $W$ could still be small but not negative large.
+
+So Structure B yields:
+
+$\boxed{\text{Compressive persistence }\Rightarrow\text{ restriction on growth of }|\omega|\text{, not yet }W_-\in L^1_t}$
+
+4. Forbidden jumps avoided:
+
+No CF $\Rightarrow\xi\approx e_1$. CF gives regularity of $\xi$, not alignment.
+No instantaneous $\eta_-$ small $\Rightarrow$ persistent small.
+No $\eta_-$ small $\Rightarrow W_-\in L^1_t$ without temporal bound on $\lambda$.
+
+OUTPUT:
+
+$\boxed{\eta_-=\sum_{\lambda_i<0}\omega_i^2/|\omega|^2\text{ exact diagnostic of compressive fraction}}$
+
+$\boxed{\frac{\omega^T S\omega}{|\omega|^2}=\sum\lambda_i\eta_i\text{ exact}}$
+
+$\boxed{D_t\xi\text{ driven by }P_{\xi^\perp}S\xi+\Omega\xi+\nu\Delta\xi\text{ — alignment with }e_1\text{ is tendency, not guarantee}}$
+
+$\boxed{\text{Persistent compressive alignment }\Rightarrow\frac{d}{dt}\|\omega\|_2^2\text{ suppressed, tension with }C_E^{weak}:\int_0^{T_*}W=\infty}$
+
+$\boxed{\text{No proof that dynamics can sustain }\eta_-\approx1\text{ near }T_*\text{ — OPEN/BLOCKED}}$
+
+$\boxed{\text{Neither Structure A nor B gives }W_-\in L^1_t\text{ without extra quantitative control of }\lambda_i(t)}$
+
+$\mathcal{C}_{PROVEN}=\{C_E^{weak},C_{L^3}\}$ intact. No new $C$ added. G remains locked at 0a37811.
+
+Next experiment: quantitative estimate for $D_t\eta_-$ using $S,\Omega,\nu\Delta$ terms, to test if diffusion destroys compressive persistence.
+
+\end{document}
