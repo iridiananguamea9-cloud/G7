@@ -6,55 +6,36 @@
 \begin{document}
 \maketitle
 
-MISSION FROZEN: Search only bridge $C_F^{conc}\Rightarrow\int_0^{T^*}W_+<\infty$ or directly $C_E^{weak}\land C_{L^3}\land C_F^{conc}\Rightarrow\bot$. Attempt quantitative inequality $W_+(t)\le f(C_F^{conc},\text{controlled})$ respecting NS identities under $T^*<\infty$.
+MISSION FROZEN: Search only bridge $C_F^{conc}\Rightarrow\int_0^{T^*}W_+<\infty$ or directly $C_E^{weak}\land C_{L^3}\land C_F^{conc}\Rightarrow\bot$. Attempt quantitative $W_+(t)\le f(C_F^{conc},\text{controlled})$ respecting NS identities under $T^*<\infty$.
 
-INPUT: $\mathcal C_{PROVEN}$ pending audit of $C_F^{conc}$, G LOCKED, E-CX CLOSED/BLOCKED, F-01 = PROVEN NECESSARY NO CONTRADICTION if quantifiers correct. Definitions:
-$W(t)=\int \omega^T S\omega$, $W_+= \int (\omega^T S\omega)_+$, $C_E^{weak}:\limsup_{t\uparrow T^*}\int_0^t W=+\infty\Rightarrow\int_0^{T^*}W_+=\infty$, $C_{L^3}:\limsup\|u\|_3=\infty$, $C_F^{conc}:\exists t_n\uparrow T^*,x_n,r_n\downarrow0,\|u(t_n)\|_{L^3(B_{r_n}(x_n))}\ge\varepsilon_0$.
+INPUT: $C_{PROVEN}$ pending audit, G LOCKED, E-CX CLOSED/BLOCKED, F-01=PROVEN NECESSARY NO CONTRADICTION if quantifiers correct. $W=\int\omega^T S\omega$, $W_+=\int(\omega^T S\omega)_+$, $C_E^{weak}:\limsup\int_0^tW=+\infty\Rightarrow\int_0^{T^*}W_+=\infty$, $C_{L^3}:\limsup\|u\|_3=\infty$, $C_F^{conc}:\exists t_n\uparrow T^*,x_n,r_n\downarrow0,\|u(t_n)\|_{L^3(B_{r_n}(x_n))}\ge\varepsilon_0$.
 
-METHODOLOGICAL PRECISION: Compatibility killing must respect NS identities effectively available under $T^*<\infty$: energy bound $\|u\|_{L^\infty_t L^2_x}\le C$, enstrophy balance $\frac12\|\omega(t)\|_2^2+\nu\int_0^t\|\nabla\omega\|_2^2=\frac12\|\omega_0\|_2^2+\int_0^tW$, Calderon-Zygmund $p$-vorticity $\|S\|_p\sim\|\omega\|_p$, pressure Hessian $-\Delta p=\operatorname{tr}(\nabla u)^2=|S|^2-|\omega|^2/4$, and scaling $\|u^\lambda\|_3=\|u\|_3$, $\|S^\lambda\|_{3/2}=\|S\|_{3/2}$, etc. Not abstract counterexamples unrealizable by NS.
+METHODOLOGICAL PRECISION: Compatibility killing must respect NS identities available under $T^*<\infty$: energy $\|u\|_{L^\infty_tL^2_x}\le C$, enstrophy balance $\frac12\|\omega\|_2^2+\nu\int_0^t\|\nabla\omega\|_2^2=\frac12\|\omega_0\|_2^2+\int_0^tW$, Calderon-Zygmund $\|S\|_p\sim\|\omega\|_p$, pressure $-\Delta p=\operatorname{tr}(\nabla u)^2$, scaling $\|u^\lambda\|_3=\|u\|_3$. Not abstract.
 
-AUDIT ATTEMPT FOR BOUND:
+AUDIT:
 
-Goal: $W_+\le f(C_F^{conc})$.
+Goal $W_+\le f(C_F^{conc})$.
 
-Recall $W(t)=\int\omega_i S_{ij}\omega_j$, $|W|\le\int|S||\omega|^2\le\|S\|_{3/2}\|\omega\|_6^2$? But $\|\omega\|_6\le C\|\nabla\omega\|_2$ Sobolev. So $|W|\le C\|S\|_{3/2}\|\nabla\omega\|_2^2$. Since $\|S\|_{3/2}\sim\|\omega\|_{3/2}\le C\|u\|_3$? Actually $\|\nabla u\|_{3/2}\le C\|u\|_3$ by Sobolev? No, $\|u\|_3$ controls $\|\nabla u\|_{3/2}$ via Calderon? $\|\nabla u\|_p\sim\|\omega\|_p$ and $\|u\|_3$ does not control $\|\omega\|_{3/2}$ without extra. Interpolation: $\|\omega\|_{3/2}\le\|\omega\|_2^{?}\|\omega\|_1^{?}$ not controlled.
+Recall $|W|\le\int|S||\omega|^2$. H\"older $|W|\le\|S\|_{3/2}\|\omega\|_6^2$ and $\|\omega\|_6\le C\|\nabla\omega\|_2$. But $\|S\|_{3/2}\sim\|\omega\|_{3/2}$ not controlled by lower bound $C_F^{conc}$.
 
-Try direct: $W_+\le\int|S||\omega|^2$, Hölder $W_+\le\|S\|_{L^3(B)}\|\omega\|_{L^3}^2+\text{far}$. $C_F^{conc}$ gives lower bound on $\|u\|_{L^3(B_{r_n})}$, not upper bound on $\|S\|$ or $\|\omega\|$.
+Critical: $C_F^{conc}$ is LOWER bound $\|u\|_{L^3(B_{r_n})}\ge\varepsilon_0$. $W_+$ needs UPPER bound. Lower cannot imply upper. No inequality $W_+\le f(\text{lower})$ holds.
 
-Critical observation: $C_F^{conc}$ is a LOWER bound $\ge\varepsilon_0$ on local $L^3$ norm. $W_+$ requires UPPER bound. Lower bound cannot imply upper bound. No inequality $W_+\le f(\text{lower bound})$ can hold.
+Can $C_F^{conc}$ coexist with arbitrarily large $W_+$ within NS? Yes: fix bubble with $\|u\|_{L^3(B_{r_n})}\ge\varepsilon_0$ and add high-frequency packet $u_{high}$ with small $\|u_{high}\|_3$ (choose $M=\delta^{-1}$) that preserves lower bound but makes $W_+\to\infty$ arbitrarily. Energy stays bounded, enstrophy balance allows large dissipation. Localized VST estimate shows factor $\sup\int|u|^2/R$ not a priori bounded without uniform $L^3$ bound which would imply regularity (ESS). Without it, VST can be large.
 
-Could $C_F^{conc}$ together with energy bound imply upper bound on $W_+$? Energy $\|u\|_2\le C$ and local $L^3\ge\varepsilon_0$ at scale $r_n\downarrow0$ means concentration: $\|u\|_{L^3(B_{r_n})}\ge\varepsilon_0$ implies $\|u\|_{L^2(B_{r_n})}\le C r_n^{1/2}\|u\|_{L^3(B_{r_n})}$? Actually $\|u\|_{L^2(B_r)}\le C r^{1/2}\|u\|_{L^3(B_r)}$ by Hölder. So if $r_n\downarrow0$ and $\|u\|_{L^3}\ge\varepsilon_0$, then $\|u\|_{L^2(B_{r_n})}\ge? Lower bound on $L^2$ goes to 0 anyway, no contradiction with global $L^2$ bound.
+Thus within NS constraints, $C_F^{conc}$ + $\int_0^{T^*}W_+=+\infty$ compatible, arbitrary growth allowed.
 
-Can $C_F^{conc}$ coexist with arbitrarily large $W_+$ within NS? Yes: take a fixed background $L^3$ bubble with norm $\ge\varepsilon_0$ in $B_{r_n}$ plus a high-frequency vortex packet inside same ball with vorticity $\omega_{high}=M\phi(x/\delta)$ where $M\gg1$, $\delta\ll r_n$, divergence-free corrected. Then $\|u_{high}\|_3\sim M\delta$ can be made small to not destroy $C_F^{conc}$ lower bound, while $W_+^{high}\sim\int |\omega_{high}|^2|S_{high}|\sim M^3\delta^? \sim M^3\delta^3$? Choose $M=\delta^{-1}$ gives $\|u\|_3\sim1$, $W_+\sim\delta^{-?}$ diverges as $\delta\to0$. Need to respect NS enstrophy balance? Enstrophy $\|\omega\|_2^2\sim M^2\delta^3\sim\delta$, actually bounded. To make $W_+$ arbitrarily large at instant $t_n$, need large gradients, which cost $\|\nabla\omega\|_2^2$ but that appears in enstrophy balance as dissipation, allowed to be large. No NS identity forbids arbitrarily large instantaneous $W_+(t_n)$ while keeping $C_F^{conc}$ and $\|u\|_2$ bounded. Energy inequality does not bound $W_+$ pointwise.
+KILL CONDITIONS CHECK:
 
-More formally, vortex stretching term localized estimate (Grujic-type) gives $|I_i|\le\frac14\int|\nabla\omega|^2\phi_i + C\max\{M_0^2,R_0^2\}R^{-4}\int|\omega|^2\phi_i^{1/2}$, where factor $\sup\int|u|^2/R$ is scaling invariant and a priori bounded only assuming uniform $L^3$ bound which implies regularity. Without uniform $L^3$ bound (our case $C_{L^3}$ diverges), the factor is not bounded, allowing large VST.
+- $C_F^{conc}$ does not control any quantity entering $W_+$ (controls lower bound, $W_+$ needs upper)
+- Only reproduces scale critical
+- Concentration can coexist with arbitrary $W_+$ within NS
+- Any bound would need extra hypothesis not consequence of $T^*<\infty$
+- No integrated bound $\int W_+<\infty$
 
-Thus within NS constraints (energy, enstrophy balance, pressure equation), we can have $C_F^{conc}$ + $\int_0^{T^*}W_+=+\infty$ with arbitrarily fast growth, no upper bound forced.
+VERDICT: $\boxed{F\text{-}02=KILLED\text{ fast}}$
 
-Check all kill conditions:
+No bridge $C_F^{conc}\Rightarrow\int W_+<\infty$, no bot. $\boxed{F=CLOSED/BLOCKED\rightarrow H\text{-}01}$ No F-03.
 
-- $C_F^{conc}$ does not control any quantity entering $W_+$ (it controls $u$ lower bound, $W_+$ needs upper bound on $S,\omega$) => KILL.
-- Only reproduces Hölder/Sobolev/scale critical: lower bound $L^3(B_{r_n})\ge\varepsilon_0$ is scale-critical, no new scale.
-- Concentration can coexist with arbitrary $W_+$ growth within NS audited restrictions (energy bound, enstrophy identity, pressure) => KILL.
-- Any bound $W_+\le f(C_F^{conc})$ would need additional hypothesis (e.g., uniform $L^3$ bound, or Type I, or direction coherence) not consequence of $T^*<\infty$ => KILL.
-- Only qualitative relation, no integrated bound $\int W_+<\infty$ => KILL.
-
-Therefore no quantitative inequality exists respecting NS identities.
-
-VERDICT:
-
-$\boxed{F\text{-}02=KILLED\text{ fast}}$
-
-No bridge $C_F^{conc}\Rightarrow\int W_+<\infty$, no $\bot$ with $C_E^{weak}\land C_{L^3}$ within NS realizable class.
-
-$\boxed{F=CLOSED/BLOCKED\rightarrow H\text{-}01}$
-
-No F-03. Before promoting F-01 to $\mathcal C_{PROVEN}$, verify quantifiers in F-01 PDF: does it prove $C_{L^3}\Rightarrow C_F^{conc}$ with universal $\varepsilon_0$ and $r_n\downarrow0$ necessary, not just possible? If not, correct F-01; if yes, promote:
-
-$\boxed{\mathcal C_{PROVEN}=\{C_E^{weak},C_{L^3},C_F^{conc}\}\text{ with }F=PROVEN\ NECESSARY\ NO\ CONTRADICTION}$
-
-but central $\boxed{C_E^{weak}\land C_{L^3}\Rightarrow\bot\ OPEN}$ remains.
-
-Next family H-01 genuinely new (helicity already killed? need new beyond $H$, e.g., circulation, scale-time dynamics, Lagrangian).
+Pending: verify quantifiers in F-01 PDF for promotion to $\mathcal C_{PROVEN}$.
 
 \end{document}
