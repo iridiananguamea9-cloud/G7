@@ -1,0 +1,90 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+\title{E-11-CX-nabla-xi v1: direction regularity and coercive dissipation audit}
+\author{ZFL Lab}
+\begin{document}
+\maketitle
+
+MISSION: Test if $\xi=\omega/|\omega|$, $|\nabla\xi|$ provides $C_X$ or $W_-$ control via diffusion coercivity, without $e_i$ frame. Kill fast if no link to $W_-$ divergence.
+
+INPUT: $\mathcal{C}_{PROVEN}=\{C_E^{weak},C_{L^3}\}$, E-05 to E-10 BLOCKED/KILLED, G locked. No spectral $e_i$.
+
+FORBIDDEN:
+$e_i,\lambda_i,\eta_-$ pointwise alignment reuse.
+$|\nabla\xi|\in L^p\Rightarrow$ regularity without $W_-$ link.
+Helicity $H$ import.
+$C_E^{weak}\Rightarrow C_E^{strong}$.
+
+AUDIT:
+
+1. Exact vorticity direction equation:
+
+$\xi=\omega/|\omega|$ where $|\omega|>0$. Then $\omega=|\omega|\xi$.
+
+Vorticity: $D_t\omega=S\omega+\nu\Delta\omega$.
+
+Take $D_t|\omega| = (\xi^T S\xi)|\omega| + \nu\xi\cdot\Delta\omega$.
+
+But $\Delta\omega = \Delta(|\omega|\xi)= \xi\Delta|\omega|+2\nabla|\omega|\cdot\nabla\xi+|\omega|\Delta\xi$.
+
+Project orthogonal to $\xi$: $D_t\xi = S\xi-(\xi^T S\xi)\xi + \nu(\Delta\xi+2\frac{\nabla|\omega|}{|\omega|}\cdot\nabla\xi + |\nabla\xi|^2\xi)$ plus terms preserving $|\xi|=1$.
+
+Key identity for enstrophy diffusion:
+
+$\nu\int |\nabla\omega|^2 = \nu\int |\nabla|\omega||^2 + \nu\int |\omega|^2|\nabla\xi|^2$.
+
+Thus
+\begin{equation*}
+\boxed{\nu\|\nabla\omega\|_2^2 = \nu\|\nabla|\omega|\|_2^2 + \nu\int |\omega|^2|\nabla\xi|^2}
+\end{equation*}
+Coercive term: $\nu\int |\omega|^2|\nabla\xi|^2$ appears in dissipation.
+
+2. Link to $W$:
+
+$W=\int |\omega|^2 (\xi^T S\xi)$.
+
+No direct $|\nabla\xi|$ in $W$. But evolution of $\xi$ contains $S\xi-(\xi^T S\xi)\xi$.
+
+If $|\nabla\xi|$ large, vorticity direction highly oscillatory, diffusion large: term $\nu\int|\omega|^2|\nabla\xi|^2$ consumes enstrophy production. From enstrophy balance:
+
+$\frac12\frac{d}{dt}\|\omega\|_2^2 = W -\nu\|\nabla|\omega|\|_2^2 -\nu\int|\omega|^2|\nabla\xi|^2$.
+
+Thus
+\begin{equation*}
+\boxed{W = \frac12\frac{d}{dt}\|\omega\|_2^2 + \nu\|\nabla|\omega|\|_2^2 + \nu\int|\omega|^2|\nabla\xi|^2}.
+\end{equation*}
+
+Compare with original $W=\frac12\dot{}+\nu\|\nabla\omega\|_2^2$, consistent.
+
+Now $W_-$? From identity, $W_- \le$? From identity, $W = \text{positive dissipation}+ \frac12\dot{}$, so if $\int W\to\infty$, then $\int \nu|\omega|^2|\nabla\xi|^2$ may also diverge, but both positive. No sign separation.
+
+Consider: $W_+ - W_- = \frac12\dot{}+D_1+D_2$ where $D_2=\nu\int|\omega|^2|\nabla\xi|^2\ge0$.
+
+Thus $W_+ = W_- + \frac12\dot{}+D_1+D_2$. If $W_-$ diverges in $L^1$, $W_+$ must diverge even more to keep RHS divergence. No contradiction, both may diverge together.
+
+Need lower bound for $W_-$ via $|\nabla\xi|$? Not found.
+
+Thus $|\nabla\xi|$ provides coercive dissipation but not sign separation for $W_-$.
+
+Potential $C_X$ from CF/DHY: If $\|\nabla\xi\|_\infty$ controlled, then $W_-$ bounded? CF: if direction regular in high vorticity region, no blow-up. This uses $|\nabla\xi|$ bounded.
+
+But no $L^1_t$ bound from PROVEN.
+
+Output:
+
+$\boxed{\nu\|\nabla\omega\|_2^2 = \nu\|\nabla|\omega|\|_2^2 + \nu\int|\omega|^2|\nabla\xi|^2\text{ EXACT}}$
+
+$\boxed{W = \frac12\frac{d}{dt}\|\omega\|_2^2 + \nu\|\nabla|\omega|\|_2^2 + \nu\int|\omega|^2|\nabla\xi|^2}$
+
+$\boxed{\text{Coercive } \nu\int|\omega|^2|\nabla\xi|^2\ge0\text{ appears, but }W_- \text{ not controlled by it}}$
+
+$\boxed{C_E^{weak}\Rightarrow \frac12\|\omega\|_2^2+\nu\int\|\nabla|\omega|\|_2^2+\nu\int|\omega|^2|\nabla\xi|^2\to\infty\text{, no contradiction with }W_-\text{ divergence}}$
+
+Classification: PARTIAL/OPEN — geometric depletion gives dissipation structure, but no $W_-\in L^1_t$ or $C_X$ necessarily divergent beyond PROVEN found in single audit. Needs stronger direction regularity assumption not in PROVEN.
+
+$\mathcal{C}_{PROVEN}$ remains $\{C_E^{weak},C_{L^3}\}$. Branch not killed fully like E-10, but no signal for $W_-$ separation; mark as OPEN/CANDIDATE requiring extra assumption $|\nabla\xi|\le K|\omega|$ etc which is not PROVEN.
+
+Next: helicity $H$ third priority, or formal closure of Phase E-CX as BLOCKED.
+
+\end{document}
