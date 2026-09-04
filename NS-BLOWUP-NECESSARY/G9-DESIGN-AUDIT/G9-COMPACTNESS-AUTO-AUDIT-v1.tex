@@ -1,0 +1,90 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\begin{document}
+\title{G9-COMPACTNESS-AUTO-AUDIT-v1: Does $T^*<\infty$ $\Rightarrow$ suitable-weak compactness of $u_n$?}
+\author{ZFL-CX}\date{\today}\maketitle
+
+\[
+\boxed{G7=FROZEN,\ G8=CLOSED/BLOCKED,\ G9\text{-CHECK12}=BLOCKED\text{ at Step2}}
+\]
+\[
+\boxed{Q: T^*<\infty \stackrel{?}{\Rightarrow} u_n=r_nu(x_n+r_ny,t_n+r_n^2s)\to\bar u}
+\]
+No Type I, no $L^\infty_tL^3$, no $\bar\alpha>0$, no profile hypothesis, no artificial $r_n$ rate.
+
+\section{Scaling of Leray-Hopf bounds - supercriticality}
+For $u_n=r_n u(x_n+r_ny,t_n+r_n^2s)$:
+\[
+\int_{B_R}|u_n(y,s)|^2dy = r_n^{-1}\int_{B_{r_nR}(x_n)}|u(x,t_n+r_n^2s)|^2dx.
+\]
+Global bound $\|u\|_{L^\infty_tL^2_x}^2\le E_0$ gives only:
+\[
+\|u_n(s)\|_{L^2(B_R)}^2\le r_n^{-1}E_0\to+\infty.
+\]
+Similarly $\int_{-S}^0\|\nabla u_n\|_{L^2(B_R)}^2ds = r_n^{-1}\int\|\nabla u\|_{L^2(B_{r_nR})}^2dt$.
+Thus Leray-Hopf global energy is supercritical: does NOT give uniform local bound after blow-up scaling.
+
+Consequence: $\boxed{\text{suitable-weak existence }\neq\text{ compactness of blow-up sequence}}$.
+
+Local energy inequality for suitable $u$:
+\[
+\|u(t)\|_{L^2(B_r)}^2+\int\|\nabla u\|^2 \le C r \cdot (\text{terms}) + \text{pressure}.
+\]
+Scaling: RHS $\sim r$, LHS after scaling $\sim r^{-1}$ factor. No automatic $C(R,S)$.
+
+\section{Gate 1: Existence of limit}
+Question: Does there exist $R,S$ s.t. $\|u_n\|_{L^\infty_tL^2(B_R)}+\|\nabla u_n\|_{L^2(B_R\times(-S,0))}+ \|p_n\|_{L^{3/2}}\le C(R,S)$ uniformly?
+
+With only $T^*<\infty$ + $C_E^{weak}$ (suitable), answer: NO in general. Known blow-up constructions (Escauriaza-Seregin-Sverak) require Type I $r_n\sim\sqrt{T^*-t_n}$ to get uniform local energy bound. Without it, $r_n^{-1}E_0$ blows up.
+
+Possible rescue: Use $\varepsilon$-regularity + smallness of scaled energy? At singular point, scaled energy $\limsup r^{-1}\int_{B_r}|u|^2 \ge \varepsilon_{CKN}$. This gives LOWER bound, not upper.
+
+Thus Gate1 requires additional quantitative small-scale control beyond $\mathcal C_{PROVEN}$. With only $\{C_E^{weak},C_{L^3},C_F^{conc},C_I^{freq},C_J^{neg}\}$, $\boxed{\text{Gate1 = BLOCKED}}$.
+
+Exception: If $r_n$ chosen to balance local $L^2$ mass, i.e., $r_n^{-1}\int_{B_{r_n}}|u(t_n)|^2 \sim1$, then uniform $L^2(B_1)$ holds by construction, but then $r_n$ is no longer linked to $C_F^{conc}$ scale $\|u\|_{L^3(B_{r_n})}\ge\varepsilon_0$ nor to $N_c^{-1}$. So scale coincidence not proved.
+
+\section{Gate 2: Preservation of concentration}
+Assume for contradiction Gate1 passed with $u_{n_k}\rightharpoonup\bar u$ weakly in $L^2_{loc}$ or weak-* suitable.
+
+We have:
+\[
+\|u_n(0)\|_{L^3(B_1)}=\|u(t_n)\|_{L^3(B_{r_n})}\ge\varepsilon_0.
+\]
+Weak convergence $u_n\rightharpoonup\bar u$ in $L^2$ does NOT preserve $L^3(B_1)$ lower bound. $L^3$ norm is not weakly continuous; concentration can vanish via oscillation or escape to frequency $N_c\to\infty$.
+
+$C_I^{freq}$ says frequency diverges, which actually threatens preservation: energy may move to $|\xi|\gg r_n^{-1}$, invisible to weak $L^2$ limit.
+
+Thus even IF Gate1 held, we need strong convergence $u_n\to\bar u$ in $L^3_{loc}$ or at least $L^3(B_1)$ lower semicontinuity with concentration retained. This requires uniform $L^3$ bound + compactness (Rellich), which we lack.
+
+Hence:
+\[
+\boxed{\text{weak }u_n\rightharpoonup\bar u \not\Rightarrow \|\bar u\|_{L^3(B_1)}\ge\varepsilon_0}
+\]
+\[
+\boxed{\text{concentration }\not\Rightarrow\text{ preserved under weak limit}}
+\]
+
+\section{ZFL verdict}
+\[
+\boxed{\text{Gate1 (existence of suitable-weak limit with uniform local bounds)} = \text{BLOCKED with }\mathcal C_{PROVEN}}
+\]
+\[
+\boxed{\text{Gate2 (preservation of }\varepsilon_0\text{)} = \text{BLOCKED even if Gate1 rescued, without }L^3_{loc}\text{ strong convergence}}
+\]
+Therefore:
+\[
+\boxed{G9\text{ direct }T^*<\infty\Rightarrow\bar u\text{ ancient non-trivial } = BLOCKED}
+\]
+
+This is excellent ZFL result: we did not spend time fabricating ancient profile that current hypotheses cannot build.
+
+Next only if new critical-scale bound producing compactness is discovered, or different mechanism giving weak compactness + rigidity without full critical bound. No hypothesis smuggling.
+
+\[
+\boxed{G7\ FROZEN \to G8\ CLOSED \to G9\text{-CHECK12 BLOCKED} \to G9\text{-AUTO-COMPACTNESS BLOCKED}}
+\]
+\[
+\boxed{STOP = PROGRESO}
+\]
+\end{document}
