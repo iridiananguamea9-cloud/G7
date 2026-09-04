@@ -13,43 +13,37 @@ TARGET: $C_G$: $\exists t_n\uparrow T_*, x_n, r_n\downarrow0: \|u(t_n)\|_{L^3(B(
 AUDIT:
 
 1. What ESS-2003 actually proves:
-Theorem ESS: If $u$ is suitable weak solution in $R^3\times(-1,0)$ with $\|u\|_{L^\infty_t L^3_x}\le M <\infty$, then $u$ is regular up to 0. Contrapositive gives $C_{L^3}$: $T_*<\infty\implies \limsup\|u\|_3=\infty$.
-It does NOT directly state local ball lower bound with $r_n\to0$.
+If $u$ suitable weak in $R^3\times(-1,0)$ with $\|u\|_{L^\infty_t L^3_x}\le M<\infty$, then regular up to 0. Contrapositive gives $C_{L^3}$.
 
-2. Does ESS => $C_G$?
-ESS gives global blow-up criterion, not localized mass. To get $C_G$ need additional concentration-compactness argument:
-Rescale near blow-up times, extract profile. If no concentration, scaling limit would be bounded $L^3$ solution that is regular, contradicting blow-up. This requires backward uniqueness + Carleman estimates already in ESS, but also profile decomposition lemma that is not stated as $C_G$ in ESS paper.
+2. Does ESS imply $C_G$?
+ESS gives global criterion, not local ball lower bound with $r_n\to0$.
+To get $C_G$ need concentration-compactness: rescale near blow-up, extract profile. If no concentration, scaling limit would be bounded $L^3$ regular, contradicting blow-up. Requires backward uniqueness + profile decomposition, not stated as $C_G$ in ESS.
 
 Thus:
-$\boxed{\text{ESS-2003 does NOT directly imply }C_G\text{ as defined}}$
+\begin{equation*}
+\boxed{\text{ESS-2003 does NOT directly imply $C_G$ as defined}}
+\end{equation*}
 
-3. What additional bridge is needed?
-- (i) Lemma: If $\|u(t_n)\|_{L^3(B(x_n,R))}<\epsilon_0$ for all small balls uniformly, then rescaled sequence converges to zero? Needs $\epsilon$-regularity local version: There exists $\epsilon_*$ such that $\|u\|_{L^\infty_t L^3(B_1)}\le \epsilon_*$ => regularity. This is related to Kozono-Taniuchi or ESS local version, not identical to global ESS.
-- (ii) Scale $r_n\downarrow0$ guarantee: Requires $T_*-t_n\to0$ and parabolic scaling $r_n\sim\sqrt{T_*-t_n}$ to keep critical norm invariant. If $r_n$ does not go to 0, concentration is not critical.
+3. What additional bridge needed?
+(i) Local $\epsilon$-regularity: $\|u\|_{L^\infty_t L^3(B_1)}\le \epsilon_*$ implies regularity. This is Kozono-Taniuchi / ESS local version, distinct from global ESS.
+(ii) $r_n\downarrow0$ guarantee requires parabolic scaling $r_n\sim\sqrt{T_*-t_n}$.
 
 4. Is $\epsilon_0$ universal?
-ESS constant depends only on dimension, not on solution. If local version holds, $\epsilon_0$ universal. But universality for $C_G$ as defined requires audit of local $\epsilon$-regularity constant, not global ESS constant alone.
+Universal only if local version holds, not from global ESS constant alone.
 
-5. Extra hypotheses:
-Suitable weak solution, finite energy, pressure in $L^{3/2}_{loc}$, etc.
+5. Extra hypotheses: suitable weak, finite energy, pressure in $L^{3/2}_{loc}$.
 
 STATUS:
 
 $\boxed{C_G^{cond}\text{ NOT DERIVED from ESS-2003 alone}}$
 
-$\boxed{C_G\text{ remains OPEN, requires local }\epsilon\text{-regularity + concentration compactness}}$
+$\boxed{C_G\text{ remains OPEN, requires local epsilon-regularity + concentration}}$
 
-$\boxed{\text{ESS}\implies C_{L^3}\text{ PROVEN, but }\text{ESS}\not\implies C_G\text{ directly}}$
+$\boxed{\text{ESS}\implies C_{L^3}\text{ PROVEN, but ESS}\not\implies C_G\text{ directly}}$
 
-Hence:
+Hence $\mathcal{C}_{PROVEN}=\{C_E^{weak},C_{L^3}\}$ untouched.
 
-$\mathcal{C}_{PROVEN}=\{C_E^{weak},C_{L^3}\}$ remains untouched.
+Next: G-03 for local version.
 
-$C_G^{cond}$ = OPEN/BLOCKED, dependency localized to local $\epsilon$-regularity theorem (not global ESS).
-
-No $C_F$. No contamination.
-
-Next bridge $C_E^{weak}\land C_{L^3}\land C_G^{cond}$ cannot be attempted until local version audited as G-03.
-
-FORBIDDEN respected: No claim ``ESS => C_G'' without explicit bridge.
+FORBIDDEN respected: No claim ``ESS implies $C_G$'' without explicit bridge.
 \end{document}
