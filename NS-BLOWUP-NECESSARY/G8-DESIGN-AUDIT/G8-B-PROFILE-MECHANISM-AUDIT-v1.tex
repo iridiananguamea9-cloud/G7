@@ -1,0 +1,61 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\begin{document}
+\title{G8-B-PROFILE-MECHANISM-AUDIT-v1: Does rescaled profile force $\alpha>0$ with weight?}
+\author{ZFL-CX}\date{\today}\maketitle
+
+\section{Frozen state}
+$\boxed{G7=FROZEN,\ G8\text{-}01=G8\text{-}02=G8\text{-}03=KILLED}$
+$\boxed{G8\text{-DESIGN-AUDIT-v2}=DONE\ (571b5b0)}$
+$\boxed{A= BLOCKED,\ C= BLOCKED\ (E\text{-}07/E\text{-}08\ D_te_i\ barrier)}$
+$\boxed{B=OPEN\ for\ mechanism\ audit\ only,\ NO\ G8\text{-}04\ yet}$
+
+\section{Candidate B definition}
+Rescaling: $u^{(n)}(y,s)=r_nu(r_ny,T^*+r_n^2s)$, $r_n\to0$ concentration scale from $C_F^{conc}+C_I^{freq}$.
+Assume $u^{(n)}\to\bar u$ limit (ancient solution to NS/Euler), compatible with $\mathcal C_{\mathrm{PROVEN}}$.
+$\bar\omega=\nabla\times\bar u$, $\bar S=\nabla_{sym}\bar u$, $\bar\xi=\bar\omega/|\bar\omega|$, $\bar\alpha=\bar\xi^T\bar S\bar\xi$.
+$W^{(n)}_+\sim r_n^{-1}\int|\bar\omega|^2\bar\alpha_+$ (scaling).
+
+\section{Falsifiable question}
+$\boxed{\text{Can every blow-up profile compatible with }C_F^{conc}+C_I^{freq}+C_J^{neg}\text{ have }\bar\alpha\le0?}$
+If NO: there exists identity/law of profile forcing region $\{\bar\alpha>0\}$ with sufficient measure to affect $W_+$.
+
+We need NOT pointwise, but:
+$\boxed{\int_{\{\bar\alpha>0\}}|\bar\omega|^2\bar\alpha\ge c_0>0}$ with $c_0$ independent of $n$, and temporal weight $\int^{T^*}W_+(t)dt=+\infty$ forced.
+
+\section{Barriers - strong form}
+1. $\boxed{\text{nontrivial profile}\not\Rightarrow\alpha>0}$. Need stronger.
+2. $\boxed{\alpha>0\text{ at a point}\not\Rightarrow\int W_+dt<\infty}$. Need measure/scale+time.
+3. No assumption $\xi^TS\xi>0$, that is to be proved. $C_J^{neg}$ allows compressive.
+4. No confusion concentration $\not\Rightarrow$ stretching.
+5. Must avoid eigenframe $D_te_i$ formula, else falls back to C barrier.
+6. No dimensional $\|u\|_3\|\nabla\omega\|_2^2$ as bridge.
+7. Only identity derived from limit equations (NS/Euler + incompressibility + $\mathcal C_{\mathrm{PROVEN}}$ constraints).
+
+\section{What would count as bridge?}
+Type 1 - Liouville: $\bar u$ nontrivial ancient + $C_J^{neg}$ $\Rightarrow$ $\int|\bar\omega|^2\bar\alpha>0$ forced by enstrophy balance.
+Type 2 - Geometric: divergence-free forces $\operatorname{tr}\bar S=0$, but combined with concentration $C_F^{conc}$ forces eigenvalue $\lambda_1>0$ dominating in region where $\bar\omega$ concentrates.
+Type 3 - Temporal: profile law gives $r_n^{-1}$ scaling $\Rightarrow$ $\int_0^{T^*}W_+\sim\sum r_n^{-1}\to\infty$ unless $c_0=0$, so $c_0>0$ would contradict integrability? Actually need reverse: show $\int W_+<\infty$ from profile, or $\bot$.
+
+All require new identity, not just compactness.
+
+\section{Kill criteria for B-audit}
+KILLED if:
+- only proves $\bar u\neq0$ without sign,
+- only proves $\bar\alpha>0$ at isolated point without weight,
+- uses $D_te_i$ or $\|S\|_\infty$,
+- reduces to $\|S\|_{L^3}^3$ estimate,
+- assumes smallness not derived from $T^*<\infty$,
+- no quantitative $\int|\bar\omega|^2\bar\alpha\ge c_0$.
+
+\section{Decision rule}
+If no such identity found:
+$\boxed{G8\text{-}DESIGN\text{-}v2=CLOSED/BLOCKED}$
+$\boxed{G8=01+02+03\ KILLED,\ A/B/C\ BLOCKED}$
+Then whole conceptual class scale/profile/$S$-$\Omega$ exhausted, ZFL clean, no fabrication.
+If identity found: it becomes sole authorized G8-04 with explicit mechanism, target, kill criteria.
+
+\section{Status}
+$\boxed{\text{This audit is NOT G8-04. Only mechanism check for B.}}$
+\end{document}
