@@ -1,0 +1,14 @@
+
+=== Sep 3 12:43 - CIERRE V6 ===
+T3-L4 PROVEN
+T3-H1 PROVEN
+T3-H2-J1 PROVEN bajo Y acotado
+J2-estimacion PROVEN
+J2=>A2∈L1 PROVEN a posteriori (BG explicita + energia L1 independiente)
+T4 log-Gronwall PROVEN
+F2.9-C4 = PROVEN WEAK con eps0(||u0||_H1)
+F2.8 universal = PENDING
+01.1.9-F2 = FROZEN WEAK
+Files: v3,v4,v5 trazabilidad, v6=closure, lemma_proven_weak.tex=frozen weak
+
+No universal claim yet.
