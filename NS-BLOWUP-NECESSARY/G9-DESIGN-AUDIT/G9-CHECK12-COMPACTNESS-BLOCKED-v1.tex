@@ -1,0 +1,75 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+\begin{document}
+\title{G9-CHECK12-COMPACTNESS-BLOCKED-v1: Step1 partial, Step2 blocked with C\_PROVEN}
+\author{ZFL-CX}\date{\today}\maketitle
+
+\[
+\boxed{G7=FROZEN,\ G8=CLOSED/BLOCKED}
+\]
+\[
+\boxed{\mathcal C_{PROVEN}=\{C_E^{weak},C_{L^3},C_F^{conc},C_I^{freq},C_J^{neg}\},\quad T^*<\infty}
+\]
+
+\section{Step1: centers/scales}
+$C_F^{conc}$ gives $t_n\uparrow T^*$, $x_n$, $r_n\downarrow0$ with $\|u(t_n)\|_{L^3(B_{r_n}(x_n))}\ge\varepsilon_0$.
+$C_I^{freq}$ gives $N_c(t_n)\to\infty$.
+But $\boxed{C_I^{freq}\not\Rightarrow r_n=N_c^{-1}}$ identity, and concentration scale vs frequency scale not proved coincident.
+Thus: $\boxed{\text{Step1 = POSSIBLE as candidate sequence, NOT closed as intrinsic scale}}$.
+
+Rescaling: $u_n(y,s)=r_nu(x_n+r_ny,t_n+r_n^2s)$, $s\in(-t_n/r_n^2,(T^*-t_n)/r_n^2)$, window $\to(-\infty,0]$ formally.
+
+\section{Step2: compactness - THE BOTTLENECK}
+After scaling:
+\[
+\|u_n(0)\|_{L^3(B_1)}=\|u(t_n)\|_{L^3(B_{r_n})}\ge\varepsilon_0.
+\]
+This is lower bound, excellent for $\bar u\neq0$ IF convergence holds.
+
+But we do NOT have:
+\[
+\|u_n\|_{L^3(B_R\times(-S,0))}\le C(R,S),\quad \|u_n\|_{L^\infty_tL^3_x}\le C.
+\]
+Leray-Hopf bounds $L^\infty_tL^2$, $L^2_t\dot H^1$ are supercritical under NS scaling $u_\lambda(x,t)=\lambda u(\lambda x,\lambda^2t)$. No automatic critical uniform bound.
+
+Pressure: $-\Delta p=\partial_i\partial_j(u_iu_j)$ requires simultaneous control of $p_n$ for compactness.
+
+$C_I^{freq}$: $\boxed{\text{has structure at }r_n\not\Rightarrow\text{family precompact at }r_n}$.
+$C_J^{neg}$: directional regularity loss, no uniform bound on $u_n,\nabla u_n$.
+
+Thus:
+\[
+\boxed{\mathcal C_{PROVEN}\not\Rightarrow\text{uniform critical compactness}}
+\]
+\[
+\boxed{\text{Leray-Hopf}+r_n\downarrow0\not\Rightarrow u_n\text{ precompact}}
+\]
+\[
+\boxed{r_n\to0\not\Rightarrow u_n\to\bar u}
+\]
+
+\section{ZFL verdict}
+$\boxed{T^*<\infty\Rightarrow\text{can select }(x_n,t_n,r_n)}$ but $\boxed{\not\Rightarrow u_n\text{ precompact}}$.
+\[
+\boxed{G9\text{ Step1}=PARTIAL/OPEN},\quad\boxed{G9\text{ Step2}=BLOCKED\text{ with }\mathcal C_{PROVEN}\text{ alone}}.
+\]
+This is NOT failure, it's wanted audit result. Naive $T^*<\infty\Rightarrow\bar u$ ancient $\Rightarrow$ Liouville $\Rightarrow\bot$ cannot start with five necessary conditions alone.
+
+\section{Next micro-audit - one question only}
+Missing piece:
+\[
+\boxed{\text{critical-scale bound producing compactness OR different mechanism giving weak compactness + rigidity without full critical bound}}
+\]
+ZFL rule: DO NOT introduce compactness hypothesis just to make G9 work, then we prove $C_{PROVEN}+hyp\Rightarrow\bot$, not $C_{PROVEN}\Rightarrow\bot$.
+
+Next audit:
+\[
+\boxed{G9\text{-}COMPACTNESS\text{-}AUTO\text{-}AUDIT\text{-}v1}
+\]
+Question:
+\[
+\boxed{\text{Is there automatic suitable-weak / local-energy compactness from }T^*<\infty\text{ alone, without Type I nor uniform critical bound?}}
+\]
+If NO: G9=CLOSED/BLOCKED clean. If YES: new door genuinely different.
+\end{document}
