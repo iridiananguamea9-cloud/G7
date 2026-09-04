@@ -1,0 +1,75 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+\title{G-01-L3-concentration v1: L3 -> local critical concentration}
+\author{ZFL Lab}
+\begin{document}
+\maketitle
+
+INPUT:
+$C_{L^3}$ = PROVEN: $T_*<\infty\implies \limsup_{t\to T_*}\|u(t)\|_3=+\infty$.
+$C_E^{weak}$, $C_E^{strong}$ OPEN/BLOCKED as before.
+$\mathcal{C}_{PROVEN}=\{C_E^{weak},C_{L^3}\}$.
+
+FORBIDDEN:
+Assume CKN $\varepsilon$-regularity without proof.
+Assume spatial concentration by heuristic scaling.
+Assume $C_G$ to prove $C_G$.
+
+MISSION: Audit whether $C_{L^3}$ forces existence of critical local concentration.
+
+Candidate $C_G$:
+
+There exists $\epsilon_0>0$ (universal) and sequences
+$t_n\uparrow T_*$, $x_n\in\mathbb R^3$, $r_n\downarrow 0$ such that for
+$B_n:=B(x_n,r_n)$,
+
+\begin{equation*}
+\boxed{\|u(t_n)\|_{L^3(B_n)} \ge \epsilon_0}
+\end{equation*}
+or scale-invariant local quantity
+\begin{equation*}
+\boxed{r_n^{-2}\int_{B_n}|u(t_n)|^3 \ge \epsilon_0^3 \text{ or } r_n^{-1}\|u\|_{L^3(B_n)}^3 \ge \epsilon_0}
+\end{equation*}
+with precise scaling to be fixed, and $r_n\sim \sqrt{T_*-t_n}$ if parabolic.
+
+Why this is non-trivial:
+
+$\|u(t)\|_3\to\infty$ in limsup is global. Does not a priori imply mass piles at small scale; could spread. To get concentration, need profile decomposition / compactness up to scaling for Navier-Stokes.
+
+Known results: ESS / Kenig-Koch non-concentration vs concentration: For Leray-Hopf, if $T_*<\infty$, then there exists such concentration (Escauriaza-Seregin-Sverak type). But proof uses backward uniqueness, Carleman, $\varepsilon$-regularity. We cannot assume; we must audit steps.
+
+Steps to PROVE $C_G$ from $C_{L^3}$:
+
+1. Rescaling: Suppose $\|u(t_n)\|_3 = M_n\to\infty$. Define $v_n(y):= r_n u(x_n+r_n y, t_n)$ with $r_n = M_n^{-?}$ to normalize $L^3$.
+Scale invariance: $\|v_n\|_3 = \|u(t_n)\|_3$ global, but local norm $\|v_n\|_{L^3(B_1)}$ should carry lower bound.
+
+2. Need non-vanishing lemma: $\limsup\|u(t_n)\|_3=\infty$ implies after suitable translation+scaling, weak limit non-zero. This is profile decomposition for $L^3$ (critical). Requires.
+
+3. Then $\epsilon_0$ appears as minimal $L^3$ mass of non-trivial profile.
+
+Thus $C_G$ is not immediate from $C_{L^3}$ by Holder; needs compactness.
+
+Output of this audit:
+
+$\boxed{C_{L^3}\implies C_G \text{ NOT PROVEN from current hypotheses alone}}$
+
+$\boxed{C_G = \text{concentration local critical} \text{ candidate OPEN, but precisely formulated}}$
+
+$\boxed{C_G \text{ requires: profile decomposition / }\varepsilon\text{-regularity / ESS-concentration theorem}}$
+
+Consequence:
+
+Current global $\mathcal{C}_{PROVEN}=\{C_E^{weak},C_{L^3}\}$ does NOT yet yield $C_G$. The bridge is identified:
+
+$C_{L^3}$ + (backward uniqueness / Carleman / local smoothing) => $C_G$ PROVEN.
+
+Therefore next experiment should be:
+
+G-02: formalize $\varepsilon_0$ threshold from literature (ESS 2003) as external theorem to import, with clear dependency tag, not as internal proof, to keep ZFL traceability.
+
+No $\bot$ from $C_E^{weak}\land C_{L^3}$. Need $C_G$.
+
+Status:
+$C_G$ = OPEN with precise candidate definition.
+\end{document}
