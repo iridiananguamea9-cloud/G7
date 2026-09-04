@@ -1,0 +1,60 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\begin{document}
+\title{G8-DESIGN-AUDIT-v1: Mapping bridges to $\int_0^{T^*}W_+<\infty$}
+\author{ZFL-CX}\date{\today}\maketitle
+
+\section{Frozen input G7}
+\begin{center}
+$\boxed{G7=\mathrm{FROZEN}}$
+$\boxed{\mathcal C_{\mathrm{PROVEN}}=\{C_E^{weak},C_{L^3},C_F^{conc},C_I^{freq},C_J^{neg}\}}$
+$\boxed{\mathcal C_{\mathrm{PROVEN}}\not\Rightarrow\bot\quad\text{OPEN}}$
+\end{center}
+Bottleneck: $\boxed{T^*<\infty\Rightarrow\int_0^{T^*}W_+(t)dt=+\infty}$, $W(t)=\int\omega^TS\omega$.
+
+\section{Rule for G8-01 creation}
+\begin{center}
+$\boxed{\text{No G8-01 until: hypothesis + mechanism + quantitative target}}$\\
+$\boxed{\text{Target A: }\int_0^{T^*}W_+<\infty\text{ or Target B: }\mathcal C_{\mathrm{PROVEN}}\land C_X\Rightarrow\bot}$
+\end{center}
+
+\section{Candidate audit}
+
+\subsection{1. Algebraic stretching structure}
+Attempt: $\boxed{W_+(t)\le\Phi(C_F,C_I,C_J)}$ with $\int_0^{T^*}\Phi<\infty$.
+Form $W=\int\omega^TS\omega$. Known $ |W|\lesssim\|u\|_3\|\nabla\omega\|_2^2$ fails because $C_{L^3}$ allows blow-up.
+Status: $\boxed{\mathrm{OPEN}}$ — only if new inequality not reducible to $\|u\|_3$.
+Kill condition: if $\Phi\sim\|u\|_3^a$ or $f=+\infty$ possible, $\Rightarrow$ KILLED.
+
+\subsection{2. Critical scale + concentration geometry}
+Not ``does concentration exist'' — closed. New: $\boxed{\text{concentration must have obligatory geometry limiting stretching?}}$
+Need: incompatibility $\text{conc. }L^3$ vs $\text{positive }W$ production.
+Status: $\boxed{\mathrm{BLOCKED}}$ — $C_F^{conc}+C_I^{freq}$ already same phenomenon $r_n\sim N_n^{-1}$, no quantitative $W_+$ bound found in G7.
+Kill condition: only $r_n\to0$ without structure $\Rightarrow$ KILLED.
+
+\subsection{3. Pressure-strain nonlocal}
+$D_tS=-S^2-\Omega^2-\nabla^2p+\nu\Delta S$, $p=\Delta^{-1}\partial_i\partial_j(u_iu_j)$.
+Question: $\boxed{\text{Does nonlocal }p\text{ impose global restriction on }(\omega^TS\omega)_+?}$
+Need: $W_+\le F(\text{controlled})$ or geometric incompatibility, not just $\|\nabla^2p\|_q\lesssim\|S^2-\Omega^2\|_q$.
+Status: $\boxed{\mathrm{VIABLE/\ OPEN}}$ — highest audit priority, not tested in G7 as independent bridge.
+Kill condition: if only Calderon-Zygmund, $\Rightarrow$ KILLED.
+
+\subsection{4. New critical functional $C_X$}
+Need: $\boxed{C_X: T^*<\infty\Rightarrow X(t)\to\infty}$ critical, and $\boxed{C_X\land\mathcal C_{\mathrm{PROVEN}}\Rightarrow\bot}$ or $\boxed{C_X\Rightarrow\int W_+<\infty}$.
+Not ``BMO^{-1} could help?''
+Status: $\boxed{\mathrm{OPEN}}$ — requires concrete $X$ with mechanism, not generic embedding.
+Kill condition: no bridge to $W_+$ or reproduces $C_{L^3}$.
+
+\section{Priority order}
+\begin{center}
+$\boxed{\text{stretching algebraic}\to\text{pressure-strain}\to\text{critical functional}\to\text{geometric concentration}}$
+\end{center}
+No CKN/frequency/concentration pure restart.
+
+\section{Decision}
+\begin{center}
+$\boxed{\text{G8-01 NOT AUTHORIZED — audit only}}$\\
+$\boxed{\text{Next: choose ONE viable with concrete }\Phi\text{ or }C_X}$
+\end{center}
+\end{document}
