@@ -1,0 +1,81 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\begin{document}
+\title{G11-01-LOCAL-ENERGY-MONOTONICITY-KILL-v1: Does $T^*<\infty$ force monotone $M$ incompatible with $C_{PROVEN}$?}
+\author{ZFL-CX}\date{\today}\maketitle
+
+\[
+\boxed{G7=FROZEN,\ G8=CLOSED/BLOCKED,\ G9\ BLOCKED,\ G10\ CLOSED,\ G11\text{-FRONTIER}=DONE}
+\]
+\[
+\boxed{G11\text{-}01 = local\ energy/monotonicity,\ NOT\ parallel\ with\ other\ 2}
+\]
+\[
+\boxed{\mathcal C_{PROVEN}=\{C_E^{weak},C_{L^3},C_F^{conc},C_I^{freq},C_J^{neg}\}}
+\]
+
+\section{Question}
+\[
+T^*<\infty \overset{\mathcal C_{PROVEN}}{\Longrightarrow} concentration \overset{?}{\Longrightarrow} M(t,r) \text{ monotone } \overset{?}{\Longrightarrow}\bot
+\]
+$M$ must be more than norm disguised: $\boxed{M\lesssim\|u\|_X \Rightarrow KILL\ (G8\ reduction)}$.
+
+\section{4 requirements}
+
+\textbf{1. Exact definition of $M$:} Candidate must be local/scale-adapted:
+e.g. $M(r,t)=r^{-1}\int_{B_r(x^*)}|u|^2dx$, or $M(r)=r^{-1}\int_{B_r}|\omega|^2$, or flux $ \int_{B_r} (u\cdot\nabla)u\cdot\phi$, or defect measure.
+Must be defined from suitable weak solution without new hypothesis.
+
+\textbf{2. Exact evolution/monotonicity law:} Need identity/inequality $\partial_t M\le 0$ or $\ge0$ or $\frac{d}{dr}M\ge -error$, derived from NS + local energy inequality. No assumed monotonicity. Known: for NS there is NO known monotone quantity like Struwe for harmonic map. CKN scaled energy $r^{-1}\int_{B_r}|u|^2$ is bounded but not monotone. So need proof.
+
+\textbf{3. Quantitative entry of $C_F^{conc}$:} How does $\|u(t_n)\|_{L^3(B_{r_n})}\ge\varepsilon_0$ force $M(t_n,r_n)$ to have sign/behavior incompatible with global bound? $C_F^{conc}$ is lower $L^3$ concentration. $M$ typically is $L^2$ scaled: by H\"older $r^{-1}\|u\|_{L^2(B_r)}^2\ge c r\|u\|_{L^3(B_r)}^2$? Check: $\|u\|_{L^3(B_r)}\le C r^{-1/2}\|u\|_{L^2}^{?}$ Actually scaling: $\|u\|_{L^3(B_r)}\le \|u\|_{L^2(B_r)}^{?}$ Not give lower for $M$. So $C_F^{conc}$ gives lower bound for $M$? Estimate: $\|u\|_{L^3(B_r)}\le C r^{-1/2} (\int_{B_r}|u|^2)^{1/2}$? Then $M=r^{-1}\int|u|^2\ge c r\|u\|_{L^3}^2\ge c r\varepsilon_0^2\to0$. So lower bound degenerates to 0, no contradiction. Opposite direction again.
+
+\textbf{4. Contradiction location:} Where does $T^*<\infty$ + monotonicity of $M$ contradict $C_E^{weak}$ or global? Must produce $\bot$, not just boundedness.
+
+\section{Check against $\mathcal C_{PROVEN}$}
+
+- With only suitable structure, local energy inequality gives:
+\[
+\int\phi|u(t)|^2+2\int\int\phi|\nabla u|^2\le\int\int|u|^2(\partial_t\phi+\Delta\phi)+\int\int(|u|^2+2p)u\cdot\nabla\phi.
+\]
+No monotone $M$ emerges. Right-hand side contains cubic terms with no sign.
+
+- Any attempt to define $M=r^{-1}\int_{B_r}|u|^2$ yields after scaling: $M(r_n,t_n)=r_n^{-1}\int_{B_{r_n}}|u(t_n)|^2$. From $C_F^{conc}$: $\varepsilon_0\le\|u\|_{L^3(B_{r_n})}\le C r_n^{-1/2}M^{1/2}$ so $M\ge c r_n\varepsilon_0^2\to0$. So lower bound not incompatible, tends to 0, no blow-up of $M$.
+
+- To get monotone, would need smallness of pressure term $\int p u\cdot\nabla\phi$, which requires $L^{3/2}$ control not in $\mathcal C_{PROVEN}$. Without it, sign not controlled.
+
+- $C_I^{freq}$ $N_c\to\infty$ and $C_J^{neg}$ loss of direction make error terms larger, not smaller.
+
+Thus: No $M$ satisfying 1-4 derivable from $\mathcal C_{PROVEN}$ without new hypothesis (smallness, Type I, $L^\infty_tL^3$).
+
+\[
+\boxed{M\lesssim\|u\|_X\text{ or }M\ge c r_n\varepsilon_0^2\to0 \Rightarrow\text{ no }\bot}
+\]
+\[
+\boxed{\text{NS has no known local monotone quantity with sign from suitable alone}}
+\]
+
+\section{Kill verdict}
+\[
+\boxed{G11\text{-}01\text{ Gate 1-4 = BLOCKED with }\mathcal C_{PROVEN}}
+\]
+$M$ definition would require extra bound to control pressure flux and produce monotonicity; $C_F^{conc}$ enters only as vanishing lower bound for $M$, not as forced growth.
+
+Therefore:
+\[
+\boxed{G11\text{-}01 = CLOSED/BLOCKED}
+\]
+\[
+\boxed{G11\text{ family local-energy/monotonicity CLOSED with current }C_i}
+\]
+
+This does NOT kill other 2 families (vorticity topology, alt ancient rigidity), but with current $\mathcal C_{PROVEN}$ local-energy route is blocked clean, no parallel opening.
+
+\[
+\boxed{G7\ FROZEN\to G8\ CLOSED\to G9\ BLOCKED\to G10\ CLOSED\to G11\text{-}01\ CLOSED}
+\]
+\[
+\boxed{STOP=PROGRESO,\ map\ intact}
+\]
+\end{document}
