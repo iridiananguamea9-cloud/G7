@@ -1,0 +1,55 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\begin{document}
+\title{G8-03-CX-critical-functional-dynamic-kill-test-v1: Criticality + dynamics + bridge to $W_+$}
+\author{ZFL-CX}\date{\today}\maketitle
+
+\section{Frozen input}
+$\boxed{G7=\mathrm{FROZEN},\ G8\text{-DESIGN-AUDIT}=DONE}$
+$\boxed{G8\text{-}01=KILLED,\ G8\text{-}02=KILLED}$
+$\boxed{\mathcal C_{\mathrm{PROVEN}}=\{C_E^{weak},C_{L^3},C_F^{conc},C_I^{freq},C_J^{neg}\}}$
+$\boxed{\mathcal C_{\mathrm{PROVEN}}\Rightarrow\bot\ \mathrm{OPEN}}$
+$\boxed{W_+=\left(\int\omega^TS\omega\right)_+,\ \int_0^{T^*}W_+=+\infty\text{ if }T^*<\infty}$
+
+\section{Mission G8-03}
+Find critical $X$ such that $\boxed{T^*<\infty\Rightarrow C_X}$ and
+$\boxed{C_X\land\mathcal C_{\mathrm{PROVEN}}\Rightarrow\bot}$ or
+$\boxed{C_X\Rightarrow\int_0^{T^*}W_+<\infty}$.
+Concrete mechanism required:
+$\boxed{\frac{d}{dt}X+D_X\le A_X,\ W_+\le cD_X+R_X,\ \int_0^{T^*}R_X<\infty}$.
+
+\section{Candidate $X$}
+Critical scalings: $\|u\|_{L^3}$, $\|S\|_{L^3}$, $\|\omega\|_{L^{3/2}}$, $\|u\|_{BMO^{-1}}$, $\|\omega\|_{\dot B^{0}_{3/2,\infty}}$.
+All invariant under $u_\lambda(x,t)=\lambda u(\lambda x,\lambda^2t)$.
+Pick $X(t)=\|S(t)\|_{L^3}^3\sim\|\omega\|_{L^{3/2}}^{3/2}\sim\|u\|_{L^3}^3$ (same critical class).
+Evolution: from $D_tS=-S^2-\Omega^2-\nabla^2p+\nu\Delta S$,
+$\frac{d}{dt}\|S\|_{L^3}^3\sim\int|S|\,S:\!D_tS\sim -\int|S|S:(S^2+\Omega^2+\nabla^2p)+\nu\int|S|S:\Delta S$.
+Dissipation $D_X\sim\nu\|\nabla|S|^{3/2}\|_2^2\sim\nu\|\nabla S|S|^{1/2}\|_2^2$.
+
+\section{Attempted bridge}
+We need $W_+=\int|\omega|^2\alpha\le cD_X+R_X$.
+$W_+\lesssim\int|S||\omega|^2\lesssim\|S\|_{L^3}\|\omega\|_{L^3}^2$.
+By Sobolev, $\|\omega\|_{L^3}\lesssim\|\nabla\omega\|_{L^{3/2}}\lesssim\|S\|_{L^3}^{1/2}\|\nabla S\|_{L^2}^{1/2}$?
+Interpolation gives $\|S\|_{L^3}^3\le C\|S\|_{L^2}^{3/2}\|\nabla S\|_{L^2}^{3/2}$, not integrable without $\|S\|_{L^2}$ decay which is $C_E^{weak}$ only $L^\infty_tL^2$ not $L^2_t$.
+
+Try $W_+\le\varepsilon D_X+C_\varepsilon\|S\|_{L^3}^5$ via Young: $ab\le\varepsilon a^p+C_\varepsilon b^{p'}$.
+Then $R_X\sim\|S\|_{L^3}^5$, super-critical power $5>3$, $\int R_X$ not controlled by $\mathcal C_{\mathrm{PROVEN}}$.
+Since $C_{L^3}$ allows $\|S\|_{L^3}\sim\|u\|_{L^3}\to\infty$, $R_X$ can diverge as $T^*\to$.
+
+BMO^{-1} attempt: $\|u\|_{BMO^{-1}}$ critical, but $W_+\lesssim\|u\|_{BMO^{-1}}\|\nabla\omega\|_{L^2}^2$ again, with $\|\nabla\omega\|_2^2$ not integrable under $\mathcal C_{\mathrm{PROVEN}}$ (only $\int_0^{T^*}\|\nabla u\|_2^2<\infty$ from energy, but $\nabla\omega$ is $H^1$ not $L^2$).
+
+Hence no identity $\frac{d}{dt}X+D_X$ dominates $W_+$ with integrable remainder. Criticality alone gives $X$ diverges, but dissipation $D_X$ is $\nu\|\nabla S\|_2^2$ scaling, while $W_+$ is cubic $S\omega^2\sim S^3$, supercritical relative to $D_X$.
+
+\section{Kill criteria checked}
+1. $X$ critical without useful dynamics? Yes — dynamics gives super-critical remainder.
+2. $X\lesssim\|u\|_3$ no new info? Yes — $\|S\|_{L^3}\sim\|\nabla u\|_{L^3}\lesssim\|u\|_{L^3}^{a}\|\nabla^2u\|^{1-a}$, returns to $C_{L^3}$.
+3. Sobolev/CZ back to $\|u\|_3\|\nabla\omega\|_2^2$? Yes.
+4. Smallness assumed not derived from $T^*<\infty$? To close would need $\|S\|_{L^3}\ll1$, not implied by blow-up.
+
+\section{Outcome}
+$\boxed{\mathrm{KILLED}}$
+No triple connection criticality + temporal dynamics + quantitative bridge $W_+\le cD_X+R_X$, $\int R_X<\infty$.
+Any critical $X$ gives $\frac{d}{dt}X+D_X\le C\|S\|_{L^3}^5$ type, $R_X$ not integrable under $\mathcal C_{\mathrm{PROVEN}}$.
+$\mathcal C_{\mathrm{PROVEN}}\not\Rightarrow\bot$ remains OPEN. G8-01, G8-02, G8-03 all KILLED without dimensional estimate as bridge.
+\end{document}
