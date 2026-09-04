@@ -1,0 +1,59 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\begin{document}
+\title{G8-DESIGN-AUDIT-v2: A/B/C mechanism comparison}
+\author{ZFL-CX}\date{\today}\maketitle
+
+\section{Frozen state}
+$\boxed{G7=\mathrm{FROZEN},\ G8\text{-DESIGN-AUDIT-v1}=DONE}$
+$\boxed{G8\text{-}01=KILLED,\ G8\text{-}02=KILLED,\ G8\text{-}03=KILLED}$
+$\boxed{\mathcal C_{\mathrm{PROVEN}}=\{C_E^{weak},C_{L^3},C_F^{conc},C_I^{freq},C_J^{neg}\}}$
+$\boxed{\mathcal C_{\mathrm{PROVEN}}\Rightarrow\bot\ \mathrm{OPEN}}$
+Pattern: static $\to\|u\|_3\|\nabla\omega\|_2^2$, dynamics $\to R_X$ supercrit, pressure $\to$ same scale no coercivity.
+
+\section{Correction}
+Do NOT assume $\xi^TS\xi>0$. That is what must be proved. $C_J^{neg}$ allows compressive alignment epochs. Any mechanism assuming $\alpha=\xi^TS\xi>0$ $\Rightarrow$ KILLED.
+
+\section{Candidate A: Scale dynamics}
+Need derived law, not postulated $r(t)\sim(T^*-t)^{1/2}$.
+Require: $r(t)$ law compatible with NS $\Rightarrow$ restriction on $W_+$: $\int^{T^*}W_+<\infty$ or $\bot$.
+Falsifiable claim: $\exists\ c>0,\ T^*<\infty\Rightarrow \dot r/r\le -cW_+$ or similar quantitative link.
+Kill if: $r(t)$ free choice of concentration sequence, no quantitative inequality, ends in $\|u\|_3\|\nabla\omega\|_2^2$, or assumes regularity.
+
+\section{Candidate B: Blow-up profile}
+Rescaled limit $u^{(n)}(y,s)=r_nu(r_ny,r_n^2s)$ with $C_F^{conc},C_I^{freq},C_J^{neg}$.
+Question: does nontrivial limit necessarily produce $\int\omega^TS\omega>0$ in sufficient measure?
+Barrier: $\boxed{\text{nontrivial profile}\not\Rightarrow\text{positive stretching}}$.
+Need identity forcing sign, e.g. $\int\alpha|\omega|^2\ge c_0>0$ for limit.
+Kill if: no identity forcing $\alpha>0$, confuses concentration with stretching, only another necessary condition, or needs $H^1$ compactness equivalent to conclusion.
+
+\section{Candidate C: $S$-$\Omega$ interaction [Most interesting]}
+Vorticity: $(\omega\cdot\nabla)u=S\omega+\Omega\omega$, but $\omega^T\Omega\omega=0$, so $\Omega$ no direct contribution to $W$.
+Needed: $\boxed{\Omega\text{-dynamics}\Rightarrow\text{restriction on }\dot\xi\Rightarrow\alpha=\xi^TS\xi\Rightarrow W_+}$.
+Recall $D_t\xi=S\xi+\Omega\xi-\alpha\xi$, $\dot\alpha=\xi^TD_tS\xi+2\xi^TS(D_t\xi)$.
+$\Omega$ enters via $\dot\xi$ rotation.
+Barrier E-07/E-08: controlling $D_te_i$ requires $L^\infty$ $S$ which we do not have.
+Falsifiable claim needed: e.g. $\Omega$ forces $\xi$ away from compressive eigenvectors of $S$ quantitatively, or $\int_0^{T^*}|\Omega\xi|<\infty$ under $\mathcal C_{\mathrm{PROVEN}}$.
+Kill if: requires control of $D_te_i$, assumes $\alpha>0$, no quantitative inequality, ends in dimensional estimate, or only shows $C_J^{neg}$ again.
+
+\section{Kill criteria v2}
+Route dies if:
+1. scale not derived,
+2. assumes $\alpha>0$,
+3. confuses concentration with stretching,
+4. needs regularity equivalent to conclusion,
+5. no quantitative inequality/identity,
+6. ends again in $\|u\|_3\|\nabla\omega\|_2^2$,
+7. only another necessary condition without incompatibility.
+No automatic rescue via G8-02/03.
+
+\section{Decision rule}
+If A,B,C all fail falsifiable test:
+$\boxed{G8\text{-DESIGN-v2}=CLOSED/BLOCKED}$
+Then conceptual class scale/profile/$S$-$\Omega$ exhausted without fabricating progress.
+If one survives: it becomes sole authorized G8-04 with explicit mechanism, target, kill criteria.
+
+\section{Outcome TBD}
+This audit does not open G8-04. Its function is to decide which of A/B/C has falsifiable mathematical mechanism.
+\end{document}
