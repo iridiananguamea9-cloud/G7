@@ -1,0 +1,83 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\begin{document}
+\title{G10-GATE-A-AUDIT-v1: Can C\_PROVEN imply spatial structure required by backward/unique continuation?}
+\author{ZFL-CX}\date{\today}\maketitle
+
+\[
+\boxed{G7=FROZEN,\ G8=CLOSED/BLOCKED,\ G9\ BLOCKED,\ G10\text{-}DESIGN=DONE\ (72612f7)}
+\]
+\[
+\boxed{\mathcal C_{PROVEN}=\{C_E^{weak},C_{L^3},C_F^{conc},C_I^{freq},C_J^{neg}\},\ T^*<\infty}
+\]
+\[
+\boxed{Q_A:\mathcal C_{PROVEN}\stackrel{?}{\Rightarrow}\text{ exact spatial structure for BU/UC}}
+\]
+
+\section{What theorems require - explicit checklist}
+We check two canonical families (no new hypotheses):
+
+1. \textbf{ESS backward uniqueness} for $\partial_t+\Delta$:
+$| \partial_t u+\Delta u|\le C(|u|+|\nabla u|)$ in $Q=\mathbb R^3\times(-1,0]$, $|u(x,t)|\le \exp(C|x|^2)$, $u(x,0)=0$ in $\mathbb R^3$ $\Rightarrow u\equiv0$ in $Q$. For NS: applied to $\omega$ or $u$, needs differential inequality with bounded coefficients depending on $u$, and vanishing at final time.
+
+2. \textbf{Unique continuation / Carleman}: If $u$ satisfies Stokes-type inequality and $u=0$ on open set or to infinite order at a point $(x_0,t_0)$, then $u\equiv0$. Requires vanishing of infinite order: $\forall k, |u(x,t)|\le C_k(|x-x_0|+|t-t_0|^{1/2})^k$ near $(x_0,t_0)$.
+
+In both cases required variable: $u$ or $\omega$ or $\nabla u$.
+Required region: all $\mathbb R^3$ at $t=0$ for BU, or open set / point for UC.
+Required property: vanishing, smallness, decay, or bounded coefficients.
+Pressure must satisfy compatible condition.
+Need space-time window, not single $t_n$.
+
+\section{What C\_PROVEN gives - point by point}
+1. Variable: $C_F^{conc}$ gives $\|u(t_n)\|_{L^3(B_{r_n}(x_n))}\ge\varepsilon_0$. This is lower concentration, not upper smallness nor vanishing. Variable is $u$ in $L^3$ local, not pointwise bound.
+
+2. Region: Balls $B_{r_n}(x_n)$ shrinking $r_n\to0$, $x_n\to x^*$. No information of $u=0$ outside. No open set where $u\equiv0$. No global decay. $C_E^{weak}$ gives $L^2$ global but not pointwise $e^{C|x|^2}$ bound nor $L^\infty$.
+
+3. Vanishing vs lower bound: $\boxed{\text{lower concentration}\neq\text{vanishing order}}$. ESS BU requires $u(\cdot,0)=0$. We have opposite: $\|u(t_n)\|_{L^3(B_{r_n})}\ge\varepsilon_0$ and $t_n\uparrow T^*$. No $u=0$ at blow-up time, no infinite-order vanishing. $C_J^{neg}$ is loss of direction regularity, not gain of vanishing.
+
+4. Smallness/decay: $C_{L^3}$ gives $\|u(t)\|_{L^3}\le C$? Actually not bounded; only necessary that if $T^*<\infty$ then $L^3$ must blow up? Wait Leray: $\|u(t)\|_{L^3}\to\infty$? No, $L^3$ may stay bounded, $C_{L^3}$ is critical norm condition? But we have at most global bound? Even if bounded, bound is upper, not smallness. BU needs small coefficients or bounded, but vanishing hypothesis missing. $C_I^{freq}$ gives $N_c\to\infty$, indicating high-frequency creation, opposite of smallness.
+
+5. Pressure: $-\Delta p =\partial_i\partial_j(u_iu_j)$. With only $L^3(B_{r_n})\ge\varepsilon_0$, no $L^{3/2}$ smallness or decay for $p$ on large region. Carleman for NS requires pressure control.
+
+6. Space-time window: Our info at discrete times $t_n$, balls $B_{r_n}$. BU/UC need inequality holding in parabolic cylinder $B_R\times(-S,0]$ with uniform coefficients. Not available from $\mathcal C_{PROVEN}$ alone.
+
+\section{Gate A checklist result}
+- (1) variable: have $u$ lower bound, need upper/vanishing: MISMATCH.
+- (2) region: have shrinking balls concentration, need global vanishing or open set zero: MISMATCH.
+- (3) vanishing: need $u=0$ to infinite order: we have $\ge\varepsilon_0$: OPPOSITE.
+- (4) smallness/decay: need decay/smallness: have lower bound + frequency divergence: OPPOSITE.
+- (5) pressure: need control: have none from $\mathcal C_{PROVEN}$ sufficient.
+- (6) space-time: need cylinder uniform: have discrete $t_n$ snapshots.
+
+Thus: No spatial property of type required by BU/UC is derivable from $\mathcal C_{PROVEN}$.
+
+\[
+\boxed{A = BLOCKED}
+\]
+\[
+\boxed{\|u\|_{L^3(B_{r_n})}\ge\varepsilon_0 \not\Rightarrow u=0\text{ nor smallness nor vanishing nor }e^{C|x|^2}\text{ decay}}
+\]
+\[
+\boxed{\text{lower concentration}\neq\text{upper structure for BU/UC}}
+\]
+
+\section{ZFL kill}
+First indispensable requirement for BU/UC is $u=0$ in region or infinite-order vanishing or global exponential bound with final zero data. $\mathcal C_{PROVEN}$ gives none, gives opposite lower bound.
+
+Therefore:
+\[
+\boxed{G10\text{-}GATE\text{-}A = BLOCKED},\quad \boxed{G10=CLOSED/BLOCKED}
+\]
+No need to open B-D. No G10-01.
+
+\[
+\boxed{G7\ FROZEN\to G8\ CLOSED\to G9\ BLOCKED\to G10\ CLOSED/BLOCKED}
+\]
+\[
+\boxed{STOP=PROGRESO - no structure for continuation activatable from C_{PROVEN}}
+\]
+
+If later new critical-scale bound or new derivable vanishing/smallness appears from $T^*<\infty$, G10 could be revisited with new $\mathcal C$, but with current $\mathcal C_{PROVEN}$ it is closed clean.
+
+\end{document}
