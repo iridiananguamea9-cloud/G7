@@ -1,0 +1,63 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+\title{G-05-PHASE-CLOSURE v1: G-concentration closed, bottleneck E-weak -> E-strong}
+\author{ZFL Lab}
+\begin{document}
+\maketitle
+
+\boxed{\text{PHASE G CLOSED: NO NEW C ADDED TO }\mathcal{C}_{PROVEN}}
+
+PROVEN CORE:
+\begin{equation*}
+\boxed{
+\begin{array}{c}
+T_*<\infty\\
+\Downarrow\\
+C_E^{weak}: \limsup\int_0^t W=+\infty\\
+\land\\
+C_{L^3}: \limsup\|u\|_3=+\infty
+\end{array}
+}
+\end{equation*}
+$\mathcal{C}_{PROVEN}=\{C_E^{weak},C_{L^3}\}$.
+
+G-LAYER STATUS:
+
+$\boxed{C_G^{L^3}=\text{OPEN}: \|u(t_n)\|_{L^3(B_{r_n})}\ge\epsilon_0}$ from G-01/G-02 e7602f4.
+
+$\boxed{C_G^{CKN}=\text{CONDITIONAL ON CKN-1982}: \mathcal{Q}(r_n)\ge\epsilon_{CKN}}$ from G-03 ffc8c30.
+
+$\boxed{C_G^{geom}=\text{CANDIDATE/OPEN}: (\nabla\xi,L,\kappa,U)}$ from G-04 66ac917.
+
+$\boxed{C_G^{L^3}\neq C_G^{CKN}}$ preserved, CROSS-E-L3-G-CKN-01 4f948bb COMPATIBLE/OPEN, no $\bot$.
+
+BOTTLENECK:
+
+$\boxed{C_E^{weak}\not\Rightarrow C_E^{strong}}$
+
+$C_E^{strong}$ requires $W_-\in L^1(0,T_*)$, $W(t)=\int\omega^T S\omega = W_+-W_-$.
+
+$C_E^{weak}$ gives $\int W_+=\infty$ PROVEN, but not $W_-$ control (E-strong-neg-02).
+
+DIAGNOSTIC:
+
+Hölder+Sobolev $\not\Rightarrow W_-$ control.
+
+ESS-2003 $\Rightarrow C_{L^3}$ only, not $W_-$.
+
+CKN-1982 $\Rightarrow C_G^{CKN}$ only, not $W_-$.
+
+CF/DHY $\Rightarrow$ control of $|\alpha|=|\xi^T S\xi|$ or $\|\omega\|_\infty$, not $W_-\in L^1_t$.
+
+Thus bottleneck is structural, not missing estimate.
+
+NEXT DEEP QUESTION, NOT ANOTHER REGULARITY CRITERION:
+
+$\boxed{\text{What additional structure transforms }W_+\to\infty\text{ into net control of }W?}$
+
+Candidates: spectral sign structure of $S$, alignment $\omega$-$e_i(S)$, coupling stretching-dissipation identity, not new norm.
+
+G $\longrightarrow$ LOCKED. E-strong $\longrightarrow$ OPEN/BLOCKED as bottleneck. PHASE CLEAN.
+
+\end{document}
