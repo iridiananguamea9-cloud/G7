@@ -1,0 +1,59 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+\title{CROSS-E-strong-L3-01 v1: L3 vs E-strong audit}
+\author{ZFL Lab}
+\begin{document}
+\maketitle
+
+INPUT:
+$C_{L^3}$ = PROVEN: $T_*<\infty \implies \limsup_{t\to T_*}\|u(t)\|_3=+\infty$ (ESS).
+$C_E^{weak}$ = PROVEN: $T_*<\infty \implies \limsup_{t\to T_*}\int_0^t W = +\infty$.
+$C_E^{strong}$ = OPEN: $T_*<\infty \implies \lim_{t\to T_*}\int_0^t W = +\infty$.
+
+$W:=\int \omega^T S \omega$.
+
+MISSION: Audit $C_{L^3}\Rightarrow C_E^{strong}$? or $C_E^{strong}\Rightarrow C_{L^3}$?
+
+FORBIDDEN:
+$C_E^{weak}\implies C_E^{strong}$ without extra control (signed $W$ obstacle).
+$C_{L^3}\implies C_E^{strong}$ by heuristic growth.
+Any contradiction without proven bridge.
+
+Analysis:
+
+1. $C_{L^3}\Rightarrow C_E^{strong}$?
+
+We have $|W|\le C_S\|u\|_3\|\nabla\omega\|_2^2$ upper bound only.
+No lower bound $W\gtrsim \|u\|_3$ available.
+$\limsup\|u\|_3=\infty$ does not prevent $\int_0^t W$ oscillating, even with large negative parts, keeping $\lim$ finite while $\limsup=\infty$.
+Hence:
+$\boxed{C_{L^3}\Rightarrow C_E^{strong}\ \text{NOT PROVEN}}$.
+
+2. $C_E^{strong}\Rightarrow C_{L^3}$?
+
+Assume $C_E^{strong}$ true: $T_*<\infty\implies \int_0^tW\to+\infty$.
+Enstrophy: $\frac12\frac{d}{dt}\|\omega\|_2^2 = W-\nu\|\nabla\omega\|_2^2$.
+If $\int W\to+\infty$, then $\|\omega\|_2$ blows up (up to dissipation), hence $T_*<\infty$.
+But $T_*<\infty\implies\limsup\|u\|_3=\infty$ is ESS, independent theorem, already PROVEN.
+So $C_E^{strong}$ does not prove $C_{L^3}$; they coexist under ESS. Logical implication:
+$\boxed{C_E^{strong}\Rightarrow C_{L^3}\ \text{NOT PROVEN as implication, but COMPATIBLE via ESS}}$.
+
+Signed obstacle:
+$C_E^{weak}$ is $\limsup\int W=+\infty$.
+$C_E^{strong}$ needs $\lim\int W=+\infty$.
+$W$ changes sign, no control of negative part from $L^3$ alone.
+Thus gap remains.
+
+OUTPUT:
+
+$\boxed{C_{L^3}\text{ and }C_E^{strong}\ \text{COMPATIBLE / OPEN}}$
+
+$\boxed{C_{L^3}\Rightarrow C_E^{strong}\ \text{OPEN}}$
+
+$\boxed{C_E^{strong}\Rightarrow C_{L^3}\ \text{OPEN as proof, COMPATIBLE via ESS}}$
+
+No new $C_F$. State remains $\mathcal{C}_{PROVEN}=\{C_E^{weak},C_{L^3}\}$, $C_E^{strong}$ OPEN.
+
+Next bridge would require lower bound on $W$ or control of negative stretching.
+\end{document}
