@@ -1,0 +1,76 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\begin{document}
+\title{G10-DESIGN-AUDIT-v1: Continuation by spatial structure - backward/unique continuation, NOT new critical norm}
+\author{ZFL-CX}\date{\today}\maketitle
+
+\[
+\boxed{G7=FROZEN,\ G8=CLOSED/BLOCKED,\ G9\ BLOCKED\ (2\ gates)}
+\]
+\[
+\boxed{\mathcal C_{PROVEN}=\{C_E^{weak},C_{L^3},C_F^{conc},C_I^{freq},C_J^{neg}\},\ T^*<\infty}
+\]
+
+\section{New class}
+NOT: estimate $W_+$, NOT: blow-up profile compactness requiring $r_n^{-1}E_0$ bound, NOT: new critical norm $X$ with $\|u\|_X\to\infty$.
+
+New axis:
+\[
+\boxed{\text{What spatial structure must become singular if }T^*<\infty,\text{ and is that structure impossible by rigidity?}}
+\]
+Family: backward uniqueness, unique continuation, Carleman, Liouville with additional structure, geometric spatial condition forcing regularity. Known in NS literature (ESS, etc.) but need activation from $\mathcal C_{PROVEN}$ only.
+
+\section{ZFL rule}
+\[
+\boxed{\text{``backward uniqueness exists''}\neq\text{``we can apply it with our }C_i\text{''}}
+\]
+
+No smuggling: $C_{PROVEN}\Rightarrow$ structure, not $C_{PROVEN}+hyp_{new}$.
+
+\section{4 gates - all must pass for G10-01}
+
+\textbf{Gate A - Derivable spatial structure:}
+Does $T^*<\infty$ + $\mathcal C_{PROVEN}$ imply a spatial property usable for continuation?
+Candidates:
+- smallness in $L^3$ outside concentration balls?
+- $u$ vanishing to infinite order at $T^*$?
+- vorticity direction $\xi$ has some $C^\alpha$ patch?
+- $u$ coincides with regular solution on open set?
+Must be derived, not assumed. If NO: $\boxed{G10=CLOSED/BLOCKED}$.
+
+\textbf{Gate B - Exact hypotheses of continuation theorem:}
+Identify theorem: e.g., Escauriaza-Seregin-Sverak backward uniqueness for heat operator $|\partial_t u+\Delta u|\le C(|u|+|\nabla u|)$ with $|u|\le Ce^{C|x|^2}$ and $u(\cdot,0)=0\Rightarrow u\equiv0$; or unique continuation for Stokes; or Carleman for NS vorticity.
+List precise bounds required: $u\in L^\infty_tL^q$, decay, vanishing order, differential inequality. If hypotheses require $L^\infty_tL^3$ global small or $e^{C|x|^2}$ or Type I, and we don't have it from $\mathcal C_{PROVEN}$, then $\boxed{BLOCKED}$.
+
+\textbf{Gate C - Transfer from our $C_i$:}
+Does $\mathcal C_{PROVEN}$ provide the coefficients in Gate B?
+$C_{L^3}$ gives global $L^3$ but not decay $e^{C|x|^2}$.
+$C_F^{conc}$ gives $\|u(t_n)\|_{L^3(B_{r_n})}\ge\varepsilon_0$, opposite of vanishing.
+$C_I^{freq}$ gives $N_c\to\infty$, not vanishing order.
+$C_J^{neg}$ gives loss of $\xi$ regularity, not gain needed for Carleman.
+Check: no automatic transfer. If fails: $\boxed{G10=CLOSED/BLOCKED}$.
+
+\textbf{Gate D - Real contradiction with $T^*<\infty$:}
+If A+B+C pass, does theorem imply $\bar u\equiv0$ or $u$ extends beyond $T^*$ contradicting $T^*<\infty$?
+Must produce $\bot$, not just regularity on open set.
+
+\section{Kill criteria}
+KILLED if:
+- A requires assuming spatial smallness/analyticity not in $\mathcal C_{PROVEN}$,
+- B requires Type I, $L^\infty_tL^3$ uniform smallness, or exponential bound not derivable,
+- C cannot bridge concentration (lower bound) to vanishing (upper bound) - they are opposite,
+- D only gives partial regularity, not full continuation beyond $T^*$.
+
+\section{Why this is different from G8/G9}
+G8: tried $norm\to W_+$ bridge - killed by stretching algebra scale and shear barrier $\bar\alpha\equiv0$.
+G9: tried $T^*<\infty\Rightarrow u_n\to\bar u$ ancient - blocked by $r_n^{-1}E_0$ supercriticality and weak limit losing $\varepsilon_0$.
+G10: tries $T^*<\infty\Rightarrow$ spatial structure $\Rightarrow$ backward/unique continuation $\Rightarrow\bot$ without needing $W_+$ control nor $u_n$ compactness. Genuinely new class if A holds.
+
+\[
+\boxed{\text{This audit only asks: can }\mathcal C_{PROVEN}\text{ activate continuation/rigidity? No G10-01 yet}}
+\]
+\[
+\boxed{\text{If A,B,C fail }\Rightarrow G10=CLOSED/BLOCKED, STOP=PROGRESO}
+\]
+\end{document}
