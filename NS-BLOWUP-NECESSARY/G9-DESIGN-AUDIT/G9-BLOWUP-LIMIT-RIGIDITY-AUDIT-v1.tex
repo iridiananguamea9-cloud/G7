@@ -1,0 +1,55 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\begin{document}
+\title{G9-BLOWUP-LIMIT-RIGIDITY-AUDIT-v1: Blow-up limit + rigidity, NOT $W_+$ estimate}
+\author{ZFL-CX}\date{\today}\maketitle
+
+\section{Frozen state}
+$\boxed{G7=FROZEN,\ G8=CLOSED/BLOCKED,\ E\text{-}K=NO\ REOPEN}$
+$\boxed{\mathcal C_{\mathrm{PROVEN}}=\{C_E^{weak},C_{L^3},C_F^{conc},C_I^{freq},C_J^{neg}\}}$
+Bottleneck: $\boxed{\int_0^{T^*}W_+=+\infty}$ not controlled by audited classes.
+
+\section{New class: NEXT CLASS = BLOW-UP LIMIT + RIGIDITY}
+No more $W_+$ estimate. No more critical norm estimate. New question:
+$\boxed{\text{What must EVERY blow-up limit satisfy? Does such object exist?}}$
+
+\section{Entry rule - 6 steps, kill immediate if unprovable}
+1. \textbf{Sequence}: Define $r_n\to0$, $(x_n,t_n)\to(x^*,T^*)$, $u^{(n)}(y,s)=r_n u(x_n+r_ny,t_n+r_n^2s)$, $s\in[-1,0]$. What choice of $(x_n,t_n,r_n)$ is forced by $\mathcal C_{\mathrm{PROVEN}}$? No Type I assumption $r\sim(T^*-t)^{1/2}$. $r_n$ must come from $C_F^{conc}+C_I^{freq}$ only.
+
+2. \textbf{Compactness}: What convergence can we prove for $u^{(n)}$? Aubin-Lions from $C_E^{weak}$ gives $L^2_{loc}$, but need $L^3_{loc}$ to keep $C_{L^3}$? Local energy inequality survives? $p$? Identify exact compactness without assuming bound on $\|\nabla u^{(n)}\|_2$ uniform beyond scaling.
+
+3. \textbf{Limit equation}: Limit $\bar u$ solves ancient NS or Euler? $\nu_n=\nu r_n^{-?}$? If $r_n\to0$, viscous term $\nu_n=\nu$ after scaling? Actually $u^{(n)}$ solves NS with same $\nu$ if $r_n$ scaling is Leray. Euler if $\nu r_n\to0$ not same scaling. Determine precisely.
+
+4. \textbf{Surviving information}: Which of $C_{L^3},C_F^{conc},C_I^{freq},C_J^{neg}$ survives to $\bar u$? $C_{L^3}$ gives $\|\bar u\|_{L^3}\lesssim1$? Or measure? $C_F^{conc}$ gives non-zero? $C_J^{neg}$ gives something about direction? Must be derived, not assumed.
+
+5. \textbf{Rigidity}: Is there independent Liouville theorem killing $\bar u$ given surviving info? E.g., ancient mild NS solution with $\|u\|_{L^3}<\infty$ and concentration $\Rightarrow0$? Known: Escauriaza-Seregin-Sverak $L^3$ ancient $\Rightarrow0$ under $u\in L^\infty_t L^3_x$. Does our $\bar u$ satisfy hypotheses? Need exact statement. No fabrication.
+
+6. \textbf{Nontriviality}: Need $\bar u\neq0$ forced by blow-up assumption. $C_F^{conc}$ should give that, but must be quantitative: $\int_{B_1}|\bar u|^3\ge c_0>0$. If not provable, KILL.
+
+If any step requires hypothesis not in $\mathcal C_{\mathrm{PROVEN}}$ or not provable from $T^*<\infty$ $\Rightarrow$ $\boxed{KILL\ immediate}$.
+
+\section{What is NOT allowed}
+- Assume $\bar\alpha>0$ (killed by shear barrier $\bar u=(f(y),0,0)$, $\bar\alpha\equiv0$).
+- Assume $r_n\sim\sqrt{T^*-t_n}$ (Type I, blocked in G8-A).
+- Assume $\int|\bar\omega|^2\bar\alpha\ge c_0$ (that's G8-B killed).
+- Use $D_te_i$ alignment (G8-C blocked).
+- Use $\|u\|_3\|\nabla\omega\|_2^2$ as bridge.
+- Use CKN as direct bridge.
+
+\section{Kill criteria for this audit}
+KILLED if:
+- compactness requires bound not in $\mathcal C_{\mathrm{PROVEN}}$,
+- limit equation requires $\nu_n\to0$ unjustified,
+- surviving info insufficient for any known Liouville,
+- nontriviality $c_0>0$ not provable,
+- rigidity theorem needs smallness/regularity not derived.
+
+\section{Decision}
+This audit only answers: does there exist a definable sequence, compactness, limit equation, surviving info, and independent rigidity that together are all provable from $T^*<\infty$?
+
+If NO: $\boxed{G9\text{-}DESIGN=CLOSED/BLOCKED}$, NEXT CLASS also exhausted, no.tex of actual proof.
+If YES: then sole authorized G9-01 can be designed with explicit mechanism + kill criteria.
+
+$\boxed{\text{This is NOT G9-01, only mechanism check}}$
+\end{document}
