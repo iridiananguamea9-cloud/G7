@@ -1,0 +1,125 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+\title{E-07-quantitative-compressive v1: quantitative estimate for D\_t eta\_- with spectral frame dynamics}
+\author{ZFL Lab}
+\begin{document}
+\maketitle
+
+MISSION: Convert $D_t\eta_-$ into quantitative verifiable estimate, attacking $W_-$ bottleneck.
+INPUT: E-05 spectral: $\omega^T S\omega=\sum\lambda_i\omega_i^2$, $\sum\lambda_i=0$. E-06: $\eta_-=\sum_{\lambda_i<0}\omega_i^2/|\omega|^2$, $D_t\xi=P_{\xi^\perp}S\xi+\Omega\xi+\nu\Delta\xi+2\nu\nabla\log|\omega|\cdot\nabla\xi$. $\mathcal{C}_{PROVEN}=\{C_E^{weak},C_{L^3}\}$ frozen.
+
+FORBIDDEN:
+$\eta_-$ large $\not\Rightarrow W_-\in L^1_t$.
+$D_t\eta_-<0\not\Rightarrow\eta_-$ never regrows.
+$C_E^{weak}\not\Rightarrow C_E^{strong}$.
+Omitting $D_t e_i$ term.
+Claiming quantitative control without $e_i$ dynamics.
+
+AUDIT:
+
+Setup: Where $|\omega|>0$, $S e_i=\lambda_i e_i$, $\lambda_1\ge\lambda_2\ge\lambda_3$, $\sum\lambda_i=0$. Let $I_-(x,t)=\{i:\lambda_i<0\}$. Assume for estimate case (ii) $\lambda_1>0,\lambda_2<0,\lambda_3<0$ (2 compressive) typical near blow-up candidate; case (i) similar with $I_-=\{3\}$.
+
+Define $\eta_-= \sum_{i\in I_-} (\xi\cdot e_i)^2 = \sum_{i\in I_-}\eta_i$, $\eta_i=(\xi\cdot e_i)^2$.
+
+Exact $D_t\eta_-$ contains frame derivative:
+
+$\eta_i = (\xi\cdot e_i)^2$, so
+\begin{equation*}
+D_t\eta_i =2(\xi\cdot e_i) D_t(\xi\cdot e_i)=2(\xi\cdot e_i)[(D_t\xi)\cdot e_i + \xi\cdot D_t e_i].
+\end{equation*}
+Thus
+\begin{equation*}
+\boxed{D_t\eta_- =2\sum_{i\in I_-}(\xi\cdot e_i)[(D_t\xi)\cdot e_i + \xi\cdot D_t e_i] + \sum_{i\in I_-}(\xi\cdot e_i)^2 D_t\mathbf{1}_{I_-}}.
+\end{equation*}
+Last term: index set $I_-(x,t)$ changes when $\lambda_i$ crosses 0, discontinuous. For quantitative estimate we work on region where sign pattern fixed, or include measure of crossing as OPEN.
+
+Insert $D_t\xi$ complete form:
+\begin{equation*}
+D_t\xi = S\xi-(\xi^T S\xi)\xi + \Omega\xi + \nu\Delta\xi +2\nu(\nabla\log|\omega|\cdot\nabla)\xi.
+\end{equation*}
+Let $\alpha=\xi^T S\xi=\sum\lambda_i\eta_i$.
+
+Then $(D_t\xi)\cdot e_i = (S\xi)\cdot e_i -\alpha(\xi\cdot e_i) + (\Omega\xi)\cdot e_i + \nu(\Delta\xi)\cdot e_i +2\nu(\nabla\log|\omega|\cdot\nabla\xi)\cdot e_i$.
+
+Since $(S\xi)\cdot e_i = \lambda_i(\xi\cdot e_i)$ (using $S$ symmetric), we get
+\begin{equation*}
+(S\xi)\cdot e_i -\alpha(\xi\cdot e_i)= (\lambda_i-\alpha)(\xi\cdot e_i).
+\end{equation*}
+Thus part without rotation/diffusion/frame:
+\begin{equation*}
+D_t\eta_-^{S}=2\sum_{i\in I_-}(\lambda_i-\alpha)\eta_i.
+\end{equation*}
+
+This is exact and key: if $\alpha$ is average $\sum\lambda_j\eta_j$, then $\lambda_i-\alpha$ negative when $\eta_-$ large and $\lambda_i$ most negative.
+
+Estimate: Let $\lambda_{min}=\lambda_3$, $\lambda_{max}=\lambda_1$. Then $\alpha = \lambda_1(1-\eta_-)+\bar\lambda_-\eta_-$ with $\bar\lambda_-<0$ average compressive. If $\eta_-\to1$, $\alpha\to\bar\lambda_-<0$, then $\lambda_i-\alpha\to\lambda_i-\bar\lambda_-$ may be small. If $\eta_-\to0$, $\alpha\to\lambda_1>0$, then $\lambda_i-\alpha\approx\lambda_i-\lambda_1\le0$ strongly negative for $i\in I_-$. So $S$ term drives $D_t\eta_-^{S}<0$ when $\eta_-$ small? Check sign:
+
+If $\eta_-$ small, $\alpha\approx\lambda_1>0$, then for $i\in I_-$, $\lambda_i-\alpha<0$, so $D_t\eta_-^{S}=2\sum_{i\in I_-}(\lambda_i-\alpha)\eta_i<0$, i.e., compressive fraction decreases further. So $S$ alone tends to push $\eta_-\to0$. Good.
+
+If $\eta_-\approx1$, $\alpha\approx\bar\lambda_-<0$, then for $i\in I_-$ near average, $\lambda_i-\alpha\approx0$, small drift. So near compressive state, $S$ term neutral.
+
+Now full quantitative inequality attempt:
+
+\begin{equation*}
+\boxed{D_t\eta_- =2\sum_{i\in I_-}(\lambda_i-\alpha)\eta_i +2\sum_{i\in I_-}(\xi\cdot e_i)(\Omega\xi\cdot e_i) +2\nu\sum_{i\in I_-}(\xi\cdot e_i)(\Delta\xi\cdot e_i) +4\nu\sum_{i\in I_-}(\xi\cdot e_i)(\nabla\log|\omega|\cdot\nabla\xi\cdot e_i) +2\sum_{i\in I_-}(\xi\cdot e_i)(\xi\cdot D_t e_i)}.
+\end{equation*}
+
+We bound rotation term: $|(\xi\cdot e_i)(\Omega\xi\cdot e_i)|\le |\Omega|$ since $\Omega$ skew, $|\Omega|\sim|\omega|/2$? Actually $|\Omega|\le|\nabla u|$. So term $\le C|\nabla u|\sqrt{\eta_-}$.
+
+Crucial uncontrolled term: $\xi\cdot D_t e_i$. $e_i$ dynamics depends on $D_t S$:
+$D_t e_i$ involves $(\lambda_i-\lambda_j)^{-1} e_j^T (D_t S) e_i$ (standard perturbation). $D_t S$ contains $\nabla D_t u$ = pressure Hessian + nonlinear. No control from $\mathcal{C}_{PROVEN}$. So term OPEN/BLOCKED.
+
+Diffusion terms: $\nu(\Delta\xi)$ after integration against $|\omega|^2$ yields $-\nu|\nabla\xi|^2$ dissipative for $\eta_-$? Need weighted estimate.
+
+Consider weighted functional for quantitative control:
+\begin{equation*}
+\Phi(t)=\int \Phi(\eta_-)|\omega|^2 dx,\ \Phi\text{ increasing, e.g. }\Phi(s)=s.
+\end{equation*}
+Then
+\begin{equation*}
+\frac{d}{dt}\int \eta_-|\omega|^2 = \int (D_t\eta_-)|\omega|^2 + \eta_- D_t|\omega|^2 + \text{transport}.
+\end{equation*}
+Using $\frac12 D_t|\omega|^2 = \alpha|\omega|^2 + \frac{\nu}{2}\Delta|\omega|^2 -\nu|\nabla\omega|^2$, we get coupling.
+
+Formal target inequality:
+\begin{equation*}
+\boxed{\frac{d}{dt}\int \eta_-|\omega|^2 \le \int [A\eta_- + B(1-\eta_-)]|\omega|^2 + \text{diffusion} + \int |\omega|^2 \xi\cdot D_t e_i\text{ terms}}.
+\end{equation*}
+Where $A=2(\bar\lambda_- -\alpha)$ etc.
+
+No closure without $D_t e_i$ bound. Hence:
+
+RESULT classification:
+
+We obtain exact identity for $D_t\eta_-$ including $D_t e_i$ and crossing of $I_-$.
+
+We obtain sign structure: $D_t\eta_-^{S}\le0$ when $\eta_-$ small (S pushes to stretching), but near $\eta_-\approx1$, drift small.
+
+We do NOT obtain $W_-\in L^1_t$.
+
+Quantitative obstruction:
+
+$\boxed{D_t e_i \text{ requires } D_t S = \frac12(D_t\nabla u + D_t\nabla u^T) \text{ which contains pressure Hessian } \nabla^2 p \text{ and is not controlled by } \mathcal{C}_{PROVEN}}$
+
+Thus $D_t\eta_-$ estimate has OPEN term.
+
+OUTPUT:
+
+$\boxed{D_t\eta_-=2\sum_{i\in I_-}(\lambda_i-\alpha)\eta_i + \text{rotation}+\text{diffusion}+2\sum_{i\in I_-}(\xi\cdot e_i)(\xi\cdot D_t e_i)\text{ EXACT}}$
+
+$\boxed{D_t\eta_-^{S}\le0\text{ when }\eta_-\text{ small, i.e., }S\text{ tends to eliminate compressive fraction}}$
+
+$\boxed{\text{Persistent }\eta_-\to1\text{ requires balancing }S\text{-drift plus }D_t e_i+\Omega+\nu\text{ diffusion}}$
+
+$\boxed{\text{No quantitative closure: }D_t e_i\text{ = OPEN/BLOCKED, needs }D_t S}$
+
+$\boxed{\text{Potential bridge: If }D_t e_i\text{ controlled, then }\int\eta_-|\omega|^2\text{ decreasing on average, tension with }C_E^{weak}}$
+
+Classification: PARTIAL/OPEN — identity useful, but spectral frame term without control.
+
+$\mathcal{C}_{PROVEN}=\{C_E^{weak},C_{L^3}\}$ untouched. No $C_E^{strong}$ claimed.
+
+Next: audit $D_t S$ structure (pressure Hessian) as E-08 if want to close frame term, or accept PARTIAL and freeze E-07.
+
+\end{document}
