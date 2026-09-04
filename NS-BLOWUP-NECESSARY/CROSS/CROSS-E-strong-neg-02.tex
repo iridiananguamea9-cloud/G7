@@ -1,0 +1,85 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+\title{CROSS-E-strong-neg-02 v1: W- control bottleneck for E-strong}
+\author{ZFL Lab}
+\begin{document}
+\maketitle
+
+Classification:
+$C_E^{weak}$ = PROVEN
+$C_{L^3}$ = PROVEN
+$C_E^{strong}$ = OPEN
+MISSION: Audit whether $W_-$ is temporally controlled enough to imply $C_E^{strong}$.
+SUCCESS: integrability / domination of $W_-$ => $C_E^{strong}$ PROVEN
+FAILURE: no such control => OPEN / BLOCKED
+FORBIDDEN: $|W|$ bound => $W_-$ integrable; $W_+$ divergent => cumulative divergent; ESS => $E^{strong}$ without bridge.
+
+Setup:
+
+$W(t):=\int_{R^3}\omega^T S\omega\,dx$ signed.
+Decompose $W(t)=W_+(t)-W_-(t)$, $W_\pm(t)\ge0$ pointwise in time via positive/negative part of density, or $W_+=\max(W,0)$, $W_-=\max(-W,0)$.
+
+From $C_E^{weak}$ PROVEN:
+$T_*<\infty \implies \limsup_{t\to T_*}\int_0^t W(\tau)d\tau = +\infty$.
+
+Since $\int W = \int W_+ - \int W_-$,
+$\limsup\int W = +\infty$ implies
+\begin{equation*}
+\int_0^{T_*} W_+(t)dt = +\infty.
+\end{equation*}
+Indeed, if $\int W_+$ were finite, $\limsup\int W\le \int W_+ <\infty$, contradiction. So $W_+$ non-integrable is consequence of $C_E^{weak}$.
+
+Goal for $C_E^{strong}$:
+$\lim_{t\to T_*}\int_0^t W = +\infty$.
+
+Write $\int_0^t W = \int_0^t W_+ - \int_0^t W_-$.
+
+Obstacle is $\int_0^t W_-$.
+
+Target controls:
+
+(A) Strong:
+\begin{equation*}
+\boxed{\int_0^{T_*} W_-(t)dt <\infty}
+\end{equation*}
+Then $\int_0^t W \to +\infty$ because $\int W_+\to+\infty$ and $\int W_-$ bounded.
+
+(B) Weak domination:
+\begin{equation*}
+\boxed{\int_0^t W_-(\tau)d\tau = o\!\left(\int_0^t W_+(\tau)d\tau\right),\ t\to T_*}
+\end{equation*}
+Then $\int W = (1-o(1))\int W_+ \to +\infty$.
+
+Hence if (A) or (B) proven, $C_E^{strong}$ PROVEN.
+
+Why current bound insufficient:
+
+We have $|W|\le C_S\|u\|_3\|\nabla\omega\|_2^2$.
+Thus $0\le W_-\le |W|\le C_S\|u\|_3\|\nabla\omega\|_2^2$.
+Near $T_*$, $\|u\|_3$ may blow up in limsup (ESS) and $\|\nabla\omega\|_2^2$ is expected to be non-integrable if enstrophy blows up. Product bound gives upper bound diverging, not integrable control.
+So:
+$\boxed{|W|\text{ bound does NOT imply }W_-\in L^1_t}$.
+
+Similarly, ESS $T_*<\infty\implies\limsup\|u\|_3=\infty$ does not control $\int W_-$.
+
+Thus $W_-$ temporal control is independent hypothesis.
+
+Result of audit:
+
+From hypotheses $\{C_E^{weak},C_{L^3}, |W|\le C_S\|u\|_3\|\nabla\omega\|_2^2\}$:
+
+$\boxed{\int_0^{T_*}W_-<\infty\ \text{ NOT PROVEN}}$
+
+$\boxed{\int W_- = o(\int W_+)\ \text{ NOT PROVEN}}$
+
+Therefore:
+
+$\boxed{C_E^{strong}\ \text{remains OPEN / BLOCKED by }W_-\text{ control}}$
+
+No contradiction, no implication fabricated.
+
+State remains $\mathcal{C}_{PROVEN}=\{C_E^{weak},C_{L^3}\}$.
+
+Next step would require new estimate: e.g., bound on negative part of strain $\|S_-\|$ or geometric depletion that makes $W_-\ll W_+$ near blow-up.
+\end{document}
